@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+50.times do |i|
+	Polititian.create name: "Nombre#{i}", last_name:"Apellido#{i}"
+end
+
