@@ -2,6 +2,7 @@ Cvpolitics::Application.routes.draw do
 
   get '/' => 'site#home'
   get '/about_us' => 'site#about_us'
+  get "/polititians" => "polititians#index"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
