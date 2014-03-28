@@ -1,1 +1,51 @@
-<h1>Hola</h1>
+<div id="myCarousel" class="carousel slide search-bar-relative" data-ride="carousel">
+	<div class="search-bar-absolute">
+		<form class="navbar-form navbar-left" role="search">
+		  <div class="form-group">
+		    <input type="text" class="form-control input-lg" placeholder="Buscar políticos">
+		  </div>
+		  <button type="submit" class="btn btn-default btn-lg">Buscar</button>
+		</form>
+	</div>
+
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+      </ol>
+
+      <div class="carousel-inner">
+        <div class="item active img-shadow">
+          <%= image_tag("carrousel1.jpg") %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Ellos son los mejores en su campo</h1>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="item img-shadow">
+          <%= image_tag("carrousel2.png")%>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>¿Y ellos?</h1>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="item img-shadow">
+          <%= image_tag("carrousel3.png")%>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Descubre CVs de nuestros políticos</h1>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <a class="left carousel-control bring-up" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control bring-up" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>

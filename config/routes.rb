@@ -1,6 +1,7 @@
 Cvpolitics::Application.routes.draw do
 
-  get '/' => 'site#home'
+
+  root 'site#home'  
   get '/about_us' => 'site#about_us'
 
   resources :polititians 
