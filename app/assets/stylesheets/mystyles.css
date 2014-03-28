@@ -1,0 +1,9 @@
+body {
+	background-color: #e9eaed;
+}
+
+.box {
+	background-color: white;
+	padding: 10px;
+	box-shadow: 1px 1px #d0d1d5;
+}
