@@ -9,24 +9,68 @@
 				 	<%= image_tag("carlos_fabra.jpg", :alt => "" )%>
 				 </div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-9">
 				<h1><%= @polititian.name %> <%= @polititian.last_name %></h1>
 				<p>Puesto y descripción del puesto aquí.</p>
 			</div>
 		</div>
 
 		<div class="row box">
-			<div class="col-md-1">
-				<span class="glyphicon glyphicon-search"></span>
-				<span class="glyphicon glyphicon-star"></span>
+
+			<div class="row bottom-separation">	
+				<div class="col-md-1 text-right">
+					<h3><span class="glyphicon glyphicon-warning-sign"></span></h3>
+				</div>
+				<div class="col-md-9">
+					<h3>Corrupción</h3>
+			        <p>Imputado por corrupción</p>
+				</div>
+				<div class="col-md-2">
+					<%= image_tag("fail.ico", :alt => "", size: "100" )%>
+				</div>
 			</div>
-			<div class="col-md-9">
-				<h3>Titulación universitaria</h3>
-		        <p>No tiene titulación titulación universitaria.</p>
+
+			<div class="row bottom-separation">	
+				<div class="col-md-1 text-right">
+					<h3><span class="glyphicon glyphicon-book"></span></h3>
+				</div>
+				<div class="col-md-9">
+					<h3>Titulación universitaria</h3>
+			        <p>No tiene titulación titulación universitaria.</p>
+				</div>
+				<div class="col-md-2">
+					<%= image_tag("fail.ico", :alt => "", size: "100" )%>
+				</div>
 			</div>
-			<div class="col-md-2">
-				<%= image_tag("fail.ico", :alt => "", size: "100" )%>
+
+			<div class="row bottom-separation">			
+				<div class="col-md-1 text-right">
+					<h3><span class="glyphicon glyphicon-euro"></span></h3>
+				</div>
+				<div class="col-md-9">
+					<h3>Carrera profesional</h3>
+			        <p>No tiene oposición. Tampoco tiene carrera profesional fuera de la política.</p>
+				</div>
+				<div class="col-md-2">
+					<%= image_tag("fail.ico", :alt => "", size: "100" )%>
+				</div>
 			</div>
+
+			<div class="row">			
+				<div class="col-md-1 text-right">
+					<h3><span class="glyphicon glyphicon-globe"></span></h3>
+				</div>
+				<div class="col-md-9">
+					<h3>Inglés</h3>
+			        <p>No habla inglés.</p>
+				</div>
+				<div class="col-md-2">
+					<%= image_tag("fail.ico", :alt => "", size: "100" )%>
+				</div>
+			</div>
+
+
+
 		</div>
 
 	</div>

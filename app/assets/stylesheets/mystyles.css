@@ -4,7 +4,13 @@ body {
 
 .box {
 	background-color: white;
-	padding: 10px;
+	padding: 20px;
 	margin: 20px 0px;
 	box-shadow: 1px 1px #d0d1d5;
+}
+
+.bottom-separation {
+	border-bottom: solid 1px #d0d1d5;
+	padding: 10px 0px;
+	margin-bottom: 10px;
 }
