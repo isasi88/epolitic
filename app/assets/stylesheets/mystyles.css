@@ -50,9 +50,15 @@ body {
 .search-bar-absolute {
 	position: absolute;
 	left: 35%; 
-	top: 60%;
+	top: 65%;
 	z-index: 2;
+
+	background-color: rgba(0,0,0,.6);	
+	border-radius: 5px;
+
+
 }
+
 
 
 /* CUSTOMIZE THE CAROUSEL
