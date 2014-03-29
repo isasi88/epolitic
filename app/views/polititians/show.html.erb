@@ -5,13 +5,16 @@
 		<div class="row box">
 
 			<div class="col-md-3" >
+
+				<%= link_to '<span class="glyphicon glyphicon-pencil"></span>  Editar'.html_safe, edit_polititian_path, :class => "btn btn-primary btn-lg" %>
+
 				 <div class="thumbnail">
 				 	<%= image_tag("carlos_fabra.jpg", :alt => "" )%>
 				 </div>
 			</div>
 			<div class="col-md-9">
 				<h1><%= @polititian.first_name %> <%= @polititian.last_name %></h1>
-				<p>Puesto y descripción del puesto aquí.</p>
+				<p><%= @polititian.political_position %></p>
 			</div>
 		</div>
 

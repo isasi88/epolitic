@@ -18,7 +18,15 @@ class PolititiansController < ApplicationController
 		render 'show'
 	end
 
+	def edit
+		@polititian = Polititian.find params[:id]
+	end
 
+	def update
+		@polititian = Polititian.find params[:id]
+		@polititian.update_attributes(entry_params)
+		render 'show'
+	end
 
 	def entry_params
 		params.require(:polititian).permit(:first_name, :last_name, :political_position, :political_position_start_at, :political_position_end_at)
