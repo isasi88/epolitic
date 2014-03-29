@@ -21,9 +21,9 @@
 					  </div>
 					  <div class="col-md-6">
 					  	<h4>
-					  		<%=link_to "#{polititian.name} #{polititian.last_name}", polititian_path(polititian)%>
+					  		<%=link_to "#{polititian.first_name} #{polititian.last_name}", polititian_path(polititian)%>
 					  	</h4>
-					  	<p class="list-group-item-text">Text here<%= polititian.position %></p>
+					  	<p class="list-group-item-text">Text here<%= polititian.political_position %></p>
 					  </div>
 					</div>
 				</li>
