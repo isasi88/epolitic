@@ -4,7 +4,12 @@ Cvpolitics::Application.routes.draw do
   root 'site#home'  
   get '/about_us' => 'site#about_us'
 
-  resources :polititians 
+  resources :polititians do
+    resources :educations, only: [:create, :destroy]
+    resources :jobs, only: [:create, :destroy]
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

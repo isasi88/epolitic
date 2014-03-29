@@ -11,36 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326100637) do
+ActiveRecord::Schema.define(version: 20140329163914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "polititians", force: true do |t|
-    t.string   "name"
-    t.string   "last_name"
+  create_table "educations", force: true do |t|
+    t.string   "degree"
+    t.string   "center"
+    t.date     "start_at"
+    t.date     "end_at"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs", force: true do |t|
+    t.string   "employer"
     t.string   "position"
-    t.date     "position_start_at"
-    t.date     "position_end_at"
-    t.boolean  "education"
-    t.string   "education_center"
-    t.string   "education_degree"
-    t.date     "education_start_at"
-    t.date     "education_end_at"
-    t.boolean  "prof_experience"
-    t.string   "prof_experience_employer"
-    t.string   "prof_experience_position"
-    t.date     "prof_expererience_start_at"
-    t.date     "prof_experience_end_at"
-    t.boolean  "public_exam"
-    t.string   "public_exam_title"
-    t.date     "public_exam_date"
-    t.boolean  "english"
-    t.string   "english_level"
-    t.boolean  "corruption"
-    t.string   "corruption_title"
-    t.string   "corruption_description"
-    t.date     "impeach_date"
+    t.date     "start_at"
+    t.date     "end_at"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "polititians", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "political_position"
+    t.date     "political_position_start_at"
+    t.date     "political_position_end_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
