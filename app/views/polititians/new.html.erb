@@ -3,7 +3,6 @@
 
 		<div class="box">
 			<h1>Añadir político</h1>
-			<p>Params hash here: <%= params %></p>
 			<%= form_for (@polititian), :html => {:class => "form-horizontal", :role =>"form"} do |f| %>
 
 				<div class="form-group">
@@ -13,17 +12,47 @@
 				  </div>
 				</div>	
 
+				<div class="form-group">
+				  <%= f.label :last_name, "Apellidos", class: "control-label col-sm-3" %>
+				  <div class="col-sm-9", >
+					  <%= f.text_field :last_name, class: "form-control",placeholder: "Apellidos" %>
+				  </div>
+				</div>
 
+				<div class="form-group">
+				  <%= f.label :political_position, "Puesto político", class: "control-label col-sm-3" %>
+				  <div class="col-sm-9", >
+					  <%= f.text_field :political_position, class: "form-control",placeholder: "Puesto político" %>
+				  </div>
+				</div>
 
-				  <div class="form-group">
-				    <div class="col-sm-offset-3 col-sm-10">
-					  <%= f.submit class: "btn btn-default" %>
+				<div class="form-group">
+				  <%= f.label :political_position_start_at, "Desde", class: "control-label col-sm-3" %>
+				  <div class="col-sm-9", >
+					  <%= f.date_field :political_position_start_at, class: "form-control"%>
+				  </div>
+				</div>
+
+				<div class="form-group">
+				  <%= f.label :political_position_end_at, "Desde", class: "control-label col-sm-3" %>
+				  <div class="col-sm-9", >
+					  <%= f.date_field :political_position_end_at, class: "form-control"%>
+				  </div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-offset-3 col-sm-10">
+				  		<%= f.submit class: "btn btn-default" %>
 					</div> 
-				  </div>	 
+				</div>	
+ 
 
 			<% end %>
 
 		</div>
 	</div>
 </div>
+
+<p>Params hash here: <%= params %></p>
+
 
