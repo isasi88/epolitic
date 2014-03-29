@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="box">
+			<h1>Añadir político</h1>
+
+				<%= form_for @polititian do |f| %>
+				  <%= f.label :first_name %>:
+				  <%= f.text_field :first_name %><br />
+
+				  <%= f.label :last_name %>:
+				  <%= f.text_field :last_name %><br />
+
+				  <%= f.label :political_position %>:
+				  <%= f.text_field :political_position %><br />
+
+				  <%= f.label :political_position_start_at %>:
+				  <%= f.date_field :political_position_start_at %><br />
+
+				  <%= f.label :political_position_end_at %>:
+				  <%= f.date_field :political_position_end_at %><br />
+
+				  <%= f.submit %>
+				<% end %>
+
+		</div>
+	</div>
+</div>
