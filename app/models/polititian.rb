@@ -1,7 +1,7 @@
 class Polititian < ActiveRecord::Base
-
 	has_many :educations
 	has_many :jobs
-
-
+	validates :first_name, presence: true
+	validates :last_name, presence: true
+	validates :political_position, presence: true
 end
