@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140329163914) do
   enable_extension "plpgsql"
 
   create_table "educations", force: true do |t|
+    t.integer  "polititian_id"
     t.string   "degree"
     t.string   "center"
     t.date     "start_at"
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140329163914) do
   end
 
   create_table "jobs", force: true do |t|
+    t.integer  "polititian_id"
     t.string   "employer"
     t.string   "position"
     t.date     "start_at"

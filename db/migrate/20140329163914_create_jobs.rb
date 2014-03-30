@@ -2,6 +2,7 @@ class CreateJobs < ActiveRecord::Migration
   def change
     create_table :jobs do |t|
 
+    	t.integer :polititian_id
     	t.string :employer
     	t.string :position
     	t.date :start_at
