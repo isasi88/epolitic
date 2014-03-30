@@ -17,7 +17,6 @@
 					<%= if @polititian.political_position_end_at? then " - " end %>
 
 					<%= if @polititian.political_position_end_at? then @polititian.political_position_end_at.strftime("%B %Y") end %>
-
 				</p>
 			</div>
 			<div class="col-md-2">
@@ -65,6 +64,22 @@
 				<div class="col-md-9">
 					<h3>Carrera profesional</h3>
 			        <p>No tiene oposición. Tampoco tiene carrera profesional fuera de la política.</p>
+
+					<div class="list-group">
+						<% @jobs.each do |job| %>
+						  <a href="#" class="list-group-item">
+						    <h4 class="list-group-item-heading"><%= job.position %></h4>
+						    <p><%= job.start_at %> - <%= job.end_at %></p>
+						    <p class="list-group-item-text"><%= job.description %></p>
+						  </a>
+						<% end %>
+					</div>
+
+
+
+
+
+
 				</div>
 				<div class="col-md-2 polititian-icons text-center">
 					<div class="bad">

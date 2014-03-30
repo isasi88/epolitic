@@ -6,6 +6,7 @@ class PolititiansController < ApplicationController
 
 	def show
 		@polititian = Polititian.find(params[:id])
+		@jobs = @polititian.jobs		
 	end
 
 	def new
@@ -27,6 +28,11 @@ class PolititiansController < ApplicationController
 		@polititian.update_attributes(entry_params)
 		render 'show'
 	end
+
+	def jobs_index
+		@polititian = Polititian.find params([:id])
+		@jobs = @polititian.jobs
+	end	
 
 	def entry_params
 		params.require(:polititian).permit(:id, :first_name, :last_name, :political_position, :political_position_start_at, :political_position_end_at)
