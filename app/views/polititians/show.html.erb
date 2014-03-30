@@ -5,16 +5,16 @@
 		<div class="row box">
 
 			<div class="col-md-3" >
-
-				<%= link_to '<span class="glyphicon glyphicon-pencil"></span>  Editar'.html_safe, edit_polititian_path, :class => "btn btn-primary btn-lg" %>
-
 				 <div class="thumbnail">
 				 	<%= image_tag("carlos_fabra.jpg", :alt => "" )%>
 				 </div>
 			</div>
-			<div class="col-md-9">
+			<div class="col-md-7">
 				<h1><%= @polititian.first_name %> <%= @polititian.last_name %></h1>
 				<p><%= @polititian.political_position %></p>
+			</div>
+			<div class="col-md-2">
+				<%= link_to '<span class="glyphicon glyphicon-pencil"></span>  Editar'.html_safe, edit_polititian_path(@polititian), :class => "btn btn-primary btn-lg" %>
 			</div>
 		</div>
 
@@ -22,15 +22,16 @@
 
 			<div class="row bottom-separation">	
 				<div class="col-md-1 text-right">
-					<h3><span class="icon-home"></span>
-						<span class="glyphicon glyphicon-warning-sign"></span></h3>
+					<h3><span class="glyphicon glyphicon-warning-sign"></span></h3>
 				</div>
 				<div class="col-md-9">
 					<h3>Corrupción</h3>
 			        <p>Imputado por corrupción</p>
 				</div>
-				<div class="col-md-2">
-					<%= image_tag("fail.ico", :alt => "", size: "100" )%>
+				<div class="col-md-2 polititian-icons text-center">
+					<div class="bad">
+						<span class="glyphicon glyphicon-warning-sign"></span>
+					</div>
 				</div>
 			</div>
 
@@ -42,9 +43,12 @@
 					<h3>Titulación universitaria</h3>
 			        <p>No tiene titulación titulación universitaria.</p>
 				</div>
-				<div class="col-md-2">
-					<%= image_tag("fail.ico", :alt => "", size: "100" )%>
+				<div class="col-md-2 polititian-icons text-center">
+					<div class="good">
+						<span class="glyphicon glyphicon-ok"></span>
+					</div>
 				</div>
+
 			</div>
 
 			<div class="row bottom-separation">			
@@ -55,8 +59,10 @@
 					<h3>Carrera profesional</h3>
 			        <p>No tiene oposición. Tampoco tiene carrera profesional fuera de la política.</p>
 				</div>
-				<div class="col-md-2">
-					<%= image_tag("fail.ico", :alt => "", size: "100" )%>
+				<div class="col-md-2 polititian-icons text-center">
+					<div class="bad">
+						<span class="glyphicon glyphicon-warning-sign"></span>
+					</div>
 				</div>
 			</div>
 
@@ -68,13 +74,12 @@
 					<h3>Inglés</h3>
 			        <p>No habla inglés.</p>
 				</div>
-				<div class="col-md-2">
-					<%= image_tag("fail.ico", :alt => "", size: "100" )%>
+				<div class="col-md-2 polititian-icons text-center">
+					<div class="good">
+						<span class="glyphicon glyphicon-ok"></span>
+					</div>
 				</div>
 			</div>
-
-
-
 		</div>
 
 	</div>

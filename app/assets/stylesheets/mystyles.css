@@ -109,3 +109,26 @@ body {
 	   } 
 
 
+
+/* Icons for polititians */
+
+.polititian-icons {
+	font-size: 55px;
+	color: white;
+	vertical-align: middle;
+}
+
+.polititian-icons div {	
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+}
+
+.bad {
+	background-color: #c74812;	
+}
+
+.good {
+	background-color: green;	
+}
+

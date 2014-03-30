@@ -29,7 +29,7 @@ class PolititiansController < ApplicationController
 	end
 
 	def entry_params
-		params.require(:polititian).permit(:first_name, :last_name, :political_position, :political_position_start_at, :political_position_end_at)
+		params.require(:polititian).permit(:id, :first_name, :last_name, :political_position, :political_position_start_at, :political_position_end_at)
 	end
 
 end
