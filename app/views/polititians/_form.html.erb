@@ -36,9 +36,9 @@
 				</div>
 
 				<div class="form-group">
-				  <%= f.label :political_position_start_at, "Hasta", class: "control-label col-sm-3" %>
+				  <%= f.label :political_position_end_at, "Hasta", class: "control-label col-sm-3" %>
 				  <div class="col-sm-9 form-inline">
-						  <%= f.date_select :political_position_start_at,
+						  <%= f.date_select :political_position_end_at,
 						  {:discard_day => "true", :order => [:day, :month, :year]},
 						  {:class => "form-control col-sm-6"} %>
 				  </div>
