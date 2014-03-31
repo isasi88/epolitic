@@ -2,16 +2,14 @@
 
 	<div class="col-md-6 col-md-offset-3">
 
-		<% if defined?(@polititian) %>
-			<% if @polititian.errors.any? %>
-				<div class="alert alert-danger">
-					<ul>
-						<% @polititian.errors.full_messages.each do |error| %>
-							<li><%= error %></li>
-						<%end%>			
-					</ul>
-				</div>
-			<%end%>
+		<% if @polititian.errors.any? %>
+			<div class="alert alert-danger">
+				<ul>
+					<% @polititian.errors.full_messages.each do |error| %>
+						<li><%= error %></li>
+					<%end%>			
+				</ul>
+			</div>
 		<%end%>
 
 		<div class="box">
@@ -62,10 +60,7 @@
 				  		<%= f.submit class: "btn btn-default" %>
 					</div> 
 				</div>	
- 
-
 			<% end %>
-
 		</div>
 	</div>
 </div>
