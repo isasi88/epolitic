@@ -17,11 +17,11 @@ class PolititiansController < ApplicationController
 		@polititian = Polititian.new entry_params
 		if @polititian.save
 			redirect_to action: 'show', controller: 'polititians', id: @polititian.id
+			flash[:success] = "Polititian created successfully."
 		else
 			render 'new'
 		end
 	end
-
 
 	def edit
 		@polititian = Polititian.find params[:id]
@@ -31,15 +31,19 @@ class PolititiansController < ApplicationController
 		@polititian = Polititian.find params[:id]
 		if @polititian.update_attributes(entry_params)
 			redirect_to action: 'show', controller: 'polititians', id: @polititian.id
+			flash[:success] = "Polititian updated successfully."
 		else
 			render 'edit'
 		end	
 	end
 
-	def jobs_index
-		@polititian = Polititian.find params([:id])
-		@jobs = @polititian.jobs
-	end	
+	def destroy
+		@polititian = Polititian.find params[:id]
+		@polititian.destroy
+		redirect_to action: 'index', controller: 'polititians'
+		flash[:success] = "Polititian deleted succesfully."
+	end
+
 
 	def entry_params
 		params.require(:polititian).permit(:id, :first_name, :last_name, :political_position, :political_position_start_at, :political_position_end_at)
