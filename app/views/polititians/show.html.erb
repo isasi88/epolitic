@@ -77,8 +77,9 @@
 							    <%= if !job.description.nil? then job.description end %>
 							    <p><%= job.start_at %> - <%= job.end_at %></p>
 
-							    <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %>
-							    <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %>							  		
+							    <%= link_to "Edit", edit_polititian_job_path(@polititian.id, job.id) %>
+
+							    <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %>		  		
 							</li>   
 						<% end %>
 					</ul>	

@@ -5,8 +5,8 @@ Cvpolitics::Application.routes.draw do
   get '/about_us' => 'site#about_us'
 
   resources :polititians do
-    resources :educations, only: [:create, :destroy]
-    resources :jobs, only: [:create, :destroy, :new, :edit]
+    resources :educations, only: [:create, :destroy, :edit, :update]
+    resources :jobs, only: [:create, :destroy, :edit, :update]
   end
 
 

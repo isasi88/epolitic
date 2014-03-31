@@ -12,6 +12,22 @@ class JobsController < ApplicationController
 		end
 	end
 
+	def edit
+		@job = Job.find params[:id]
+		@polititian = Polititian.find params[:polititian_id]		
+	end
+
+	def update
+		@job = Job.find params[:id]
+		@polititian = Polititian.find params[:polititian_id]
+		if @job.update_attributes entry_params
+			redirect_to action: 'show', controller: 'polititians', id: @polititian.id
+			flash[:success] = "Job updated succesfully"
+		else
+			render 'edit'
+		end	
+	end
+
 	def destroy
 		@job = Job.find params[:id]
 		@polititian = Polititian.find params[:polititian_id]
