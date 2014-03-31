@@ -6,6 +6,7 @@ class PolititiansController < ApplicationController
 
 	def show
 		@polititian = Polititian.find(params[:id])
+		@job = @polititian.jobs.build
 		@jobs = @polititian.jobs		
 	end
 
