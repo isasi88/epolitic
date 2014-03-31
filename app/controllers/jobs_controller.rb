@@ -12,6 +12,13 @@ class JobsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@job = Job.find params[:id]
+		@polititian = Polititian.find params[:polititian_id]
+		@job.destroy
+		redirect_to action: 'show', controller: 'polititians', id: @polititian.id
+	end
+
 	def entry_params
 		params.require(:job).permit(:employer, :position, :description, :start_at, :end_at)
 	end

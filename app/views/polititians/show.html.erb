@@ -66,20 +66,25 @@
 				</div>
 				<div class="col-md-9">
 					<h3>
-						Carrera profesional 					
-						<button class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Add</button>
+						Carrera profesional						
 					</h3>
 
-					<div class="list-group">
+					<ul class = "no-bullets-list">
 						<% @jobs.each do |job| %>
-						  <a href="#" class="list-group-item">
-						    <h4 class="list-group-item-heading"><%= job.position %></h4>
-						    <%= if !job.description.nil? then job.description end%>
-						    <p><%= job.start_at %> - <%= job.end_at %></p>
-						    <p class="list-group-item-text"><%= job.description%></p>
-						  </a>
+						    <li class="bottom-separation">
+							    <h4><%= job.position%></h4>
+							    <p><%= job.position%></p>
+							    <%= if !job.description.nil? then job.description end %>
+							    <p><%= job.start_at %> - <%= job.end_at %></p>
+
+							    <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %>
+							    <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %>							  		
+							</li>   
 						<% end %>
-					</div>
+					</ul>	
+
+					<button class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Add</button>
+
 				</div>
 				<div class="col-md-2 polititian-icons text-center">
 					<div class="bad">

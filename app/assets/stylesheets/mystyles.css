@@ -15,6 +15,9 @@ body {
 	margin-bottom: 10px;
 }
 
+.no-bullets-list {
+	list-style: none;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */
