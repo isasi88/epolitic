@@ -14,10 +14,14 @@ class PolititiansController < ApplicationController
 	end
 
 	def create
-		@polititian = Polititian.new(entry_params)
-		@polititian.save
-		render 'show'
+		@polititian = Polititian.new entry_params
+		if @polititian.save
+			redirect_to action: 'show', controller: 'polititians', id: @polititian.id
+		else
+			render 'new'
+		end
 	end
+
 
 	def edit
 		@polititian = Polititian.find params[:id]
@@ -25,8 +29,11 @@ class PolititiansController < ApplicationController
 
 	def update
 		@polititian = Polititian.find params[:id]
-		@polititian.update_attributes(entry_params)
-		render 'show'
+		if @polititian.update_attributes(entry_params)
+			redirect_to action: 'show', controller: 'polititians', id: @polititian.id
+		else
+			render 'edit'
+		end	
 	end
 
 	def jobs_index
