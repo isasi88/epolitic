@@ -45,12 +45,15 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #e9eaed;
+  background-color: #fcfcfc;
+  padding-top: 20px;
+  box-shadow: 0 -2px 0 1px #e4e4e4;
 }
 
 #footer li {
 	display: inline;
 }
+
 
 
 /* SEARCH BAR
@@ -131,7 +134,6 @@ body {
 .polititian-icons {
 	font-size: 30px;
 	color: white;
-	vertical-align: middle;
 }
 
 .polititian-icons div {	

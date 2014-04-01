@@ -13,10 +13,10 @@
 				<h1><%= @polititian.first_name %> <%= @polititian.last_name %></h1>
 				<h3><%= @polititian.political_position %></h3>
 				<p>	
-					<%= if @polititian.political_position_start_at? then @polititian.political_position_start_at.strftime("%B %Y") end %>
+					<%= if @polititian.political_position_start_at? then @polititian.political_position_start_at.strftime("%Y") end %>
 					<%= if @polititian.political_position_end_at? then " - " end %>
 
-					<%= if @polititian.political_position_end_at? then @polititian.political_position_end_at.strftime("%B %Y") end %>
+					<%= if @polititian.political_position_end_at? then @polititian.political_position_end_at.strftime("%Y") end %>
 				</p>
 			</div>
 			<div class="col-md-2">

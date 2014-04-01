@@ -7,4 +7,7 @@ class SiteController < ApplicationController
 	def about_us
 	end
 
+	def volunteer
+	end
+
 end

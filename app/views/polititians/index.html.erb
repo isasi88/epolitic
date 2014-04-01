@@ -1,25 +1,35 @@
-<h1>Polititians/index</h1>
+<h1 class="bottom-separation">Polititians</h1>
 
 <div class="row">
 	<div class="col-md-3">
-		<%= link_to '<span class="glyphicon glyphicon-plus"></span> Añadir político'.html_safe, new_polititian_path, :class => "btn btn-primary btn-lg" %>
+		<%= link_to '<span class="glyphicon glyphicon-plus"></span> Add a polititian'.html_safe, new_polititian_path, :class => "btn btn-primary btn-lg" %>
 	</div>
 	<div class="col-md-9">
 		<ul class="list-group">		
 			<% @polititians.each do |polititian| %>
 				<li class="list-group-item">				
 					<div class="row">
-					  <div class="col-md-3">
+					  <div class="col-md-2">
 					    <a href="#" class="thumbnail">
-					    	<%= image_tag("empty_profile.png", :alt => "") %>
+					    	<%= image_tag("empty_profile.jpg", :alt => "") %>
 						</a>
 					  </div>
-					  <div class="col-md-6">
+					  <div class="col-md-8">
 					  	<h4>
 					  		<%=link_to "#{polititian.first_name} #{polititian.last_name}", polititian_path(polititian)%>
 					  	</h4>
-					  	<p class="list-group-item-text">Text here<%= polititian.political_position %></p>
-						  	<p><%= link_to("Delete", polititian_path(polititian), method: :delete, confirm: 'Are you sure?')%></p>
+					  	<h5>
+					  		<%= polititian.political_position %>
+					  	</h5>
+						<p>	
+							<%= if polititian.political_position_start_at? then polititian.political_position_start_at.strftime("%Y") end %>
+							<%= if polititian.political_position_end_at? then " - " end %>
+
+							<%= if polititian.political_position_end_at? then polititian.political_position_end_at.strftime("%Y") end %>
+						</p>
+					  </div>
+					  <div class="col-md-2">
+						  <h4><small><%= link_to("Delete", polititian_path(polititian), method: :delete, confirm: 'Are you sure?')%></small></h4>
 					  </div>
 					</div>
 				</li>
