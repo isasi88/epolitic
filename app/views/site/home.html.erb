@@ -1,20 +1,3 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Brand</a>
-      </div>
-    </niv>
-  </div>
-</nav>
-
-
-
 <div id="myCarousel" class="carousel slide relative" data-ride="carousel">
 
 	<div class="search-bar-absolute">
@@ -26,44 +9,41 @@
 		</form>
 	</div>
 
-      <!-- Indicators -->
-      <ol class="carousel-indicators carousel-absolute">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-      </ol>
+  <!-- Indicators -->
+  <ol class="carousel-indicators carousel-absolute">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+    <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+  </ol>
 
-      <div class="carousel-inner">
-        <div class="item active img-shadow">
-          <%= image_tag("carrousel1.png") %>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Seleccionamos a los mejores</h1>
-            </div>
-          </div>
+  <div class="carousel-inner">
+    <div class="item active img-shadow">
+      <%= image_tag("carrousel1.png") %>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Seleccionamos a los mejores</h1>
         </div>
-
-
-        <div class="item img-shadow">
-          <%= image_tag("carrousel2.png")%>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>¿Seguro?</h1>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="item img-shadow">
-          <%= image_tag("carrousel3.png")%>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Descubre los CVs de nuestros políticos</h1>
-            </div>
-          </div>
-        </div>
-
       </div>
-      <a class="left carousel-control bring-up" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control bring-up" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
+    <div class="item img-shadow">
+      <%= image_tag("carrousel2.png")%>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>¿Seguro?</h1>
+        </div>
+      </div>
+    </div>
+    <div class="item img-shadow">
+      <%= image_tag("carrousel3.png")%>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Descubre los CVs de nuestros políticos</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="left carousel-control bring-up" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  <a class="right carousel-control bring-up" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
+</div>

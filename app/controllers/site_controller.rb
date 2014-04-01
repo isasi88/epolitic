@@ -1,7 +1,7 @@
 class SiteController < ApplicationController
 
 	def home
-		render 'home', layout: 'home_layout'
+		render 'home'
 	end
 
 	def about_us

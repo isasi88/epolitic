@@ -2,17 +2,12 @@
 
 <div class="row">
 	<div class="col-md-3">
-
 		<%= link_to '<span class="glyphicon glyphicon-plus"></span> Añadir político'.html_safe, new_polititian_path, :class => "btn btn-primary btn-lg" %>
-
 	</div>
 	<div class="col-md-9">
-		<p><%= params %></p>
-
 		<ul class="list-group">		
 			<% @polititians.each do |polititian| %>
-				<li class="list-group-item">
-				
+				<li class="list-group-item">				
 					<div class="row">
 					  <div class="col-md-3">
 					    <a href="#" class="thumbnail">
