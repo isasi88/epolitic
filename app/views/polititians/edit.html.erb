@@ -1,3 +1,17 @@
-<%= render 'form' %>
-
-<p>Params hash here: <%= params %></p>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<% if @polititian.errors.any? %>
+			<div class="alert alert-danger">
+				<ul>
+					<% @polititian.errors.full_messages.each do |error| %>
+						<li><%= error %></li>
+					<%end%>			
+				</ul>
+			</div>
+		<%end%>
+		<div class="box">
+			<h1>Edit polititian</h1>
+			<%= render 'form' %>
+		</div>
+	</div>
+</div>	

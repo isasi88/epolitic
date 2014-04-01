@@ -1,66 +1,47 @@
-<div class="row">
+<%= form_for (@polititian), :html => {:class => "form-horizontal", :role =>"form"} do |f| %>
 
-	<div class="col-md-6 col-md-offset-3">
+	<div class="form-group">
+	  <%= f.label :first_name, "Nombre", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9", >
+		  <%= f.text_field :first_name, class: "form-control",placeholder: "Nombre" %>
+	  </div>
+	</div>	
 
-		<% if @polititian.errors.any? %>
-			<div class="alert alert-danger">
-				<ul>
-					<% @polititian.errors.full_messages.each do |error| %>
-						<li><%= error %></li>
-					<%end%>			
-				</ul>
-			</div>
-		<%end%>
-
-		<div class="box">
-			<h1>Añadir político</h1>
-			<%= form_for (@polititian), :html => {:class => "form-horizontal", :role =>"form"} do |f| %>
-
-				<div class="form-group">
-				  <%= f.label :first_name, "Nombre", class: "control-label col-sm-3" %>
-				  <div class="col-sm-9", >
-					  <%= f.text_field :first_name, class: "form-control",placeholder: "Nombre" %>
-				  </div>
-				</div>	
-
-				<div class="form-group">
-				  <%= f.label :last_name, "Apellidos", class: "control-label col-sm-3" %>
-				  <div class="col-sm-9", >
-					  <%= f.text_field :last_name, class: "form-control",placeholder: "Apellidos" %>
-				  </div>
-				</div>
-
-				<div class="form-group">
-				  <%= f.label :political_position, "Puesto político", class: "control-label col-sm-3" %>
-				  <div class="col-sm-9", >
-					  <%= f.text_field :political_position, class: "form-control",placeholder: "Puesto político" %>
-				  </div>
-				</div>
-
-				<div class="form-group">
-				  <%= f.label :political_position_start_at, "Desde", class: "control-label col-sm-3" %>
-				  <div class="col-sm-9 form-inline">
-						  <%= f.date_select :political_position_start_at,
-						  {:discard_day => "true", :order => [:day, :month, :year]},
-						  {:class => "form-control col-sm-6"} %>
-				  </div>
-				</div>
-
-				<div class="form-group">
-				  <%= f.label :political_position_end_at, "Hasta", class: "control-label col-sm-3" %>
-				  <div class="col-sm-9 form-inline">
-						  <%= f.date_select :political_position_end_at,
-						  {:discard_day => "true", :order => [:day, :month, :year]},
-						  {:class => "form-control col-sm-6"} %>
-				  </div>
-				</div>
-
-				<div class="form-group">
-					<div class="col-sm-offset-3 col-sm-10">
-				  		<%= f.submit class: "btn btn-default" %>
-					</div> 
-				</div>	
-			<% end %>
-		</div>
+	<div class="form-group">
+	  <%= f.label :last_name, "Apellidos", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9", >
+		  <%= f.text_field :last_name, class: "form-control",placeholder: "Apellidos" %>
+	  </div>
 	</div>
-</div>
+
+	<div class="form-group">
+	  <%= f.label :political_position, "Puesto político", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9", >
+		  <%= f.text_field :political_position, class: "form-control",placeholder: "Puesto político" %>
+	  </div>
+	</div>
+
+	<div class="form-group">
+	  <%= f.label :political_position_start_at, "Desde", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9 form-inline">
+			  <%= f.date_select :political_position_start_at,
+			  {:discard_day => "true", :order => [:day, :month, :year]},
+			  {:class => "form-control col-sm-6"} %>
+	  </div>
+	</div>
+
+	<div class="form-group">
+	  <%= f.label :political_position_end_at, "Hasta", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9 form-inline">
+			  <%= f.date_select :political_position_end_at,
+			  {:discard_day => "true", :order => [:day, :month, :year]},
+			  {:class => "form-control col-sm-6"} %>
+	  </div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-10">
+	  		<%= f.submit class: "btn btn-default" %>
+		</div> 
+	</div>	
+<% end %>

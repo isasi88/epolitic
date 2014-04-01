@@ -1,15 +1,3 @@
-<% if @polititian.errors.any? %>
-	<div class="alert alert-danger">
-		<ul>
-			<% @polititian.errors.full_messages.each do |error| %>
-				<li><%= error %></li>
-			<%end%>			
-		</ul>
-	</div>
-<%end%>
-
-
-
 <%= form_for [@polititian, @job], :html => {:class => "form-horizontal", :role =>"form"} do |f| %>
 
 	<div class="form-group">
@@ -56,12 +44,8 @@
 		<div class="col-sm-offset-3 col-sm-10">
 	  		<%= f.submit class: "btn btn-primary" %>
 	  		<%= link_to "Cancel", polititian_path(@polititian.id) %>
-
 		</div> 
 	</div>	
-
-	    
-
 
 <% end %>
 
