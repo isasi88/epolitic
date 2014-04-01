@@ -10,6 +10,8 @@ class PolititiansController < ApplicationController
 		@jobs = @polititian.jobs		
 		@education = Education.new
 		@educations = @polititian.educations
+		@trial = Trial.new
+		@trials = @polititian.trials		
 	end
 
 	def new

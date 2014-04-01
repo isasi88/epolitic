@@ -9,6 +9,7 @@ Cvpolitics::Application.routes.draw do
   resources :polititians do
     resources :educations, only: [:create, :destroy, :edit, :update]
     resources :jobs, only: [:create, :destroy, :edit, :update]
+    resources :trials, only: [:create, :destroy, :edit, :update]
   end
 
 
