@@ -8,6 +8,8 @@ class PolititiansController < ApplicationController
 		@polititian = Polititian.find(params[:id])
 		@job = Job.new
 		@jobs = @polititian.jobs		
+		@education = Education.new
+		@educations = @polititian.educations
 	end
 
 	def new

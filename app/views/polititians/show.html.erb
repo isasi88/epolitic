@@ -27,14 +27,51 @@
 <!-- DETAILED PROFILE INFO SECTIONS -->
 		<div class="row box">
 
-	<!-- CORRUPTION -->		
-			<div class="row bottom-separation">	
+	<!-- CORRUPTION -->
+
+			<div class="alert alert-danger">
+				<h1>Judicial History</h1>
+				
+				  <a href="#" class="alert-link">...</a>
+			</div>
+
+
+	<!-- EDUCATION -->		
+			<div class="row bottom-separation">			
 				<div class="col-md-1 text-right">
-					<h3><span class="glyphicon glyphicon-warning-sign"></span></h3>
+					<h3><span class="glyphicon glyphicon-euro"></span></h3>
 				</div>
 				<div class="col-md-9">
-					<h3>Corrupción</h3>
-			        <p>Imputado por corrupción</p>
+					<h3>Higher education</h3>
+
+					<h4><small><%= if @polititian.educations.count == 0 then "No higher education."end %></small></h4>
+
+					<ul class = "list-unstyled">
+						<% @educations.each do |education| %>
+						    <li class="bottom-separation">
+						    	<div class="row">
+						    		<div  class="col-md-9">
+									    <h4><%= educations.degree%>
+									    	<small>
+									    		<%= if education.start_at? then job.start_at.strftime("%Y") end%> 
+									    		<%= if (education.end_at? && education.start_at?) then "-" end %> 
+									    		<%= if education.end_at? then job.end_at.strftime("%Y") end%>
+									    	</small>
+									    </h4>
+									</div>
+									<div class="col-md-3 text-right">    
+									    <h4><small>
+									    <%= link_to "Edit", edit_polititian_education_path(@polititian.id, job.id) %>
+									    <%= link_to "Delete", polititian_education_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %>
+										</small></h4>
+									</div>    
+							    </div>
+								<p>education.center<p>
+							    <%= if !education.description.nil? then education.description end %>
+							</li>   
+						<% end %>
+						<li><button class="btn btn-primary" data-toggle="modal" data-target="#myModal-education"><span class="glyphicon glyphicon-plus"></span> Add education</button></li>
+					</ul>	
 				</div>
 				<div class="col-md-2 polititian-icons text-center">
 					<div class="bad">
@@ -43,31 +80,17 @@
 				</div>
 			</div>
 
-	<!-- EDUCATION -->		
-			<div class="row bottom-separation">	
-				<div class="col-md-1 text-right">
-					<h3><span class="glyphicon glyphicon-book"></span></h3>
-				</div>
-				<div class="col-md-9">
-					<h3>Titulación universitaria</h3>
-			        <p>No tiene titulación titulación universitaria.</p>
-				</div>
-				<div class="col-md-2 polititian-icons text-center">
-					<div class="good">
-						<span class="glyphicon glyphicon-ok"></span>
-					</div>
-				</div>
-			</div>
-
 	<!-- JOBS -->		
-			<div class="row bottom-separation">			
+			<div class="row">			
 				<div class="col-md-1 text-right">
 					<h3><span class="glyphicon glyphicon-euro"></span></h3>
 				</div>
 				<div class="col-md-9">
-					<h3>Experiencia laboral fuera de la política</h3>
+					<h3>Professional experience outside politics</h3>
 
-					<ul class = "no-bullets-list">
+					<h4><small><%= if @polititian.jobs.count == 0 then "No professional experience outside politics."end %></small></h4>
+
+					<ul class = "list-unstyled">
 						<% @jobs.each do |job| %>
 						    <li class="bottom-separation">
 						    	<div class="row">
@@ -87,11 +110,11 @@
 										</small></h4>
 									</div>    
 							    </div>
-								<p><strong><%= job.employer%></strong><p>
+								<p>job.employer<p>
 							    <%= if !job.description.nil? then job.description end %>
 							</li>   
 						<% end %>
-						<li><button class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Add</button></li>
+						<li><button class="btn btn-primary" data-toggle="modal" data-target="#myModal-job"><span class="glyphicon glyphicon-plus"></span> Add job or public exam</button></li>
 					</ul>	
 				</div>
 				<div class="col-md-2 polititian-icons text-center">
@@ -101,23 +124,7 @@
 				</div>
 			</div>
 
-	<!-- ENGLISH -->		
-			<div class="row">			
-				<div class="col-md-1 text-right">
-					<h3><span class="glyphicon glyphicon-globe"></span></h3>
-				</div>
-				<div class="col-md-9">
-					<h3>Inglés</h3>
-			        <p>No habla inglés.</p>
-				</div>
-				<div class="col-md-2 polititian-icons text-center">
-					<div class="good">
-						<span class="glyphicon glyphicon-ok"></span>
-					</div>
-				</div>
-			</div>
 		</div>
-
 	</div>
 
 <!-- RIGHT COLUMN SECTION -->
@@ -125,8 +132,27 @@
 	</div>
 
 <!-- MODALS -->
+
+	<!-- Modal Educations-->
+	<div class="modal fade" id="myModal-education" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel">Add job</h4>
+	      </div>
+	      <div class="modal-body">
+			<%= render 'educations/education_form' %>
+	      </div>
+	      <div class="modal-footer">
+<!-- 	  		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+	  	  </div>	
+	    </div>
+	  </div>
+	</div>
+
 	<!-- Modal Jobs-->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="myModal-job" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">

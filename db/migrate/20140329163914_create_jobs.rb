@@ -3,8 +3,8 @@ class CreateJobs < ActiveRecord::Migration
     create_table :jobs do |t|
 
     	t.integer :polititian_id
-    	t.string :employer
     	t.string :position
+    	t.string :employer
     	t.date :start_at
     	t.date :end_at
     	t.text :description
