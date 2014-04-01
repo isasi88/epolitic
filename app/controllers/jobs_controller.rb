@@ -1,6 +1,5 @@
 class JobsController < ApplicationController
 
-
 	def create
 		@polititian = Polititian.find params[:polititian_id]
 		@job = @polititian.jobs.build entry_params

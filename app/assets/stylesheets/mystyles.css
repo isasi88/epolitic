@@ -9,10 +9,14 @@ body {
 	box-shadow: 1px 1px #d0d1d5;
 }
 
-.bottom-separation {
+.bottom-separation{
 	border-bottom: solid 1px #d0d1d5;
-	padding: 10px 0px;
-	margin-bottom: 10px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.top-separation{
+	border-top: solid 1px #d0d1d5;
 }
 
 .no-bullets-list {
@@ -52,7 +56,7 @@ body {
 /* SEARCH BAR
 -------------------------------------------------- */
 
-.search-bar-relative{
+.relative{
 	position: relative;
 }
 
@@ -76,8 +80,11 @@ body {
 /* Carousel base class */
 
 .carousel {
-  height: 500px;
-  margin-bottom: 60px;
+ 	height: 500px;
+ 	margin-bottom: 60px;
+	position: absolute;
+	left: 0%; 
+	top: 8%;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -119,17 +126,17 @@ body {
 
 
 
-/* Icons for polititians */
+/* ICONS FOR POLITITIANS */
 
 .polititian-icons {
-	font-size: 55px;
+	font-size: 30px;
 	color: white;
 	vertical-align: middle;
 }
 
 .polititian-icons div {	
-	height: 80px;
-	width: 80px;
+	height: 45px;
+	width: 45px;
 	border-radius: 50%;
 }
 

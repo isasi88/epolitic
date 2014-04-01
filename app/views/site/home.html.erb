@@ -1,4 +1,21 @@
-<div id="myCarousel" class="carousel slide search-bar-relative" data-ride="carousel">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+    </niv>
+  </div>
+</nav>
+
+
+
+<div id="myCarousel" class="carousel slide relative" data-ride="carousel">
 
 	<div class="search-bar-absolute">
 		<form class="navbar-form navbar-left" role="search">
@@ -10,7 +27,7 @@
 	</div>
 
       <!-- Indicators -->
-      <ol class="carousel-indicators">
+      <ol class="carousel-indicators carousel-absolute">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1" class=""></li>
         <li data-target="#myCarousel" data-slide-to="2" class=""></li>
@@ -18,11 +35,10 @@
 
       <div class="carousel-inner">
         <div class="item active img-shadow">
-          <%= image_tag("carrousel1.jpg") %>
+          <%= image_tag("carrousel1.png") %>
           <div class="container">
             <div class="carousel-caption">
-              <h1>Ellos son los mejores en su campo</h1>
-              <p>Elegimos bla bla bla</p>
+              <h1>Seleccionamos a los mejores</h1>
             </div>
           </div>
         </div>
@@ -32,7 +48,7 @@
           <%= image_tag("carrousel2.png")%>
           <div class="container">
             <div class="carousel-caption">
-              <h1>¿Y ellos?</h1>
+              <h1>¿Seguro?</h1>
             </div>
           </div>
         </div>

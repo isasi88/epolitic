@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20140329163914) do
 
   create_table "jobs", force: true do |t|
     t.integer  "polititian_id"
-    t.string   "employer"
     t.string   "position"
+    t.string   "employer"
     t.date     "start_at"
     t.date     "end_at"
     t.text     "description"
@@ -44,6 +44,9 @@ ActiveRecord::Schema.define(version: 20140329163914) do
     t.string   "political_position"
     t.date     "political_position_start_at"
     t.date     "political_position_end_at"
+    t.boolean  "corruption"
+    t.string   "corruption_title"
+    t.text     "corruption_description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

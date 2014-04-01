@@ -35,7 +35,7 @@ class EducationsController < ApplicationController
 	end
 
 	def entry_params
-		params.require(:education).permit(:employer, :position, :description, :start_at, :end_at)
+		params.require(:education).permit(:degree, :center, :description, :start_at, :end_at)
 	end
 
 end
