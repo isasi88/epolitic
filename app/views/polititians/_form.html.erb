@@ -22,21 +22,22 @@
 	</div>
 
 	<div class="form-group">
-	  <%= f.label :political_position_start_at, "Desde", class: "control-label col-sm-3" %>
+	  <%= f.label :start_at, "Years from - to", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9 form-inline">
 			  <%= f.date_select :political_position_start_at,
-			  {:discard_day => "true", :order => [:day, :month, :year]},
+			  {:include_blank => "true", :discard_day => "true",:discard_month => "true", :start_year => 1960, :end_year => Date.today.year},
 			  {:class => "form-control col-sm-6"} %>
+	  <div class="col-sm-9 form-inline">
+			  <%= f.date_select :political_position_end_at,
+			  {:include_blank => "true", :discard_day => "true", :discard_month => "true", :start_year => 1960, :end_year => Date.today.year},
+			  {:class => "form-control col-sm-6"} %>
+	  </div>
+
 	  </div>
 	</div>
 
 	<div class="form-group">
-	  <%= f.label :political_position_end_at, "Hasta", class: "control-label col-sm-3" %>
-	  <div class="col-sm-9 form-inline">
-			  <%= f.date_select :political_position_end_at,
-			  {:discard_day => "true", :order => [:day, :month, :year]},
-			  {:class => "form-control col-sm-6"} %>
-	  </div>
+
 	</div>
 
 	<div class="form-group">

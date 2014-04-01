@@ -65,27 +65,34 @@
 					<h3><span class="glyphicon glyphicon-euro"></span></h3>
 				</div>
 				<div class="col-md-9">
-					<h3>
-						Experiencia laboral fuera de la política						
-					</h3>
+					<h3>Experiencia laboral fuera de la política</h3>
 
 					<ul class = "no-bullets-list">
 						<% @jobs.each do |job| %>
 						    <li class="bottom-separation">
-							    <h4><%= job.position%></h4>
-							    <p><%= job.position%></p>
+						    	<div class="row">
+						    		<div  class="col-md-9">
+									    <h4><%= job.position%>
+									    	<small>
+									    		<%= if job.start_at? then job.start_at.strftime("%Y") end%> 
+									    		<%= if (job.end_at? && job.start_at?) then "-" end %> 
+									    		<%= if job.end_at? then job.end_at.strftime("%Y") end%>
+									    	</small>
+									    </h4>
+									</div>
+									<div class="col-md-3 text-right">    
+									    <h4><small>
+									    <%= link_to "Edit", edit_polititian_job_path(@polititian.id, job.id) %>
+									    <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %>
+										</small></h4>
+									</div>    
+							    </div>
+								<p><strong><%= job.employer%></strong><p>
 							    <%= if !job.description.nil? then job.description end %>
-							    <p><%= job.start_at %> - <%= job.end_at %></p>
-
-							    <%= link_to "Edit", edit_polititian_job_path(@polititian.id, job.id) %>
-
-							    <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %>		  		
 							</li>   
 						<% end %>
+						<li><button class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Add</button></li>
 					</ul>	
-
-					<button class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Add</button>
-
 				</div>
 				<div class="col-md-2 polititian-icons text-center">
 					<div class="bad">
@@ -124,7 +131,7 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title" id="myModalLabel">Hola</h4>
+	        <h4 class="modal-title" id="myModalLabel">Add job</h4>
 	      </div>
 	      <div class="modal-body">
 			<%= render 'jobs/job_form' %>

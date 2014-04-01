@@ -17,6 +17,12 @@ body {
 
 .no-bullets-list {
 	list-style: none;
+	margin-left: -40px;
+	margin-top: 20px;
+}
+
+.horizontal-list li {
+	display: inline;
 }
 
 /* Sticky footer styles
