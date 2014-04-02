@@ -25,30 +25,10 @@
 		</div>
 
 
-		<!-- CORRUPTION 
-
-			<div class="alert alert-danger">
-				<div class="row">
-					<div class="col-md-1 text-right">
-						<h3><span class="glyphicon glyphicon-eye-open"></span></h3>
-					</div>
-					<div class="col-md-9">				
-						<h3>Judicial history</h3>
-						<h4><%= @polititian.corruption_title %></h4>			
-						<p><%= @polititian.corruption_description %></p>
-					</div>	
-					<div class="col-md-2 polititian-icons text-center">
-						<div class="bad">
-							<span class="glyphicon glyphicon-warning-sign"></span>
-						</div>
-					</div>
-				</div>
-			</div>  -->
 
 <!-- DETAILED PROFILE INFO SECTIONS -->
 
 		<div class="row box">
-
 
 	<!-- CORRUPTION -->		
 			<div class="bottom-separation">			
@@ -153,24 +133,48 @@
 			</div>
 
 
-	<!-- JOBS -->		
+	<!-- JOBS & PUBLIC EXAMS-->		
 			<div class="">
 				<div class="row">			
 					<div class="col-md-1 text-right">
 						<h4><span class="glyphicon glyphicon-wrench"></span></h4>
 					</div>
 					<div class="col-md-9">
-						<h4 class="">Professional experience outside politics</h4>
+						<h4 class="">Career outside politics</h4>
 					</div>
 					<div class="col-md-2 text-center">
-						<%=check_job(@polititian)%>
+						<%=check_job_and_exam(@polititian)%>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-md-offset-1 col-md-9">
-						<h4><small><%= if @polititian.jobs.count == 0 then "No professional experience outside politics."end %></small></h4>
+						<h4><small><%= if (@polititian.jobs.count + @polititian.exams.count) == 0 then "No professional experience outside politics."end %></small></h4>
 						<ul class = "no-bullets-list">
+
+							<!-- Exams -->
+							<% @exams.each do |exam| %>
+							    <li class="top-separation">
+							    	<div class="row">
+							    		<div  class="col-md-9">
+										    <h5><strong>Public exam:</strong> <%= exam.title%>
+										    	<small>
+										    		<%= if exam.date? then exam.date.strftime("%Y") end%> 
+										    	</small>
+										    </h5>
+										</div>
+										<div class="col-md-3 text-right">    
+										    <h5><small>
+										    <%= link_to "Edit", edit_polititian_exam_path(@polititian.id, exam.id) %>
+										    <%= link_to "Delete", polititian_exam_path(@polititian.id, exam.id), method: :delete, confirm: "Are you sure?" %>
+											</small></h5>
+										</div>    
+								    </div>
+								    <small><%= if !exam.description.nil? then exam.description end %></small>
+								</li>   
+							<% end %>
+
+							<!-- Jobs -->
 							<% @jobs.each do |job| %>
 							    <li class="top-separation">
 							    	<div class="row">
@@ -194,7 +198,10 @@
 								    <small><%= if !job.description.nil? then job.description end %></small>
 								</li>   
 							<% end %>
-							<li><button class="btn btn-primary" data-toggle="modal" data-target="#myModal-job"><span class="glyphicon glyphicon-plus"></span> Add job or public exam</button></li>
+							<li>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#myModal-job"><span class="glyphicon glyphicon-plus"></span> Add job</button>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#myModal-public-exam"><span class="glyphicon glyphicon-plus"></span> Add public exam</button>
+							</li>
 						</ul>	
 					</div>
 				</div>
@@ -263,5 +270,22 @@
 	  </div>
 	</div>
 
+	<!-- Modal Exams-->
+	<div class="modal fade" id="myModal-public-exam" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel">Add exam</h4>
+	      </div>
+	      <div class="modal-body">
+			<%= render 'exams/exam_form' %>
+	      </div>
+	      <div class="modal-footer">
+<!-- 	  		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+	  	  </div>	
+	    </div>
+	  </div>
+	</div>
 
 </div>

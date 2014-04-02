@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401180014) do
+ActiveRecord::Schema.define(version: 20140402110330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20140401180014) do
     t.string   "center"
     t.date     "start_at"
     t.date     "end_at"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exams", force: true do |t|
+    t.integer  "polititian_id"
+    t.string   "title"
+    t.date     "date"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -44,9 +53,6 @@ ActiveRecord::Schema.define(version: 20140401180014) do
     t.string   "political_position"
     t.date     "political_position_start_at"
     t.date     "political_position_end_at"
-    t.boolean  "corruption"
-    t.string   "corruption_title"
-    t.text     "corruption_description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,9 +60,9 @@ ActiveRecord::Schema.define(version: 20140401180014) do
   create_table "trials", force: true do |t|
     t.integer  "polititian_id"
     t.string   "title"
-    t.text     "description"
     t.date     "start_at"
     t.date     "end_at"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

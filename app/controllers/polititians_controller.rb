@@ -11,7 +11,9 @@ class PolititiansController < ApplicationController
 		@education = Education.new
 		@educations = @polititian.educations
 		@trial = Trial.new
-		@trials = @polititian.trials		
+		@trials = @polititian.trials
+		@exam = Exam.new
+		@exams = @polititian.exams				
 	end
 
 	def new
