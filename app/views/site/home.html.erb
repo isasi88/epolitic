@@ -1,5 +1,4 @@
 <div id="myCarousel" class="carousel slide relative" data-ride="carousel">
-
 	<div class="search-bar-absolute">
 		<form class="navbar-form navbar-left" role="search">
 		  <div class="form-group">
@@ -46,6 +45,14 @@
   <a class="left carousel-control bring-up" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
   <a class="right carousel-control bring-up" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 
+</div>
+
+<div class="row">
+    <%= form_tag("/polititians", method: "get") do %>
+      <%= label_tag(:search, "Search for:") %>
+      <%= text_field_tag(:search) %>
+      <%= submit_tag("Search") %>
+    <% end %>
 </div>
 
 

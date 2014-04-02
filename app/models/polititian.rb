@@ -9,4 +9,13 @@ class Polititian < ActiveRecord::Base
 	validates :first_name, presence: true
 	validates :last_name, presence: true
 	validates :political_position, presence: true
+
+	def self.search(text)
+		if text
+			Polititian.where("first_name LIKE ?", "%#{text}%")
+		else
+			Polititian.all
+		end
+	end
+
 end

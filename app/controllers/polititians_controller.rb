@@ -1,7 +1,7 @@
 class PolititiansController < ApplicationController
 
 	def index
-		@polititians = Polititian.all
+		@polititians = Polititian.search(params[:search])
 	end
 
 	def show
@@ -50,8 +50,7 @@ class PolititiansController < ApplicationController
 		redirect_to action: 'index', controller: 'polititians'
 		flash[:success] = "Polititian deleted succesfully."
 	end
-
-
+	
 	def entry_params
 		params.require(:polititian).permit(:id, :first_name, :last_name, :political_position, :political_position_start_at, :political_position_end_at, :avatar)
 	end
