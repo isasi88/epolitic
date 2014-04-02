@@ -1,28 +1,35 @@
-<%= form_for (@polititian), :html => {:class => "form-horizontal", :role =>"form"} do |f| %>
+<%= form_for (@polititian), :html => {:multipart => true, :class => "form-horizontal", :role =>"form"} do |f| %>
 
 	<div class="form-group">
-	  <%= f.label :first_name, "First name", class: "control-label col-sm-3" %>
+	  <%= f.label :first_name, "First name(*)", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
 		  <%= f.text_field :first_name, class: "form-control",placeholder: "First name" %>
 	  </div>
 	</div>	
 
 	<div class="form-group">
-	  <%= f.label :last_name, "Last name", class: "control-label col-sm-3" %>
+	  <%= f.label :last_name, "Last name(*)", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
 		  <%= f.text_field :last_name, class: "form-control",placeholder: "Last name" %>
 	  </div>
 	</div>
 
 	<div class="form-group">
-	  <%= f.label :political_position, "Political position", class: "control-label col-sm-3" %>
+	  <%= f.label :avatar, "Avatar", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9", >
+		  <%= f.file_field :avatar, class: "form-control"%>
+	  </div>
+	</div>
+
+	<div class="form-group">
+	  <%= f.label :political_position, "Position(*)", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
 		  <%= f.text_field :political_position, class: "form-control",placeholder: "Political position" %>
 	  </div>
 	</div>
 
 	<div class="form-group">
-	  <%= f.label :start_at, "Years from - to", class: "control-label col-sm-3" %>
+	  <%= f.label :start_at, "Years", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9 form-inline">
 			  <%= f.date_select :political_position_start_at,
 			  {:include_blank => "true", :discard_day => "true",:discard_month => "true", :start_year => 1960, :end_year => Date.today.year},
@@ -32,10 +39,9 @@
 			  {:include_blank => "true", :discard_day => "true", :discard_month => "true", :start_year => 1960, :end_year => Date.today.year},
 			  {:class => "form-control col-sm-6"} %>
 	  </div>
-
 	  </div>
-	</div>
 
+	</div>
 	<div class="form-group">
 
 	</div>

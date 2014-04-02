@@ -7,12 +7,12 @@
 	<div class="col-md-9">
 		<ul class="list-group">		
 			<% @polititians.each do |polititian| %>
-				<li class="list-group-item">				
+				<li class="list-group-item">				 
 					<div class="row">
 					  <div class="col-md-2">
-					    <a href="#" class="thumbnail">
-					    	<%= image_tag("empty_profile.jpg", :alt => "") %>
-						</a>
+					  	<div class= "thumbnail">
+					  		<%= show_polititian_avatar(polititian) %>
+					    </div>
 					  </div>
 					  <div class="col-md-8">
 					  	<h4>

@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140402110330) do
     t.string   "political_position"
     t.date     "political_position_start_at"
     t.date     "political_position_end_at"
+    t.string   "avatar"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

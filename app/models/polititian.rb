@@ -1,4 +1,7 @@
 class Polititian < ActiveRecord::Base
+
+	mount_uploader :avatar, PolititianAvatarUploader
+
 	has_many :educations
 	has_many :jobs
 	has_many :trials
