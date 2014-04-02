@@ -94,10 +94,8 @@ body {
 
 .carousel {
  	height: 500px;
+ 	margin-top: -17px;
  	margin-bottom: 60px;
-	position: absolute;
-	left: 0%; 
-	top: 8%;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -136,6 +134,30 @@ body {
 		-moz-box-shadow: inset 0 0 10px 10px rgba(0,0,0,.6);
 		-webkit-box-shadow: inset 0 0 20px 1px rgba(0,0,0,.6);
 	   } 
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Pad the edges of the mobile views a bit */
+.marketing {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 
 
 
