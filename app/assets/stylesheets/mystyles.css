@@ -15,8 +15,13 @@ body {
 	margin-bottom: 20px;
 }
 
+.bottom-spacing{
+}
+
+
 .top-separation{
-	border-top: solid 1px #d0d1d5;
+/*	border-top: solid 1px #d0d1d5; */
+	margin-bottom: 20px;
 }
 
 .no-bullets-list {
@@ -29,7 +34,11 @@ body {
 	display: inline;
 }
 
-/* Sticky footer styles
+
+
+
+
+/* STICKY FOOTER STYLES
 -------------------------------------------------- */
 html {
   position: relative;
@@ -131,22 +140,13 @@ body {
 
 /* ICONS FOR POLITITIANS */
 
-.polititian-icons {
+.icon-bad {
 	font-size: 30px;
-	color: white;
+	color: #c74812;
 }
 
-.polititian-icons div {	
-	height: 45px;
-	width: 45px;
-	border-radius: 50%;
-}
-
-.bad {
-	background-color: #c74812;	
-}
-
-.good {
-	background-color: green;	
+.icon-ok {
+	font-size: 30px;
+	color: #5d895e;
 }
 
