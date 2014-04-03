@@ -13,7 +13,9 @@ class PolititiansController < ApplicationController
 		@trial = Trial.new
 		@trials = @polititian.trials
 		@exam = Exam.new
-		@exams = @polititian.exams				
+		@exams = @polititian.exams
+		@affiliation = Affiliation.new
+		@affiliations = @polititian.affiliations
 	end
 
 	def new

@@ -10,6 +10,7 @@ Cvpolitics::Application.routes.draw do
     resources :jobs, only: [:create, :destroy, :edit, :update]
     resources :trials, only: [:create, :destroy, :edit, :update]
     resources :exams, only: [:create, :destroy, :edit, :update]
+    resources :affiliations, only: [:create, :destroy, :edit, :update]
   end
 
   resources :groups
