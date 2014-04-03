@@ -211,7 +211,7 @@
 
 <!-- RIGHT COLUMN SECTION -->
 	<div class="col-md-4 box">
-		<% if @polititian.affiliations == 0 %>
+		<% if @polititian.affiliations.count == 0 %>
 			<div class="row text-center">
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-group"><span class="glyphicon glyphicon-plus"></span> Add Political Party</button>
 			</div>	
