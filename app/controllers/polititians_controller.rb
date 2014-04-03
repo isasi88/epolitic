@@ -16,6 +16,8 @@ class PolititiansController < ApplicationController
 		@exams = @polititian.exams
 		@affiliation = Affiliation.new
 		@affiliations = @polititian.affiliations
+		@groups = Group.all
+		@polititian_groups = @polititian.groups
 	end
 
 	def new

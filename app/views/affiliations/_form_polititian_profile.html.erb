@@ -3,7 +3,8 @@
 	<div class="form-group">
 	  <%= f.label :group_id, "Group_id(*)", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
-		  <%= f.text_field :group_id, class: "form-control", placeholder: "Political party ID" %>
+	  <%= f.select :group_id, options_from_collection_for_select(@groups, "id", "name") %>
+
 	  </div>
 	</div>	
 
