@@ -1,0 +1,33 @@
+<h1 class="bottom-separation">Groups</h1>
+
+<div class="row">
+	<div class="col-md-3">
+		<%= link_to '<span class="glyphicon glyphicon-plus"></span> Add a group'.html_safe, new_group_path, :class => "btn btn-primary btn-lg" %>
+	</div>
+	<div class="col-md-9">
+		<ul class="list-group">		
+			<% @groups.each do |group| %>
+				<li class="list-group-item">				 
+					<div class="row">
+					  <div class="col-md-2">
+					  	<div class= "thumbnail">
+					  		<%= image_tag group.avatar_url.to_s %>
+					    </div>
+					  </div>
+					  <div class="col-md-8">
+					  	<h4>
+					  		<%=group.name%>
+					  	</h4>
+					  </div>
+					  <div class="col-md-2">
+						  <h4><small>
+						  	<%= link_to("Delete", group_path(group), method: :delete, confirm: 'Are you sure?')%>
+						  	<%= link_to("Edit", edit_group_path(group))%>
+						  </small></h4>
+					  </div>
+					</div>
+				</li>
+			<%end%>
+		</ul>
+	</div>
+</div>
