@@ -14,16 +14,6 @@ module ApplicationHelper
 		end
 	end
 
-
-	def show_polititian_avatar(polititian)
-    	if	polititian.avatar?
-    		image_tag polititian.avatar_url.to_s
-    	else
-			image_tag("empty_profile.jpg", :alt => "")
-    	end
-    end
-
-
 	def check_corruption(polititian)
 		if polititian.trials.count == 0
 			'<div class="icon-ok"><span class="glyphicon glyphicon-ok"></span></div>'.html_safe

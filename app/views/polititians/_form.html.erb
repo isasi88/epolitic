@@ -3,7 +3,7 @@
 	<div class="form-group">
 	  <%= f.label :first_name, "First name(*)", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
-		  <%= f.text_field :first_name, class: "form-control",placeholder: "First name" %>
+		  <%= f.text_field :first_name, class: "form-control", placeholder: "First name" %>
 	  </div>
 	</div>	
 
@@ -18,6 +18,13 @@
 	  <%= f.label :avatar, "Avatar", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
 		  <%= f.file_field :avatar, class: "form-control"%>
+	  </div>
+	</div>
+
+	<div class="form-group">
+	  <%= f.label :remote_avatar_url, "Or url", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9", >
+		  <%= f.text_field :remote_avatar_url, class: "form-control"%>
 	  </div>
 	</div>
 

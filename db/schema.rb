@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402110330) do
+ActiveRecord::Schema.define(version: 20140402184847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "affiliations", force: true do |t|
+    t.integer  "polititian_id"
+    t.integer  "group_id"
+    t.date     "start_at"
+    t.date     "end_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "educations", force: true do |t|
     t.integer  "polititian_id"
@@ -32,6 +41,15 @@ ActiveRecord::Schema.define(version: 20140402110330) do
     t.string   "title"
     t.date     "date"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", force: true do |t|
+    t.string   "name"
+    t.integer  "group_type"
+    t.string   "description"
+    t.string   "avatar"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

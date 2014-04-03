@@ -5,7 +5,6 @@ Cvpolitics::Application.routes.draw do
   get '/about_us' => 'site#about_us'
   get '/volunteer' => 'site#volunteer'
 
-
   resources :polititians do
     resources :educations, only: [:create, :destroy, :edit, :update]
     resources :jobs, only: [:create, :destroy, :edit, :update]
@@ -13,6 +12,7 @@ Cvpolitics::Application.routes.draw do
     resources :exams, only: [:create, :destroy, :edit, :update]
   end
 
+  resources :groups
 
 
   # The priority is based upon order of creation: first created -> highest priority.
