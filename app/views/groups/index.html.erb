@@ -18,14 +18,14 @@
 					  	<h4>
 					  		<%=group.name%>
 					  	</h4>
-
+					  	<p><%= calculate_group_count(group)%> polititians in CVpolitics</p>					  	
 					  	<div class = "row">
 					  		<div class ="col-md-5 text-right">
 					  			<p>Higher education <span class="glyphicon glyphicon-book"></p>
 					  		</div>
 					  		<div class ="col-md-7">
 								<div class="progress">
-								  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+								  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=calculate_group_education(group)%>%;">
 								    <span class="sr-only">60% Complete</span>
 								  </div>
 								</div>
@@ -38,7 +38,7 @@
 					  		</div>
 					  		<div class ="col-md-7">
 								<div class="progress">
-								  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+								  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=calculate_group_job(group)%>%;">
 								    <span class="sr-only">60% Complete</span>
 								  </div>
 								</div>

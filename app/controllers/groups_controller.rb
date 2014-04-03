@@ -41,8 +41,8 @@ class GroupsController < ApplicationController
 		@group.destroy
 		redirect_to action: 'index', controller: 'groups'
 		flash[:success] = "Group deleted succesfully."
-	end
-	
+	end	
+
 	def entry_params
 		params.require(:group).permit(:name, :group_type, :description, :avatar)
 	end
