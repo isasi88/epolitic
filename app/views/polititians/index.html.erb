@@ -11,13 +11,13 @@
 					<div class="row">
 					  <div class="col-md-2">
 					  	<div class= "thumbnail">
-					  		<%= image_tag polititian.avatar_url.to_s %>
+					  		<%= image_tag polititian.avatar %>
 					    </div>
 					  </div>
 					  <div class="col-md-1">
 					  	<% if polititian.groups.count != 0%>
 						  	<div class= "thumbnail">
-		 						<%= image_tag polititian.groups.first.avatar_url.to_s %>
+		 						<%= image_tag polititian.groups.first.avatar %>
 						    </div>
 						<%end%>    
 					  </div>
@@ -35,6 +35,21 @@
 
 							<%= if polititian.political_position_end_at? then polititian.political_position_end_at.strftime("%Y") end %>
 						</p>
+						<p>
+						  	<%if polititian.educations.count == 0 %>
+							  	<span class="label label-danger"><span class="glyphicon glyphicon-book"></span> No higher education</span>
+								<%else%>
+							  	<span class="label label-success"><span class="glyphicon glyphicon-book"></span> Has higher education</span>
+							<%end%>
+						  	<%if polititian.jobs.count == 0 %>
+							  	<span class="label label-danger"><span class="glyphicon glyphicon-euro"></span> No previous professional career</span>
+								<%else%>
+							  	<span class="label label-success"><span class="glyphicon glyphicon-euro"></span> Has previous professional career</span>
+							<%end%>
+							<%if polititian.trials.count != 0 %>
+								<h3 class="alert alert-danger"> <span class="glyphicon glyphicon-warning-sign"> On Trial </h3>
+							<%end%>	
+						</p>  
 					  </div>
 					  <div class="col-md-2">
 						  <h4><small><%= link_to("Delete", polititian_path(polititian), method: :delete, confirm: 'Are you sure?')%></small></h4>

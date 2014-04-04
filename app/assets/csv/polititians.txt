@@ -1,7 +1,0 @@
-15,Tabi,Vicuña,Bilbaino,1980-01-01,1980-01-01,download.jpeg,2014-04-02 20:40:52,2014-04-02 20:40:52
-16,Tabi,Vicuña,Bilbaino,1980-01-01,1980-01-01,download.jpeg,2014-04-02 20:40:52,2014-04-02 20:40:52
-
-
-
-
-copy polititians from '/vagrant/cvpolitics/app/assets/csv/polititians.txt' DELIMITERS ',' CSV HEADER;
