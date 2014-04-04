@@ -4,6 +4,8 @@ Cvpolitics::Application.routes.draw do
   root 'site#home'  
   get '/about_us' => 'site#about_us'
   get '/volunteer' => 'site#volunteer'
+  get '/transparency' => 'site#transparency'
+
 
   resources :polititians do
     resources :educations, only: [:create, :destroy, :edit, :update]
