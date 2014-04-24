@@ -17,9 +17,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: cvpolitics_development
+  database: epolitic_development
   pool: 5
-  username: vagrant
+  username: epolitic
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -46,15 +46,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: cvpolitics_test
+  database: epolitic_test
   pool: 5
-  username: vagrant
+  username: epolitic
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: cvpolitics_production
+  database: epolitic_production
   pool: 5
-  username: vagrant
+  username: epolitic
   password:

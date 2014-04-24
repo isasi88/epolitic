@@ -10,4 +10,8 @@ class SiteController < ApplicationController
 	def volunteer
 	end
 
+	def team
+	end
+
+
 end

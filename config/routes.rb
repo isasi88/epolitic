@@ -5,6 +5,7 @@ Cvpolitics::Application.routes.draw do
   get '/about_us' => 'site#about_us'
   get '/volunteer' => 'site#volunteer'
   get '/transparency' => 'site#transparency'
+  get '/team' => 'site#team'
 
 
   resources :polititians do
