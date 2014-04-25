@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140402184847) do
   create_table "jobs", force: true do |t|
     t.integer  "polititian_id"
     t.string   "position"
+    t.boolean  "political_position",  default: false, null: false
     t.string   "employer"
     t.date     "start_at"
     t.date     "end_at"

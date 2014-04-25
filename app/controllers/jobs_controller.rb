@@ -35,7 +35,7 @@ class JobsController < ApplicationController
 	end
 
 	def entry_params
-		params.require(:job).permit(:employer, :position, :description, :start_at, :end_at)
+		params.require(:job).permit(:employer, :position, :political_employer, :description, :start_at, :end_at, :currently_work_here)
 	end
 
 end

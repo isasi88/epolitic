@@ -11,9 +11,11 @@
 	  <%= f.label :employer, "Employer", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
 		  <%= f.text_field :employer, class: "form-control",placeholder: "Employer" %>
+		  <p> <%= f.check_box :political_position%> Is it a political job?</p>
 	  </div>
 	</div>	
-
+	  		 	 
+	
 	<div class="form-group">
 	  <%= f.label :start_at, "Years (from - to)", class: "control-label col-sm-3" %>
 	  <div class="col-sm-2 form-inline">
@@ -24,19 +26,11 @@
 	  <div class="col-sm-2 form-inline">
 			  <%= f.date_select :end_at,
 			  {:include_blank => "true", :discard_day => "true", :discard_month => "true", :start_year => 1960, :end_year => Date.today.year},
-			  {:class => "form-control col-sm-6"} %>
+			  {:class => "form-control col-sm-6"} %>			  
 	  </div>	  
+	  <p><%= f.check_box :currently_work_here%> Check if currently working here</p>
 	</div>
-
-	<div class="row">
-	  <div class="col-sm-offset-3 col-sm-1">
-	  		  <%= f.check_box :currently_work_here%>
-	  </div>
-	  <div class="col-sm-6"><p>Check if currently working here</p></div>
-	</div>
-	</br>
-
-
+</br>
 	<div class="form-group">
 	  <%= f.label :description, "Description", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
