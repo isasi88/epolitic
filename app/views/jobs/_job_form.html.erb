@@ -11,7 +11,7 @@
 	  <%= f.label :employer, "Employer", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
 		  <%= f.text_field :employer, class: "form-control",placeholder: "Employer" %>
-		  <p> <%= f.check_box :political_position%> Is it a political job?</p>
+		  <p> <%= f.check_box :political_employer %> Is it a political job?</p>
 	  </div>
 	</div>	
 	  		 	 
@@ -31,6 +31,14 @@
 	  <p><%= f.check_box :currently_work_here%> Check if currently working here</p>
 	</div>
 </br>
+
+	<div class="form-group">
+	  <%= f.label :salary, "Yearly salary", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9", >
+		  <%= f.text_field :salary, class: "form-control", placeholder: "Salary" %>
+	  </div>
+	</div>
+
 	<div class="form-group">
 	  <%= f.label :description, "Description", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >

@@ -4,11 +4,12 @@ class CreateJobs < ActiveRecord::Migration
 
     	t.integer :polititian_id
     	t.string :position
-        t.boolean  :political_position, :default => false, :null => false
+        t.boolean  :political_employer, :default => false, :null => false
     	t.string :employer
     	t.date :start_at
     	t.date :end_at
         t.boolean  :currently_work_here, :default => false, :null => false
+        t.integer :salary
     	t.text :description
     	t.timestamps
 
