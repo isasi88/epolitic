@@ -39,6 +39,8 @@ end
 
 gem 'carrierwave'
 
+gem 'rails_12factor', group: :production
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
