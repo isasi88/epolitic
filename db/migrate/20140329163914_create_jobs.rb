@@ -7,9 +7,10 @@ class CreateJobs < ActiveRecord::Migration
     	t.string :employer
     	t.date :start_at
     	t.date :end_at
+        t.boolean  :currently_work_here, :default => false, :null => false
     	t.text :description
-
     	t.timestamps
+
     end
   end
 end

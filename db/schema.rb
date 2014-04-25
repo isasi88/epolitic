@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140402184847) do
     t.string   "employer"
     t.date     "start_at"
     t.date     "end_at"
+    t.boolean  "currently_work_here", default: false, null: false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"

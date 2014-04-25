@@ -29,21 +29,6 @@
 	</div>
 
 	<div class="form-group">
-	  <%= f.label :start_at, "Years", class: "control-label col-sm-3" %>
-	  <div class="col-sm-9 form-inline">
-			  <%= f.date_select :political_position_start_at,
-			  {:include_blank => "true", :discard_day => "true",:discard_month => "true", :start_year => 1960, :end_year => Date.today.year},
-			  {:class => "form-control col-sm-6"} %>
-	  <div class="col-sm-9 form-inline">
-			  <%= f.date_select :political_position_end_at,
-			  {:include_blank => "true", :discard_day => "true", :discard_month => "true", :start_year => 1960, :end_year => Date.today.year},
-			  {:class => "form-control col-sm-6"} %>
-	  </div>
-	  </div>
-
-	</div>
-
-	<div class="form-group">
 		<div class="col-sm-offset-3 col-sm-10">
 	  		<%= f.submit class: "btn btn-default" %>
 		</div> 
