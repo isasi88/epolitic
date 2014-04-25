@@ -10,7 +10,6 @@ class Polititian < ActiveRecord::Base
 	has_many :groups, through: :affiliations
 	validates :first_name, presence: true
 	validates :last_name, presence: true
-	validates :political_position, presence: true
 
 	def self.search(text)
 		if text
