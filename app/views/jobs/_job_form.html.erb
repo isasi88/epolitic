@@ -28,7 +28,7 @@
 			  {:include_blank => "true", :discard_day => "true", :discard_month => "true", :start_year => 1960, :end_year => Date.today.year},
 			  {:class => "form-control col-sm-6"} %>			  
 	  </div>	  
-	  <p><%= f.check_box :currently_work_here%> Check if currently working here</p>
+	  <p><%= f.check_box :currently_work_here, {:class => "check-box"}%> Check if currently working here</p>
 	</div>
 </br>
 
