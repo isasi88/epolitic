@@ -37,7 +37,7 @@
 						<h4><span class="glyphicon glyphicon-eye-open"></span></h4>
 					</div>
 					<div class="col-md-9">
-						<h4 class="">Justice procedures</h4>
+						<h5 class="">Imputaciones por corrupción</h4>
 					</div>
 					<div class="col-md-2 text-center">
 						<%=check_corruption(@polititian)%>
@@ -143,25 +143,20 @@
 
 							<!-- Exams -->
 							<% @exams.each do |exam| %>
-							    <li class="top-separation well">
-								    <h5><strong>Public exam:</strong> <%= exam.title%>
+							    <li class="well">
+								    <h4><strong>Public exam:</strong> <%= exam.title%>
 								    	<small>
 								    		<%= if exam.date? then exam.date.strftime("%Y") end%> 
 								    	</small>
-								    </h5>
-									<div class="col-md-3 text-center">    
-									    <h5><small>
-									    <%= link_to "Edit", edit_polititian_exam_path(@polititian.id, exam.id) %>
-									    <%= link_to "Delete", polititian_exam_path(@polititian.id, exam.id), method: :delete, confirm: "Are you sure?" %>
-										</small></h5>
-									</div>
+								    </h4>
 								    <small><%= if !exam.description.nil? then exam.description end %></small>
+									<h5><small><%= link_to "Edit", edit_polititian_exam_path(@polititian.id, exam.id) %> - <%= link_to "Delete", polititian_exam_path(@polititian.id, exam.id), method: :delete, confirm: "Are you sure?" %></small></h5>
 								</li>   
 							<% end %>
 
 							<!-- Jobs -->
 							<% @jobs.each do |job| %>
-							    <li class="top-separation well">
+							    <li class="well">
 								    <h4><strong><%= job.position%></strong></h4>
 									<h4><small>
 										<%=job.employer %>
