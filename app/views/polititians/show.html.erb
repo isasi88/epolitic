@@ -89,7 +89,7 @@
 						<h4><span class="glyphicon glyphicon-book"></span></h4>
 					</div>
 					<div class="col-md-9">
-						<h4 class="">Higher education</h4>
+						<h5 class="">Estudios</h5>
 					</div>
 					<div class="col-md-2 text-center">
 						<%=check_education(@polititian)%>
@@ -97,33 +97,22 @@
 				</div>	
 
 				<div class="row">
-					<div class="col-md-offset-1 col-md-9">
+					<div class="col-md-offset-1 col-md-10">
 						<h4><small><%= if @polititian.educations.count == 0 then "No higher education."end %></small></h4>
 						<ul class = "no-bullets-list">
 							<% @educations.each do |education| %>
-							    <li class="top-separation">
-							    	<div class="row">
-							    		<div  class="col-md-9">
-										    <h5>
-										    	<strong>
-										    		<%= education.degree%>
-										    	</strong>
-										    	<small>
-										    		<%= if education.start_at? then education.start_at.strftime("%Y") end%> 
-										    		<%= if (education.end_at? && education.start_at?) then "-" end %> 
-										    		<%= if education.end_at? then education.end_at.strftime("%Y") end%>
-										    	</small>
-										    </h5>
-										</div>
-										<div class="col-md-3 text-center">    
-										    <h5><small>
-										    <%= link_to "Edit", edit_polititian_education_path(@polititian.id, education.id) %>
-										    <%= link_to "Delete", polititian_education_path(@polititian.id, education.id), method: :delete, confirm: "Are you sure?" %>
-											</small></h5>
-										</div>    
-								    </div>
-									<p><%= education.center %><p>
+							    <li class="top-separation well">
+								    <h4>
+								    	<strong> <%= education.degree%> </strong> <span class="label label-warning">ESTUDIOS NO CONCLUIDOS</span>
+								    </h4>
+								    <h4><small>
+											<%= education.center %>		
+											<%= if education.start_at? then "(" + education.start_at.strftime("%Y") end%>
+								    		<%= if education.end_at? then "-" +education.end_at.strftime("%Y") end%>
+								    		<%= if education.start_at? then ")" end %>
+								    </small></h4>		
 								    <small><%= if !education.description.nil? then education.description end %></small>
+								    <h5><small> <%= link_to "Edit", edit_polititian_education_path(@polititian.id, education.id) %> - <%= link_to "Delete", polititian_education_path(@polititian.id, education.id), method: :delete, confirm: "Are you sure?" %> </small></h5>
 								</li>   
 							<% end %>
 							<li><button class="btn btn-primary" data-toggle="modal" data-target="#myModal-education"><span class="glyphicon glyphicon-plus"></span> Add education</button></li>
@@ -140,7 +129,7 @@
 						<h4><span class="glyphicon glyphicon-wrench"></span></h4>
 					</div>
 					<div class="col-md-9">
-						<h4>Career outside politics</h4>
+						<h5>Carrera profesional</h5>
 					</div>
 					<div class="col-md-2 text-center">
 						<%=check_job_and_exam(@polititian)%>
@@ -148,54 +137,40 @@
 				</div>
 
 				<div class="row">
-					<div class="col-md-offset-1 col-md-9">
+					<div class="col-md-offset-1 col-md-10">
 						<h4><small><%= if (@polititian.jobs.count + @polititian.exams.count) == 0 then "No professional experience outside politics."end %></small></h4>
 						<ul class = "no-bullets-list">
 
 							<!-- Exams -->
 							<% @exams.each do |exam| %>
-							    <li class="top-separation">
-							    	<div class="row">
-							    		<div  class="col-md-9">
-										    <h5><strong>Public exam:</strong> <%= exam.title%>
-										    	<small>
-										    		<%= if exam.date? then exam.date.strftime("%Y") end%> 
-										    	</small>
-										    </h5>
-										</div>
-										<div class="col-md-3 text-center">    
-										    <h5><small>
-										    <%= link_to "Edit", edit_polititian_exam_path(@polititian.id, exam.id) %>
-										    <%= link_to "Delete", polititian_exam_path(@polititian.id, exam.id), method: :delete, confirm: "Are you sure?" %>
-											</small></h5>
-										</div>    
-								    </div>
+							    <li class="top-separation well">
+								    <h5><strong>Public exam:</strong> <%= exam.title%>
+								    	<small>
+								    		<%= if exam.date? then exam.date.strftime("%Y") end%> 
+								    	</small>
+								    </h5>
+									<div class="col-md-3 text-center">    
+									    <h5><small>
+									    <%= link_to "Edit", edit_polititian_exam_path(@polititian.id, exam.id) %>
+									    <%= link_to "Delete", polititian_exam_path(@polititian.id, exam.id), method: :delete, confirm: "Are you sure?" %>
+										</small></h5>
+									</div>
 								    <small><%= if !exam.description.nil? then exam.description end %></small>
 								</li>   
 							<% end %>
 
 							<!-- Jobs -->
 							<% @jobs.each do |job| %>
-							    <li class="top-separation">
-							    	<div class="row">
-							    		<div  class="col-md-9">
-										    <h5><%= job.position%>
-										    	<small>
-										    		<%= if job.start_at? then job.start_at.strftime("%Y") end%> 
-										    		<%= if (job.end_at? && job.start_at?) then "-" end %> 
-										    		<%= if job.end_at? then job.end_at.strftime("%Y") end%>
-										    	</small>
-										    </h5>
-										</div>
-										<div class="col-md-3 text-center">    
-										    <h5><small>
-										    <%= link_to "Edit", edit_polititian_job_path(@polititian.id, job.id) %>
-										    <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %>
-											</small></h5>
-										</div>    
-								    </div>
-									<p><%=job.employer %><p>
+							    <li class="top-separation well">
+								    <h4><strong><%= job.position%></strong></h4>
+									<h4><small>
+										<%=job.employer %>
+							    		<%= if job.start_at? then job.start_at.strftime("%Y") end%> 
+							    		<%= if (job.end_at? && job.start_at?) then "-" end %> 
+							    		<%= if job.end_at? then job.end_at.strftime("%Y") end%>
+								    	</small></h4>
 								    <small><%= if !job.description.nil? then job.description end %></small>
+								    <h5><small><%= link_to "Edit", edit_polititian_job_path(@polititian.id, job.id) %> - <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %></small></h5>
 								</li>   
 							<% end %>
 							<li>
