@@ -166,7 +166,6 @@ body {
 
 
 .icon-bad {
-	font-size: 30px;
 	color: #c74812;
 }
 
@@ -180,13 +179,13 @@ body {
 /* POLITICIAN PROFILE 
 -------------------------------------------------- */
 
-.well {
+.politician-profile .well, .politician-profile .alert  {
 	margin: 10px 0px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
 
-.well:first-child {
+.politician-profile .well:first-child, .politician-profile .alert:first-child {
 	margin-top: -20px;
 }
 

@@ -1,44 +1,28 @@
 
-<div class="row">
+<div class="row politician-profile">
 	<div class="col-md-8">
 
 <!-- BASIC PROFILE INFO -->
-		<div class="row box">
-			<div class="col-md-3" >
-				 <div class="thumbnail">
-				 	<%= image_tag @polititian.avatar %>
-				 </div>
-			</div>
-			<div class="col-md-7">
-				<h1><%= @polititian.first_name %> <%= @polititian.last_name %></h1>
-				<h3><%= @polititian.political_position %></h3>
-				<p>	
-					<%= if @polititian.political_position_start_at? then @polititian.political_position_start_at.strftime("%Y") end %>
-					<%= if @polititian.political_position_end_at? then " - " end %>
 
-					<%= if @polititian.political_position_end_at? then @polititian.political_position_end_at.strftime("%Y") end %>
-				</p>
-			</div>
-			<div class="col-md-2">
-				<%= link_to '<span class="glyphicon glyphicon-pencil"></span>  Editar'.html_safe, edit_polititian_path(@polititian), :class => "btn btn-primary btn-sm" %>
-			</div>
-		</div>
-
-
+	<%= render 'profile_summary' %>
+</br>
 
 	<!-- BUTTONS -->		
 
-		<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal-trial"><span class="glyphicon glyphicon-plus"></span> Add trial</button>
-		<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal-education"><span class="glyphicon glyphicon-plus"></span> Add education</button>
-		<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal-job"><span class="glyphicon glyphicon-plus"></span> Add job</button>
-		<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal-public-exam"><span class="glyphicon glyphicon-plus"></span> Add public exam</button>
-
+	<div class="text-right">
+		<h4>
+				<small>Añadir datos:</small> 
+				<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal-trial"><span class="glyphicon glyphicon-plus"></span> Juicio</button>
+				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal-education"><span class="glyphicon glyphicon-plus"></span> Carrera</button>
+				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal-job"><span class="glyphicon glyphicon-plus"></span> Empleo</button>
+				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal-public-exam"><span class="glyphicon glyphicon-plus"></span> Oposición</button>
+		</h4>		
+	</div>
 
 
 <!-- DETAILED PROFILE INFO SECTIONS -->
 
 		<div class="row box">
-
 
 	<!-- CORRUPTION -->		
 			<% if @polititian.trials.count != 0 then %>
@@ -47,12 +31,9 @@
 							<div class="col-md-1 text-right">
 								<h4><span class="glyphicon glyphicon-eye-open"></span></h4>
 							</div>
-							<div class="col-md-9">
+							<div class="col-md-11">
 								<h5 class="">Imputaciones por corrupción</h4>
-							</div>
-							<div class="col-md-2 text-center">
-								<%=check_corruption(@polititian)%>
-							</div>
+							</div>								
 						</div>	
 
 						<div class="row">
@@ -60,9 +41,9 @@
 								<h4><small><%= if @polititian.trials.count == 0 then "No trials."end %></small></h4>
 								<ul class = "no-bullets-list">
 									<% @trials.each do |trial| %>
-									    <li class="well">
+									    <li class="alert alert-danger">
 										    <h4>
-										    	<strong><%= trial.title%></strong>
+										    	<strong><span class="icon-bad glyphicon glyphicon-warning-sign"></span> <%= trial.title%></strong>
 										    	<small>
 										    		<%= if trial.start_at? then "(" + trial.start_at.strftime("%Y") end%> 
 										    		<%= if trial.end_at? then "-" +trial.end_at.strftime("%Y") end%>
@@ -90,7 +71,6 @@
 						<h5 class="">Estudios</h5>
 					</div>
 					<div class="col-md-2 text-center">
-						<%=check_education(@polititian)%>
 					</div>
 				</div>	
 
@@ -127,7 +107,6 @@
 						<h5>Carrera profesional</h5>
 					</div>
 					<div class="col-md-2 text-center">
-						<%=check_job_and_exam(@polititian)%>
 					</div>
 				</div>
 
@@ -135,19 +114,6 @@
 					<div class="col-md-offset-1 col-md-10">
 						<h4><small><%= if (@polititian.jobs.count + @polititian.exams.count) == 0 then "No professional experience outside politics."end %></small></h4>
 						<ul class = "no-bullets-list">
-
-							<!-- Exams -->
-							<% @exams.each do |exam| %>
-							    <li class="well">
-								    <h4></strong><span class="label label-success">OPOSICIONES</span> <%= exam.title%>
-								    	<small>
-								    		<%= if exam.date? then "(" + exam.date.strftime("%Y") + ")" end%> 
-								    	</small>
-								    </h4>
-								    <small><%= if !exam.description.nil? then exam.description end %></small>
-									<h5><small><%= link_to "Edit", edit_polititian_exam_path(@polititian.id, exam.id) %> - <%= link_to "Delete", polititian_exam_path(@polititian.id, exam.id), method: :delete, confirm: "Are you sure?" %></small></h5>
-								</li>   
-							<% end %>
 
 							<!-- Jobs -->
 							<% @jobs.each do |job| %>
@@ -168,6 +134,19 @@
 								  </p>
 							    <small><%= if !job.description.nil? then job.description end %></small>
 							    <h5><small><%= link_to "Edit", edit_polititian_job_path(@polititian.id, job.id) %> - <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %></small></h5>
+								</li>   
+							<% end %>
+
+							<!-- Exams -->
+							<% @exams.each do |exam| %>
+							    <li class="well">
+								    <h4></strong><span class="label label-success">OPOSICIONES</span> <%= exam.title%>
+								    	<small>
+								    		<%= if exam.date? then "(" + exam.date.strftime("%Y") + ")" end%> 
+								    	</small>
+								    </h4>
+								    <small><%= if !exam.description.nil? then exam.description end %></small>
+									<h5><small><%= link_to "Edit", edit_polititian_exam_path(@polititian.id, exam.id) %> - <%= link_to "Delete", polititian_exam_path(@polititian.id, exam.id), method: :delete, confirm: "Are you sure?" %></small></h5>
 								</li>   
 							<% end %>
 						</ul>	
