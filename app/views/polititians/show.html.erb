@@ -152,13 +152,20 @@
 							<!-- Jobs -->
 							<% @jobs.each do |job| %>
 							    <li class="well">
-								    <h4><strong><span class="label label-success">NO POLITICO</span> <%= job.position%></strong></h4>
-									<h4><small>
-										<%=job.employer %>
-											<%= if job.start_at? then "(" + job.start_at.strftime("%Y") end%>
-								    		<%= if job.end_at? then "-" + job.end_at.strftime("%Y") end%>
-								    		<%= if job.start_at? then ")" end %>
-								  </small></h4>
+								    <h4>
+								    	<strong>
+								    		<%= job.position %>
+								    		<% if job.salary %>
+								    			<span class="label label-default"><%= number_with_delimiter(job.salary) %> € año</span>
+								    			<span class="label label-primary">PUESTO ACTUAL</span> 
+								    		<% end %>
+								    </strong>
+								    </h4>
+									<P>
+										<strong><%= job.employer %></strong>
+										<small><%= if job.start_at? then "desde " + job.start_at.strftime("%Y") end%>
+							    	<%= if job.end_at? then "hasta " + job.end_at.strftime("%Y") end%></small>
+								  </p>
 							    <small><%= if !job.description.nil? then job.description end %></small>
 							    <h5><small><%= link_to "Edit", edit_polititian_job_path(@polititian.id, job.id) %> - <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %></small></h5>
 								</li>   
