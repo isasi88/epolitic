@@ -26,61 +26,70 @@
 
 
 
+	<!-- CORRUPTION -->		
+
+
+			<button class="btn btn-primary" data-toggle="modal" data-target="#myModal-trial"><span class="glyphicon glyphicon-plus"></span> Add trial</button>
+
+
+			<% if @polititian.trials.count != 0 then %>
+				<div class="row box">
+
+					<div class="bottom-separation">			
+						<div class="row ">
+							<div class="col-md-1 text-right">
+								<h4><span class="glyphicon glyphicon-eye-open"></span></h4>
+							</div>
+							<div class="col-md-9">
+								<h5 class="">Imputaciones por corrupción</h4>
+							</div>
+							<div class="col-md-2 text-center">
+								<%=check_corruption(@polititian)%>
+							</div>
+						</div>	
+
+						<div class="row">
+							<div class="col-md-offset-1 col-md-9">
+								<h4><small><%= if @polititian.trials.count == 0 then "No trials."end %></small></h4>
+								<ul class = "no-bullets-list">
+									<% @trials.each do |trial| %>
+									    <li class="top-separation">
+									    	<div class="row">
+									    		<div  class="col-md-9">
+												    <h5>
+												    	<strong>
+												    		<%= trial.title%>
+												    	</strong>
+												    	<small>
+												    		<%= if trial.start_at? then trial.start_at.strftime("%Y") end%> 
+												    		<%= if (trial.end_at? && trial.start_at?) then "-" end %> 
+												    		<%= if trial.end_at? then trial.end_at.strftime("%Y") end%>
+												    	</small>
+												    </h5>
+												</div>
+												<div class="col-md-3 text-center">    
+												    <h5><small>
+												    <%= link_to "Edit", edit_polititian_trial_path(@polititian.id, trial.id) %>
+												    <%= link_to "Delete", polititian_trial_path(@polititian.id, trial.id), method: :delete, confirm: "Are you sure?" %>
+													</small></h5>
+												</div>    
+										    </div>
+										    <small><%= if !trial.description.nil? then trial.description end %></small>
+										</li>   
+									<% end %>
+									<li><button class="btn btn-primary" data-toggle="modal" data-target="#myModal-trial"><span class="glyphicon glyphicon-plus"></span> Add trial</button></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			<%end%>
+
+
+
 <!-- DETAILED PROFILE INFO SECTIONS -->
 
 		<div class="row box">
-
-	<!-- CORRUPTION -->		
-			<div class="bottom-separation">			
-				<div class="row ">
-					<div class="col-md-1 text-right">
-						<h4><span class="glyphicon glyphicon-eye-open"></span></h4>
-					</div>
-					<div class="col-md-9">
-						<h5 class="">Imputaciones por corrupción</h4>
-					</div>
-					<div class="col-md-2 text-center">
-						<%=check_corruption(@polititian)%>
-					</div>
-				</div>	
-
-				<div class="row">
-					<div class="col-md-offset-1 col-md-9">
-						<h4><small><%= if @polititian.trials.count == 0 then "No trials."end %></small></h4>
-						<ul class = "no-bullets-list">
-							<% @trials.each do |trial| %>
-							    <li class="top-separation">
-							    	<div class="row">
-							    		<div  class="col-md-9">
-										    <h5>
-										    	<strong>
-										    		<%= trial.title%>
-										    	</strong>
-										    	<small>
-										    		<%= if trial.start_at? then trial.start_at.strftime("%Y") end%> 
-										    		<%= if (trial.end_at? && trial.start_at?) then "-" end %> 
-										    		<%= if trial.end_at? then trial.end_at.strftime("%Y") end%>
-										    	</small>
-										    </h5>
-										</div>
-										<div class="col-md-3 text-center">    
-										    <h5><small>
-										    <%= link_to "Edit", edit_polititian_trial_path(@polititian.id, trial.id) %>
-										    <%= link_to "Delete", polititian_trial_path(@polititian.id, trial.id), method: :delete, confirm: "Are you sure?" %>
-											</small></h5>
-										</div>    
-								    </div>
-								    <small><%= if !trial.description.nil? then trial.description end %></small>
-								</li>   
-							<% end %>
-							<li><button class="btn btn-primary" data-toggle="modal" data-target="#myModal-trial"><span class="glyphicon glyphicon-plus"></span> Add trial</button></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-
-
 
 	<!-- EDUCATION -->		
 			<div class="bottom-separation">			
@@ -98,13 +107,11 @@
 
 				<div class="row">
 					<div class="col-md-offset-1 col-md-10">
-						<h4><small><%= if @polititian.educations.count == 0 then "No higher education."end %></small></h4>
+						<h4><%= if @polititian.educations.count == 0 then "No higher education."end %></h4>
 						<ul class = "no-bullets-list">
 							<% @educations.each do |education| %>
-							    <li class="top-separation well">
-								    <h4>
-								    	<strong> <%= education.degree%> </strong> <span class="label label-warning">ESTUDIOS NO CONCLUIDOS</span>
-								    </h4>
+							    <li class="well">
+								    <h4><span class="label label-warning">NO CONCLUIDOS</span> <strong><%= education.degree%></strong></h4>
 								    <h4><small>
 											<%= education.center %>		
 											<%= if education.start_at? then "(" + education.start_at.strftime("%Y") end%>
@@ -122,7 +129,7 @@
 			</div>
 
 
-	<!-- JOBS & PUBLIC EXAMS-->		
+	<!-- JOBS OUTSIDE POLITICS & PUBLIC EXAMS-->		
 			<div class="">
 				<div class="row">			
 					<div class="col-md-1 text-right">
@@ -144,7 +151,7 @@
 							<!-- Exams -->
 							<% @exams.each do |exam| %>
 							    <li class="well">
-								    <h4><strong>Public exam:</strong> <%= exam.title%>
+								    <h4></strong><span class="label label-success">OPOSICIONES</span> <%= exam.title%>
 								    	<small>
 								    		<%= if exam.date? then exam.date.strftime("%Y") end%> 
 								    	</small>
@@ -157,7 +164,7 @@
 							<!-- Jobs -->
 							<% @jobs.each do |job| %>
 							    <li class="well">
-								    <h4><strong><%= job.position%></strong></h4>
+								    <h4><strong><span class="label label-success">NO POLITICO</span> <%= job.position%></strong></h4>
 									<h4><small>
 										<%=job.employer %>
 							    		<%= if job.start_at? then job.start_at.strftime("%Y") end%> 
@@ -200,6 +207,8 @@
 			</div>
 		<%end%>				
 	</div>
+
+
 
 <!-- MODALS -->
 

@@ -161,7 +161,9 @@ body {
 
 
 
-/* ICONS FOR POLITITIANS */
+/* ICONS FOR POLITITIANS 
+-------------------------------------------------- */
+
 
 .icon-bad {
 	font-size: 30px;
@@ -171,5 +173,20 @@ body {
 .icon-ok {
 	font-size: 30px;
 	color: #5d895e;
+}
+
+
+
+/* POLITICIAN PROFILE 
+-------------------------------------------------- */
+
+.well {
+	margin: 10px 0px;
+}
+
+.well {
+	padding-top: 5px;
+	padding-bottom: 5px;
+
 }
 
