@@ -7,13 +7,15 @@ class PolititiansController < ApplicationController
 	def show
 		@polititian = Polititian.find(params[:id])
 		@job = Job.new
-		@jobs = @polititian.jobs		
+		@jobs = @polititian.jobs.order(end_at: :desc)
+		@non_political_jobs = @polititian.jobs.non_political_jobs
+		@political_jobs = @polititian.jobs.political_jobs
 		@education = Education.new
-		@educations = @polititian.educations
+		@educations = @polititian.educations.order(end_at: :desc)
 		@trial = Trial.new
-		@trials = @polititian.trials
+		@trials = @polititian.trials.order(end_at: :desc)
 		@exam = Exam.new
-		@exams = @polititian.exams
+		@exams = @polititian.exams.order(date: :desc)
 		@affiliation = Affiliation.new
 		@affiliations = @polititian.affiliations
 		@groups = Group.all

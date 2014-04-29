@@ -73,7 +73,7 @@
 
 				<div class="row">
 					<div class="col-md-offset-1 col-md-10">
-						<h4><%= if @polititian.educations.count == 0 then "No higher education."end %></h4>
+						<h4><small><%= if @polititian.educations.count == 0 then "No higher education."end %></small></h4>
 						<ul class = "no-bullets-list">
 							<% @educations.each do |education| %>
 							    <li class="well">
@@ -98,7 +98,7 @@
 
 
 	<!-- JOBS OUTSIDE POLITICS & PUBLIC EXAMS-->		
-			<div class="">
+			<div class="bottom-separation">
 				<div class="row">			
 					<div class="col-md-1 text-right">
 						<h4><span class="glyphicon glyphicon-wrench"></span></h4>
@@ -112,11 +112,12 @@
 
 				<div class="row">
 					<div class="col-md-offset-1 col-md-10">
-						<h4><small><%= if (@polititian.jobs.count + @polititian.exams.count) == 0 then "No professional experience outside politics."end %></small></h4>
+						<h4><small><%= if (@polititian.jobs.non_political_jobs.count + @polititian.exams.count) == 0 then "No professional experience outside politics."end %></small></h4>
 						<ul class = "no-bullets-list">
 
-							<!-- Jobs -->
-							<% @jobs.each do |job| %>
+							<!-- Non Political Jobs -->
+							<% @non_political_jobs.each do |job| %>
+								<% if !job.political_employer %>
 							    <li class="well">
 								    <h4>
 								    	<strong>
@@ -127,16 +128,17 @@
 								    		<% if job.salary %>
 								    			<span class="label label-default"><%= number_with_delimiter(job.salary) %> € año</span>
 								    		<% end %>
-								    </strong>
+								    	</strong>
 								    </h4>
-									<p>
-										<strong><%= job.employer %></strong>
-										<small><%= if job.start_at? then "desde " + job.start_at.strftime("%Y") end%>
-							    	<%= if job.end_at? then "hasta " + job.end_at.strftime("%Y") end%></small>
-								  </p>
-							    <small><%= if !job.description.nil? then job.description end %></small>
-							    <h5><small><%= link_to "Edit", edit_polititian_job_path(@polititian.id, job.id) %> - <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %></small></h5>
-								</li>   
+										<p>
+											<strong><%= job.employer %></strong>
+											<small><%= if job.start_at? then "desde " + job.start_at.strftime("%Y") end%>
+								    	<%= if job.end_at? then "hasta " + job.end_at.strftime("%Y") end%></small>
+									  </p>
+								    <small><%= if !job.description.nil? then job.description end %></small>
+								    <h5><small><%= link_to "Edit", edit_polititian_job_path(@polititian.id, job.id) %> - <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %></small></h5>
+									</li>
+								<% end %>	   
 							<% end %>
 
 							<!-- Exams -->
@@ -154,8 +156,57 @@
 					</div>
 				</div>
 			</div>
+
+
+	<!-- POLITICAL LIFE-->		
+			<div class="">
+				<div class="row">			
+					<div class="col-md-1 text-right">
+						<h4><span class="glyphicon glyphicon-bookmark"></span></h4>
+					</div>
+					<div class="col-md-9">
+						<h5>Vida política</h5>
+					</div>
+					<div class="col-md-2 text-center">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-offset-1 col-md-10">
+						<h4><small><%= if @polititian.jobs.political_jobs.count == 0 then "Sin datos sobre vida política." end %></small></h4>
+						<ul class = "no-bullets-list">
+							<% @jobs.each do |job| %>
+								<% if job.political_employer %>
+							    <li class="well">
+									    <h4>
+									    	<strong>
+									    		<% if job.currently_work_here %>
+									    			<span class="label label-primary">PUESTO ACTUAL</span>
+									    		<%end%>
+									    		<%= job.position %>
+									    		<% if job.salary %>
+									    			<span class="label label-default"><%= number_with_delimiter(job.salary) %> € año</span>
+									    		<% end %>
+										    </strong>
+									    </h4>
+											<p>
+												<strong><%= job.employer %></strong>
+												<small><%= if job.start_at? then "desde " + job.start_at.strftime("%Y") end%>
+									    	<%= if job.end_at? then "hasta " + job.end_at.strftime("%Y") end%></small>
+										  </p>
+									    <small><%= if !job.description.nil? then job.description end %></small>
+									    <h5><small><%= link_to "Edit", edit_polititian_job_path(@polititian.id, job.id) %> - <%= link_to "Delete", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "Are you sure?" %></small></h5>
+									</li>
+								<% end %>									   
+							<% end %>
+						</ul>	
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+
+
 
 <!-- RIGHT COLUMN SECTION -->
 	<div class="col-md-4 box">
