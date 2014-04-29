@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140402184847) do
     t.string   "center"
     t.date     "start_at"
     t.date     "end_at"
+    t.boolean  "not_finished"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"

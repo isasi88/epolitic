@@ -2,10 +2,10 @@
 <div class="row politician-profile">
 	<div class="col-md-8">
 
-<!-- BASIC PROFILE INFO -->
+	<!-- BASIC PROFILE INFO -->
 
 	<%= render 'profile_summary' %>
-</br>
+	</br>
 
 	<!-- BUTTONS -->		
 
@@ -38,18 +38,15 @@
 
 						<div class="row">
 							<div class="col-md-offset-1 col-md-10">
-								<h4><small><%= if @polititian.trials.count == 0 then "No trials."end %></small></h4>
 								<ul class = "no-bullets-list">
 									<% @trials.each do |trial| %>
 									    <li class="alert alert-danger">
-										    <h4>
-										    	<strong><span class="icon-bad glyphicon glyphicon-warning-sign"></span> <%= trial.title%></strong>
-										    	<small>
-										    		<%= if trial.start_at? then "(" + trial.start_at.strftime("%Y") end%> 
-										    		<%= if trial.end_at? then "-" +trial.end_at.strftime("%Y") end%>
-										    		<%= if trial.start_at? then ")" end%> 
-										    	</small>
-										    </h4>
+										    <h4><strong><span class="icon-bad glyphicon glyphicon-warning-sign"></span> <%= trial.title%></strong></h4>
+										    <p><small>
+										    		<%= if trial.start_at? then "Desde " + trial.start_at.strftime("%Y") end%> 
+										    		<%= if trial.end_at? then "hasta " +trial.end_at.strftime("%Y") end%>
+										    </small> <p>
+										    
 										    <small><%= if !trial.description.nil? then trial.description end %></small>
 										    <h5><small> <%= link_to "Edit", edit_polititian_trial_path(@polititian.id, trial.id) %> - <%= link_to "Delete", polititian_trial_path(@polititian.id, trial.id), method: :delete, confirm: "Are you sure?" %> </small></h5>
 										</li>   
@@ -80,13 +77,16 @@
 						<ul class = "no-bullets-list">
 							<% @educations.each do |education| %>
 							    <li class="well">
-								    <h4><span class="label label-warning">NO CONCLUIDOS</span> <strong><%= education.degree%></strong></h4>
-								    <h4><small>
-											<%= education.center %>		
-											<%= if education.start_at? then "(" + education.start_at.strftime("%Y") end%>
-								    		<%= if education.end_at? then "-" +education.end_at.strftime("%Y") end%>
-								    		<%= if education.start_at? then ")" end %>
-								    </small></h4>		
+								    <h4>
+								    	<% if education.not_finished then %>
+								    		<span class="label label-warning">NO CONCLUIDOS</span> 
+								    	<%end%>	
+								    	<strong><%= education.degree%></strong>
+								    </h4>
+								    <p><strong><%= education.center %></strong>		
+											<small><%= if education.start_at? then "desde " + education.start_at.strftime("%Y") end%>
+								    		<%= if education.end_at? then " hasta " +education.end_at.strftime("%Y") end%>
+								    </small></p>		
 								    <small><%= if !education.description.nil? then education.description end %></small>
 								    <h5><small> <%= link_to "Edit", edit_polititian_education_path(@polititian.id, education.id) %> - <%= link_to "Delete", polititian_education_path(@polititian.id, education.id), method: :delete, confirm: "Are you sure?" %> </small></h5>
 								</li>   
@@ -120,14 +120,16 @@
 							    <li class="well">
 								    <h4>
 								    	<strong>
+								    		<% if job.currently_work_here %>
+								    			<span class="label label-primary">PUESTO ACTUAL</span>
+								    		<%end%>
 								    		<%= job.position %>
 								    		<% if job.salary %>
 								    			<span class="label label-default"><%= number_with_delimiter(job.salary) %> € año</span>
-								    			<span class="label label-primary">PUESTO ACTUAL</span> 
 								    		<% end %>
 								    </strong>
 								    </h4>
-									<P>
+									<p>
 										<strong><%= job.employer %></strong>
 										<small><%= if job.start_at? then "desde " + job.start_at.strftime("%Y") end%>
 							    	<%= if job.end_at? then "hasta " + job.end_at.strftime("%Y") end%></small>
@@ -140,11 +142,10 @@
 							<!-- Exams -->
 							<% @exams.each do |exam| %>
 							    <li class="well">
-								    <h4></strong><span class="label label-success">OPOSICIONES</span> <%= exam.title%>
-								    	<small>
-								    		<%= if exam.date? then "(" + exam.date.strftime("%Y") + ")" end%> 
-								    	</small>
-								    </h4>
+								    <h4></strong><span class="label label-success">OPOSICIONES</span> <%= exam.title%></h4>
+								    <p>	<small>
+								    		<%= if exam.date? then exam.date.strftime("%Y") end%> 
+								    	</small></p>
 								    <small><%= if !exam.description.nil? then exam.description end %></small>
 									<h5><small><%= link_to "Edit", edit_polititian_exam_path(@polititian.id, exam.id) %> - <%= link_to "Delete", polititian_exam_path(@polititian.id, exam.id), method: :delete, confirm: "Are you sure?" %></small></h5>
 								</li>   
