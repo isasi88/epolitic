@@ -37,6 +37,14 @@ body {
 }
 
 
+/* TOP MENU
+-------------------------------------------------- */
+
+.logo {
+	display: inline-block;
+	margin-top: 8px;
+}
+
 
 
 /* STICKY FOOTER STYLES
