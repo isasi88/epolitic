@@ -24,6 +24,7 @@ class PolititiansController < ApplicationController
 
 	def new
 		@polititian = Polititian.new
+		1.times { @polititian.groups.build}
 	end
 
 	def create
