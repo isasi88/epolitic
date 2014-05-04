@@ -1,3 +1,5 @@
+<%= params %>
+
 <%= form_for (@polititian), :html => {:multipart => true, :class => "form-horizontal", :role =>"form"} do |f| %>
 
 	<div class="form-group">
@@ -14,11 +16,11 @@
 	  </div>
 	</div>
 
-	<%= fields_for :groups do |g| %>
+	<%= f.fields_for :affiliations do |af| %>
 		<div class="form-group">
-		  <%= g.label :id, "Partido político(*)", class: "control-label col-sm-4" %>
+		  <%= af.label :group_id, "Partido político(*)", class: "control-label col-sm-4" %>
 		  <div class="col-sm-8", >
-			  <%= g.select :id, [1,2], {}, {class: "form-control"} %>
+				<%= af.collection_select :group_id, Group.all, :id, :name, {}, { :class => 'form-control' } %>
 		  </div>
 		</div>
 	<% end %>	

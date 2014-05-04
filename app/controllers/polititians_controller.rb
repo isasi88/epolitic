@@ -24,7 +24,7 @@ class PolititiansController < ApplicationController
 
 	def new
 		@polititian = Polititian.new
-		1.times { @polititian.groups.build}
+		1.times { @polititian.affiliations.build }
 	end
 
 	def create
@@ -59,7 +59,7 @@ class PolititiansController < ApplicationController
 	end
 	
 	def entry_params
-		params.require(:polititian).permit(:id, :first_name, :last_name, :political_position, :political_position_start_at, :political_position_end_at, :avatar, :remote_avatar_url)
+		params.require(:polititian).permit(:id, :first_name, :last_name, :political_position, :political_position_start_at, :political_position_end_at, :avatar, :remote_avatar_url, :affiliations_attributes => [:group_id, :polititian_id] )
 	end
 
 end
