@@ -7,10 +7,10 @@ class SiteController < ApplicationController
 	def about_us
 	end
 
-	def volunteer
+	def join_us
 	end
 
-	def team
+	def press
 	end
 
 
