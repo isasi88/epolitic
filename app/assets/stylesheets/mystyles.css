@@ -6,6 +6,9 @@
 	background-color: #efefef;
 }
 
+.inline-block{
+	display: inline-block;
+}
 
 body {
   /* Margin bottom by footer height */
@@ -92,7 +95,7 @@ html {
 .search-bar-absolute {
 	position: absolute;
 	left: 35%; 
-	top: 65%;
+	top: 55%;
 	z-index: 2;
 
 	background-color: rgba(0,0,0,.6);	

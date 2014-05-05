@@ -3,7 +3,7 @@
   	<div class="search-bar-absolute">
       <%= form_tag polititians_path, method: :get, :class => "navbar-form navbar-left", :role => "search" do %>
         <div class="form-group">
-            <%= text_field_tag :search, params[:search], class: "form-control input-lg", placeholder: "Search polititians" %>
+            <%= text_field_tag :search, params[:search], class: "form-control input-lg", placeholder: "Busca políticos" %>
         </div>
           <%= submit_tag "Search", name: nil, class: "btn btn-primary btn-lg" %>
       <% end %>
@@ -18,26 +18,26 @@
 
   <div class="carousel-inner">
     <div class="item active img-shadow">
+      <%= image_tag("carrousel1.png")%>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>¿Qué preparación tienen los candidatos a las próximas elecciones?</h1>
+        </div>
+      </div>
+    </div>
+    <div class="item img-shadow">
       <%= image_tag("carrousel3.png")%>
       <div class="container">
         <div class="carousel-caption">
-          <h1>Busca los CVs de tus políticos</h1>
+          <h1>¿Estamos eligiendo a nuestros mejores ciudadanos para representarnos?</h1>
         </div>
       </div>
     </div>
     <div class="item img-shadow">
-      <%= image_tag("carrousel2.png")%>
+      <%= image_tag("carrousel2.png") %>
       <div class="container">
         <div class="carousel-caption">
-          <h1>Selecciona a los mejores políticos</h1>
-        </div>
-      </div>
-    </div>
-    <div class="item img-shadow">
-      <%= image_tag("carrousel1.png") %>
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>Los políticos más preparados lo harán mejor</h1>
+          <h1>¿Quienes son nuestros representantes políticos?</h1>
         </div>
       </div>
     </div>
@@ -52,21 +52,21 @@
       <div class="row">
         <div class="col-lg-4">
           <%= image_tag("marketing1.gif", :alt => "", :class => "")%>
-          <h2>Political parties</h2>
-          <p>Check polititians by political party.</p>
-          <p><a class="btn btn-success" href="http://getbootstrap.com/examples/carousel/#" role="button">See polititians »</a></p>
+          <h2>Partidos políticos</h2>
+          <p>Políticos por partido.</p>
+          <p><a class="btn btn-success" href="http://getbootstrap.com/examples/carousel/#" role="button">Ver »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <%= image_tag("marketing2.gif", :alt => "", :class => "")%>
-          <h2>Institutions</h2>
-          <p>Check polititians by institutions.</p>
-          <p><a class="btn btn-success" href="http://getbootstrap.com/examples/carousel/#" role="button">See polititians »</a></p>
+          <h2>Instituciones</h2>
+          <p>Políticos por institución.</p>
+          <p><a class="btn btn-success" href="http://getbootstrap.com/examples/carousel/#" role="button">Ver »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <%= image_tag("marketing3.gif", :alt => "", :class => "")%>
-          <h2>Elections</h2>
-          <p>Check candidates for incoming electoral processes.</p>
-          <p><a class="btn btn-success" href="http://getbootstrap.com/examples/carousel/#" role="button">See polititians »</a></p>
+          <h2>Elecciones</h2>
+          <p>Políticos por cita electoral.</p>
+          <p><a class="btn btn-success" href="http://getbootstrap.com/examples/carousel/#" role="button">Ver »</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 </div>

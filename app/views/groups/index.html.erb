@@ -2,7 +2,7 @@
 
 <div class="row">
 	<div class="col-md-3">
-		<%= link_to '<span class="glyphicon glyphicon-plus"></span> Add a group'.html_safe, new_group_path, :class => "btn btn-primary btn-lg" %>
+		<%= link_to '<span class="glyphicon glyphicon-plus"></span> Añadir partido político'.html_safe, new_group_path, :class => "btn btn-primary btn-lg" %>
 	</div>
 	<div class="col-md-9">
 		<ul class="list-group">		
@@ -15,14 +15,12 @@
 					  		<%= image_tag group.avatar %>
 					    </div>
 					  </div>
-					  <div class="col-md-8">
-					  	<h4>
-					  		<%=group.name%>
-					  	</h4>
-					  	<p><%= calculate_group_count(group)%> polititians in ePolitic.org of which:</p>					  	
+					  <div class="col-md-8 inline-block">
+					  	<h4><%=group.name%><small> &nbsp;(<%= calculate_group_count(group)%> políticos en ePolitic.org)</small></h4>
+					  </br>
 					  	<div class = "row">
 					  		<div class ="col-md-5 text-right">
-					  			<p>Have higher education <span class="glyphicon glyphicon-book"></p>
+					  			<p>Con titulación <span class="glyphicon glyphicon-book"></p>
 					  		</div>
 					  		<div class ="col-md-5">
 								<div class="progress">
@@ -39,7 +37,7 @@
 
 					  	<div class = "row">
 					  		<div class ="col-md-5 text-right">
-					  			<p>Have a previous career <span class="glyphicon glyphicon-euro"></p>
+					  			<p>Con carrera profesional <span class="glyphicon glyphicon-euro"></p>
 					  		</div>
 					  		<div class ="col-md-5">
 								<div class="progress">
@@ -57,8 +55,8 @@
 					  </div>
 					  <div class="col-md-2">
 						  <h4><small>
-						  	<%= link_to("Delete", group_path(group), method: :delete, confirm: 'Are you sure?')%>
-						  	<%= link_to("Edit", edit_group_path(group))%>
+						  	<%= link_to("Editar", edit_group_path(group))%>
+						  	<%= link_to("Borrar", group_path(group), method: :delete, confirm: 'Are you sure?')%>
 						  </small></h4>
 					  </div>
 					</div>

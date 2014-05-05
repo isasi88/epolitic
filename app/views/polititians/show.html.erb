@@ -11,9 +11,9 @@
 	<div class="text-right">
 		<h4>
 				<small>Añadir datos:</small> 
-				<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal-trial"><span class="glyphicon glyphicon-plus"></span> Juicio</button>
-				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal-education"><span class="glyphicon glyphicon-plus"></span> Carrera</button>
-				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal-job"><span class="glyphicon glyphicon-plus"></span> Empleo</button>
+				<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal-trial"><span class="glyphicon glyphicon-plus"></span> Imputación</button>
+				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal-education"><span class="glyphicon glyphicon-plus"></span> Titulación</button>
+				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal-job"><span class="glyphicon glyphicon-plus"></span> Experiencia profesional o política</button>
 				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal-public-exam"><span class="glyphicon glyphicon-plus"></span> Oposición</button>
 		</h4>		
 	</div>
@@ -72,7 +72,7 @@
 
 				<div class="row">
 					<div class="col-md-offset-1 col-md-10">
-						<h4><small><%= if @polititian.educations.count == 0 then "No higher education."end %></small></h4>
+						<h4><small><%= if @polititian.educations.count == 0 then "No se le conocen titulaciones."end %></small></h4>
 						<ul class = "no-bullets-list">
 							<% @educations.each do |education| %>
 							    <li class="well">
@@ -111,7 +111,7 @@
 
 				<div class="row">
 					<div class="col-md-offset-1 col-md-10">
-						<h4><small><%= if (@polititian.jobs.non_political_jobs.count + @polititian.exams.count) == 0 then "No professional experience outside politics."end %></small></h4>
+						<h4><small><%= if (@polititian.jobs.non_political_jobs.count + @polititian.exams.count) == 0 then "No se le conoce experiencia profesional fuera de la política."end %></small></h4>
 						<ul class = "no-bullets-list">
 
 							<!-- Non Political Jobs -->
@@ -172,7 +172,7 @@
 
 				<div class="row">
 					<div class="col-md-offset-1 col-md-10">
-						<h4><small><%= if @polititian.jobs.political_jobs.count == 0 then "Sin datos sobre vida política." end %></small></h4>
+						<h4><small><%= if @polititian.jobs.political_jobs.count == 0 then "No cuenta con actividad política en ePolitic.org." end %></small></h4>
 						<ul class = "no-bullets-list">
 							<% @jobs.each do |job| %>
 								<% if job.political_employer %>
