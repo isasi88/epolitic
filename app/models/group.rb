@@ -4,6 +4,5 @@ class Group < ActiveRecord::Base
 
 	has_many :polititians
 	validates :name, presence: true
-	validates :avatar, presence: true
 
 end

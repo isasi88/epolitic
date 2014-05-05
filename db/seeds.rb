@@ -10,3 +10,6 @@
 #50.times do |i|
 #	Polititian.create name: "Nombre#{i}", last_name:"Apellido#{i}"
 #end
+
+Group.create(name: "Partido Popular")
+Group.create(name: "PSOE")

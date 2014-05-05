@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20140402184847) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
-    t.integer  "group_type"
     t.string   "description"
     t.string   "avatar"
     t.datetime "created_at"
