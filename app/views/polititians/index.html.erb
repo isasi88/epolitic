@@ -23,16 +23,7 @@
 					  	<h4>
 					  		<%=link_to "#{polititian.first_name} #{polititian.last_name}", polititian_path(polititian)%>
 					  	</h4>					  	
-					  	<h5> <%= if polititian.groups.count != 0 then polititian.groups.first.name end %> </h5>
-					  	<h5>
-					  		<%= polititian.political_position %>
-					  	</h5>
-						<p>	
-							<%= if polititian.political_position_start_at? then polititian.political_position_start_at.strftime("%Y") end %>
-							<%= if polititian.political_position_end_at? then " - " end %>
-
-							<%= if polititian.political_position_end_at? then polititian.political_position_end_at.strftime("%Y") end %>
-						</p>
+					  	<h5> <%= polititian.group.name %> </h5>
 						<p>
 						  	<%if polititian.educations.count == 0 %>
 							  	<span class="label label-danger"><span class="glyphicon glyphicon-book"></span> No higher education</span>

@@ -58,7 +58,7 @@ class PolititiansController < ApplicationController
 	end
 	
 	def entry_params
-		params.require(:polititian).permit(:id, :first_name, :last_name, :political_position, :political_position_start_at, :political_position_end_at, :avatar, :remote_avatar_url, :group_id,  :affiliations_attributes => [:institution_id, :polititian_id] )
+		params.require(:polititian).permit(:id, :first_name, :last_name, :avatar, :remote_avatar_url, :group_id,  :affiliations_attributes => [:institution_id, :polititian_id] )
 	end
 
 end
