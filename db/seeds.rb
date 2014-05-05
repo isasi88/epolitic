@@ -13,3 +13,4 @@
 
 Group.create(name: "Partido Popular")
 Group.create(name: "PSOE")
+
