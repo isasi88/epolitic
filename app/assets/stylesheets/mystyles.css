@@ -1,5 +1,5 @@
 .fake-class{
-	
+
 }
 
 .background-body {
@@ -7,7 +7,7 @@
 }
 
 
-.margin-body {
+body {
   /* Margin bottom by footer height */
   margin-bottom: 160px;
 }
@@ -59,7 +59,7 @@
 
 /* STICKY FOOTER STYLES
 -------------------------------------------------- */
-.relative-html {
+html {
   position: relative;
   min-height: 100%;
 }
