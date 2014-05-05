@@ -17,16 +17,14 @@
 			</h4>
 			<ul class="no-bullets-list">
 				<li>
-					<% @polititian_groups.each do |group| %>
-						<div class="row">
-							<div class="col-md-2">
-								<span class="thumbnail img-responsive"><%=image_tag group.avatar%></span>
-							</div>
-							<div class="col-md-10">
-								<h5><%= group.name%></h5>
-							</div>
-						</div>	
-					<%end%>
+					<div class="row">
+						<div class="col-md-2">
+							<span class="thumbnail img-responsive"><%=image_tag @polititian.group.avatar%></span>
+						</div>
+						<div class="col-md-10">
+							<h5><%= @polititian.group.name%></h5>
+						</div>
+					</div>	
 				</li>
 				<li>
 					<small><span class="text-muted glyphicon glyphicon-book"></span></small>

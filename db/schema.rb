@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140402184847) do
 
   create_table "affiliations", force: true do |t|
     t.integer  "polititian_id"
-    t.integer  "group_id"
+    t.integer  "institution_id"
     t.date     "start_at"
     t.date     "end_at"
     t.datetime "created_at"
@@ -72,10 +72,8 @@ ActiveRecord::Schema.define(version: 20140402184847) do
   create_table "polititians", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "political_position"
-    t.date     "political_position_start_at"
-    t.date     "political_position_end_at"
     t.string   "avatar"
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

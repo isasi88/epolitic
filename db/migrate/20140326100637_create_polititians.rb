@@ -4,10 +4,8 @@ class CreatePolititians < ActiveRecord::Migration
 
   	  t.string :first_name
     	t.string :last_name
-    	t.string :political_position
-    	t.date :political_position_start_at
-    	t.date :political_position_end_at
       t.string :avatar
+      t.integer :group_id
       t.timestamps
     end
   end

@@ -2,8 +2,7 @@ class Group < ActiveRecord::Base
 
 	mount_uploader :avatar, GroupAvatarUploader
 
-	has_many :affiliations, :dependent => :destroy
-	has_many :polititians, through: :affiliations
+	has_many :polititians
 	validates :name, presence: true
 
 end
