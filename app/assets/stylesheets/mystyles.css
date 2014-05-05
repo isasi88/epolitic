@@ -1,5 +1,11 @@
-.background {
+.background-body {
 	background-color: #efefef;
+}
+
+
+.margin-body {
+  /* Margin bottom by footer height */
+  margin-bottom: 160px;
 }
 
 .box {
@@ -49,14 +55,12 @@
 
 /* STICKY FOOTER STYLES
 -------------------------------------------------- */
-html {
+.relative-html {
   position: relative;
   min-height: 100%;
 }
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 160px;
-}
+
+
 #footer {
   position: absolute;
   bottom: 0;
