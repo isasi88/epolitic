@@ -1,5 +1,7 @@
 <%= form_for (@institution), :html => {:multipart => true, :class => "form-horizontal", :role =>"form"} do |f| %>
 
+	<%= params %>
+
 	<div class="form-group">
 	  <%= f.label :name, "Nombre(*)", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
@@ -40,10 +42,16 @@
 	  <div class="col-sm-9", >
 		  <%= f.text_area :description, class: "form-control",placeholder: "Descripción" %>
 	  </div>
-
 	</div>
-	<div class="form-group">
 
+	<div class="form-group">
+	  <%= f.fields_for :affiliations do |aff| %>
+	  <%= aff.label :polititian_id, "Político", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9", >
+
+		<%= aff.collection_select(:polititian_id, Polititian.all, :id, :full_name,{}, { :class => 'form-control' }) %>
+	  </div>
+	  <%end%>
 	</div>
 
 	<div class="form-group">

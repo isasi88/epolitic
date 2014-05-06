@@ -9,6 +9,7 @@ class InstitutionsController < ApplicationController
 
 	def new
 		@institution = Institution.new
+		@institution.affiliations.build
 	end
 
 	def create
@@ -43,7 +44,7 @@ class InstitutionsController < ApplicationController
 	end
 	
 	def entry_params
-		params.require(:institution).permit(:id, :name, :start_at, :end_at, :salary, :avatar, :remote_avatar_url, :description )
+		params.require(:institution).permit(:id, :name, :start_at, :end_at, :salary, :avatar, :remote_avatar_url, :description, :affiliations_attributes => [:institution_id, :polititian_id] )
 	end
 
 end
