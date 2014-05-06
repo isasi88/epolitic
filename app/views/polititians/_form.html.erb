@@ -35,7 +35,7 @@
 	  <%= f.fields_for :affiliations do |aff| %>
 	  <%= aff.label :institution_id, "Institution", class: "control-label col-sm-4" %>
 	  <div class="col-sm-8", >
-		  <%= aff.text_field :institution_id, class: "form-control"%>
+		<%= aff.collection_select :institution_id, Institution.all, :id, :name, {}, { :class => 'form-control' } %>
 	  </div>
 	  <%end%>
 	</div>

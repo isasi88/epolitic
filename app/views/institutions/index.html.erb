@@ -1,0 +1,68 @@
+<h1 class="bottom-separation">Institutions</h1>
+
+<div class="row">
+	<div class="col-md-3">
+		<%= link_to '<span class="glyphicon glyphicon-plus"></span> Añadir institución'.html_safe, new_institution_path, :class => "btn btn-primary btn-lg" %>
+	</div>
+	<div class="col-md-9">
+		<ul class="list-group">		
+			<% @institutions.each do |institution| %>
+
+				<li class="list-group-item">				 
+					<div class="row">
+					  <div class="col-md-2">
+					  	<div class= "thumbnail">
+					  		<%= image_tag institution.avatar %>
+					    </div>
+					  </div>
+					  <div class="col-md-8 inline-block">
+					  	<h4><%=institution.name%><small> &nbsp;(<%= calculate_institution_count(institution)%> políticos en ePolitic.org)</small></h4>
+					  </br>
+					  	<div class = "row">
+					  		<div class ="col-md-5 text-right">
+					  			<p>Con titulación <span class="glyphicon glyphicon-book"></p>
+					  		</div>
+					  		<div class ="col-md-5">
+								<div class="progress">
+								  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=calculate_institution_education(institution)%> %;">
+								    <span class="sr-only">60% Complete</span>
+								  </div>
+								</div>								
+							</div>
+							<div class="col-md-2">
+								<p><%=calculate_institution_education(institution).round(0)%> %</p>
+							</div>
+
+						</div>	
+
+					  	<div class = "row">
+					  		<div class ="col-md-5 text-right">
+					  			<p>Con carrera profesional <span class="glyphicon glyphicon-euro"></p>
+					  		</div>
+					  		<div class ="col-md-5">
+								<div class="progress">
+								  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=calculate_institution_job(institution)%>%;">
+								    <span class="sr-only">60% Complete</span>
+								  </div>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<p><%=calculate_institution_job(institution).round(0)%> %</p>
+							</div>
+						</div>
+
+
+					  </div>
+					  <div class="col-md-2">
+						  <h4><small>
+						  	<%= link_to("Editar", edit_institution_path(institution))%>
+						  	<%= link_to("Borrar", institution_path(institution), method: :delete, confirm: 'Are you sure?')%>
+						  </small></h4>
+					  </div>
+					</div>
+				</li>
+
+			<%end%>
+		</ul>
+	</div>
+</div>

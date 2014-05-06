@@ -1,0 +1,54 @@
+<%= form_for (@institution), :html => {:multipart => true, :class => "form-horizontal", :role =>"form"} do |f| %>
+
+	<div class="form-group">
+	  <%= f.label :name, "Nombre(*)", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9", >
+		  <%= f.text_field :name, class: "form-control", placeholder: "Nombre" %>
+	  </div>
+	</div>	
+
+	<div class="form-group">
+	  <%= f.label :avatar, "Avatar", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9", >
+		  <%= f.file_field :avatar, class: "form-control"%>
+	  </div>
+	</div>
+
+	<div class="form-group">
+	  <%= f.label :start_at, "Years (from - to)", class: "control-label col-sm-3" %>
+	  <div class="col-sm-2 form-inline">
+			  <%= f.date_select :start_at,
+			  {:include_blank => "true", :discard_day => "true",:discard_month => "true", :start_year => 1960, :end_year => Date.today.year + 2},
+			  {:class => "form-control col-sm-6"} %>
+	  </div>
+	  <div class="col-sm-2 form-inline hide-if-checked">
+			  <%= f.date_select :end_at,
+			  {:include_blank => "true", :discard_day => "true", :discard_month => "true", :start_year => 1960, :end_year => Date.today.year  + 4},
+			  {:class => "form-control col-sm-6"} %>			  
+	  </div>
+	 </div>	  
+
+	<div class="form-group">
+	  <%= f.label :salary, "Yearly salary", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9", >
+		  <%= f.text_field :salary, class: "form-control", placeholder: "Salary" %>
+	  </div>
+	</div>
+
+	<div class="form-group">
+	  <%= f.label :description, "Descripción", class: "control-label col-sm-3" %>
+	  <div class="col-sm-9", >
+		  <%= f.text_area :description, class: "form-control",placeholder: "Descripción" %>
+	  </div>
+
+	</div>
+	<div class="form-group">
+
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-10">
+	  		<%= f.submit class: "btn btn-default" %>
+		</div> 
+	</div>	
+<% end %>
