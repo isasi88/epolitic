@@ -2,13 +2,51 @@
 <html>
 	<head>
 	  <title>ePolitic.org</title>
-	  <%= stylesheet_link_tag    "application", media: "all" %>
 	  <%= javascript_include_tag "application" %>
+	  <%= stylesheet_link_tag    "application", media: "all" %>
 	  <%= csrf_meta_tags %>
+	  <%= favicon_link_tag 'favicon.ico' %>
+
+	  	<!-- SHARE THIS TAGS -->
+		<script type="text/javascript">var switchTo5x=true;</script>
+		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+		<script type="text/javascript">stLight.options({publisher: "dfb3bfd2-579e-4e27-a0ba-53b76a2d3a00", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>
 	</head>
 
-	<body>
-		<%= render partial: 'menu' %>
+	<body class="">
+
+		<!-- GOOGLE TAG MANAGER -->
+		<!-- Google Tag Manager -->
+		<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TPTBRZ"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-TPTBRZ');</script>
+		<!-- End Google Tag Manager -->
+
+		<!-- FACEBOOK SDK CODE -->
+	    <div id="fb-root"></div>
+	    <script>
+	      window.fbAsyncInit = function() {
+	        FB.init({
+	          appId      : '{426792077458193}',
+	          status     : true,
+	          xfbml      : true
+	        });
+	      };
+
+	      (function(d, s, id){
+	         var js, fjs = d.getElementsByTagName(s)[0];
+	         if (d.getElementById(id)) {return;}
+	         js = d.createElement(s); js.id = id;
+	         js.src = "//connect.facebook.net/en_US/all.js";
+	         fjs.parentNode.insertBefore(js, fjs);
+	       }(document, 'script', 'facebook-jssdk'));
+	    </script>
+
+		<%= render 'menu' %>
 		<%= flash_message %>
 		<%= yield %>
 		<%= render partial: 'footer' %>
