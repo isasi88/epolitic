@@ -24,6 +24,7 @@ class PolititiansController < ApplicationController
 
 	def new
 		@polititian = Polititian.new
+		@polititian.affiliations.build
 	end
 
 	def create

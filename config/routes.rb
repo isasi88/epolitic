@@ -17,6 +17,7 @@ Cvpolitics::Application.routes.draw do
   end
 
   resources :groups
+  resources :institutions
 
 
   # The priority is based upon order of creation: first created -> highest priority.

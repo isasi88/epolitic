@@ -8,7 +8,8 @@ class Polititian < ActiveRecord::Base
 	has_many :exams
 	belongs_to :group
 	has_many :affiliations
-	accepts_nested_attributes_for :affiliations, :reject_if => proc {|attrs| attrs['group_id'].blank? }
+	has_many :institutions, through: :affiliations
+	accepts_nested_attributes_for :affiliations, :reject_if => proc {|attrs| attrs['institution_id'].blank? }
 	validates :first_name, presence: true
 	validates :last_name, presence: true
 
