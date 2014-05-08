@@ -1,7 +1,9 @@
 class PolititiansController < ApplicationController
 
 	def index
-		@polititians = Polititian.search(params[:search])
+		@polititians = Polititian.where(nil) # creates an anonymous scope
+#		@polititians = @polititians.filter_by_group_id(params[:group_id_input]) if params[:group_id_input].present?
+		@polititians = @polititians.search(params[:search_input]) if params[:search_input].present?
 	end
 
 	def show

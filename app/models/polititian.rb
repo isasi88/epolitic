@@ -15,17 +15,22 @@ class Polititian < ActiveRecord::Base
 
 
 
-	def self.search(text)
-		if text
-			Polititian.where("first_name LIKE ?", "%#{text}%")
-		else
-			Polititian.all
-		end
-	end
-
+#	def self.search(text)
+#		if text
+#			Polititian.where("first_name LIKE ?", "%#{text}%")
+#		else
+#			Polititian.all
+#		end
+#	end
 
 	def full_name
 	    "#{first_name} #{last_name}"
 	end
+
+
+	scope :filter_by_group_id, ->(input) { where("group_id < ?", input)}
+	scope :search, ->(input) { where("first_name LIKE ? or last_name LIKE ? or concat(last_name, ', ', first_name) LIKE ?", "%#{input}%", "%#{input}%" , "%#{input}%")}
+
+
 
 end
