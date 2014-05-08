@@ -19,7 +19,7 @@
 					  	<h4>
 							<%=institution.name %>
 					  		<small> &nbsp;
-					  			<%=link_to "(#{calculate_institution_count(institution)} políticos en ePolitic.org)", polititians_path(:institution_id_input => {:institution_id => institution.id},:group_id_input => {:group_id => "" }) %>
+					  			<%=link_to "(#{calculate_institution_count(institution)} políticos en ePolitic.org)", polititians_path(:institution_id_input => {:institution_id => institution.id}) %>
 					  		</small>
 					  	</h4>
 					  </br>

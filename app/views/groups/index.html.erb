@@ -17,14 +17,12 @@
 					  </div>
 					  <div class="col-md-8 inline-block">
 					  	<h4>
-
 							<%=group.name %>
-
 					  		<small> &nbsp;
+					  			<%=link_to "(#{calculate_group_count(group)} políticos en ePolitic.org)", polititians_path(:group_id_input => {:group_id => group.id }) %>
 
-					  			<%=link_to "(#{calculate_group_count(group)} políticos en ePolitic.org)", polititians_path(:institution_id_input => {:institution_id => ""},:group_id_input => {:group_id => group.id }) %>
-
-					  			</small></h4>
+					  		</small>
+					  	</h4>
 					  </br>
 					  	<div class = "row">
 					  		<div class ="col-md-5 text-right">
