@@ -20,7 +20,7 @@ class Polititian < ActiveRecord::Base
 
 
 	scope :filter_by_group_id, ->(input) { where("group_id = ?", input)}
-	scope :search, ->(input) { where("first_name LIKE ? or last_name LIKE ? or concat(last_name, ', ', first_name) LIKE ?", "%#{input}%", "%#{input}%" , "%#{input}%")}
 	scope :filter_by_institution_id, ->(input) { joins(:institutions).where("institution_id = ?", input)}
+	scope :search, ->(input) { where("first_name LIKE ? or last_name LIKE ? or concat(first_name, ' ', last_name) LIKE ?", "%#{input}%", "%#{input}%", "%#{input}%")}
 
 end
