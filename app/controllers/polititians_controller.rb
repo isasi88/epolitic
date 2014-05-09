@@ -8,7 +8,7 @@ class PolititiansController < ApplicationController
 
 		respond_to do |format|  
 	      format.html # index.html.erb  
-	      format.json { render :json => @polititians.map{|p| p.first_name + " " +p.last_name}.to_json }
+	      format.json { render :json => @polititians.map{|p| Hash.new.merge("label" => p.full_name, "value" => p.id)}.to_json}
 	    end 
 
 	end
