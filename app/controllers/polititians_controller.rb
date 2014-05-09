@@ -4,7 +4,13 @@ class PolititiansController < ApplicationController
 		@polititians = Polititian.where(nil) # creates an anonymous scope
 		if params[:group_id_input] then	@polititians = @polititians.filter_by_group_id(params[:group_id_input][:group_id]) if params[:group_id_input][:group_id].present? end
 		if params[:institution_id_input] then @polititians = @polititians.filter_by_institution_id(params[:institution_id_input][:institution_id]) if params[:institution_id_input].present? end
-		@polititians = @polititians.search(params[:search_input]) if params[:search_input].present?
+		@polititians = @polititians.search(params[:term]) if params[:term].present?
+
+		respond_to do |format|  
+	      format.html # index.html.erb  
+	      format.json { render :json => @polititians.map{|p| p.first_name + " " +p.last_name}.to_json }
+	    end 
+
 	end
 
 	def show

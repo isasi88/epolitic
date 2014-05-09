@@ -38,7 +38,7 @@ group :development, :test do
 end
 
 gem 'carrierwave'
-
+gem 'jquery-ui-rails'
 gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password

@@ -14,15 +14,6 @@ class Polititian < ActiveRecord::Base
 	validates :last_name, presence: true
 
 
-
-#	def self.search(text)
-#		if text
-#			Polititian.where("first_name LIKE ?", "%#{text}%")
-#		else
-#			Polititian.all
-#		end
-#	end
-
 	def full_name
 	    "#{first_name} #{last_name}"
 	end
