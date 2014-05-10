@@ -1,0 +1,28 @@
+<%= params %>
+<h1 class="bottom-separation"><%= @institution.name %></h1>
+
+<div class="row">
+	<%= form_for (@affiliation), :html => {:multipart => true, :class => "form-horizontal", :role =>"form"} do |f| %>
+		<div class="col-md-9 form-group">
+		  <%= f.label :polititian_id, "", class: "control-label col-sm-3" %>
+		  <div class="col-sm-9", >
+			  <%= f.text_field :polititian_id, class: "form-control", placeholder: "Id político" %>
+		  </div>
+		</div>
+		<%= f.text_field :institution_id, class: "hidden", value: "#{@institution.id}" %>
+		<div class="col-md-3">
+			<%= f.submit "Añadir políticos", class: "btn btn-primary" %>
+		</div>
+	<% end %>
+</div>
+
+<div class="row">
+	<% @polititians.each do |polititian| %>
+	<ul>
+		<li><%=polititian.full_name %>
+						<%= link_to("Borrar", affiliation_path(Affiliation.where("polititian_id = ? AND institution_id = ?", polititian.id, params[:id]).first), method: :delete, confirm: 'Are you sure?')%>
+
+		</li>
+	</ul>
+	<%end%>
+</div>
