@@ -12,6 +12,11 @@ class AffiliationsController < ApplicationController
 	end
 
 	def destroy
+		@affiliation = Affiliation.find params[:id]
+		@affiliation.destroy
+#		redirect_to request.referer
+		redirect_to :back
+		flash[:success] = "Polititian deleted succesfully."
 	end
 
 	def entry_params
