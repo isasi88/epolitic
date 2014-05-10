@@ -2,14 +2,14 @@
 // All this logic will automatically be available in application.js.
 
 $(document).ready(function(){
-    $('#select_origin').autocomplete({
-    	source: 'polititians.json',
+    $('#search_home').autocomplete({
+    	source: window.location.protocol + "//" + window.location.host + "/polititians.json",
     	select: function( event, ui ) {
-    		 $('#select_origin').val(ui.item.label);
+    		 $('#search_home').val(ui.item.label);
     		 return false;
     	},
     	focus: function( event, ui ) {
-    		 $('#select_origin').val(ui.item.label);
+    		 $('#search_home').val(ui.item.label);
     		 return false;
     	}
     });

@@ -49,6 +49,9 @@ body {
 	padding-right: 20px;
 }
 
+.bottom-align {
+	vertical-align: bottom;
+}
 
 /* TOP MENU
 -------------------------------------------------- */

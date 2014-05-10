@@ -13,11 +13,11 @@ Cvpolitics::Application.routes.draw do
     resources :jobs, only: [:create, :destroy, :edit, :update]
     resources :trials, only: [:create, :destroy, :edit, :update]
     resources :exams, only: [:create, :destroy, :edit, :update]
-    resources :affiliations, only: [:create, :destroy, :edit, :update]
   end
 
   resources :groups
   resources :institutions
+  resources :affiliations, only: [:create, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

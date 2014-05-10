@@ -17,7 +17,7 @@
 					  </div>
 					  <div class="col-md-8 inline-block">
 					  	<h4>
-							<%=institution.name %>
+					  		<%=link_to "#{institution.name}", institution_path(institution)%>
 					  		<small> &nbsp;
 					  			<%=link_to "(#{calculate_institution_count(institution)} políticos en ePolitic.org)", polititians_path(:institution_id_input => {:institution_id => institution.id}) %>
 					  		</small>
@@ -42,7 +42,7 @@
 
 					  	<div class = "row">
 					  		<div class ="col-md-5 text-right">
-					  			<p>Con carrera profesional <span class="glyphicon glyphicon-euro"></p>
+					  			<p>Con profesión <span class="glyphicon glyphicon-euro"></p>
 					  		</div>
 					  		<div class ="col-md-5">
 								<div class="progress">
@@ -55,11 +55,9 @@
 								<p><%=calculate_institution_job(institution).round(0)%> %</p>
 							</div>
 						</div>
-
-
 					  </div>
 					  <div class="col-md-2">
-						  <h4><small>
+						  <h4 class="bottom-align"><small>
 						  	<%= link_to("Editar", edit_institution_path(institution))%>
 						  	<%= link_to("Borrar", institution_path(institution), method: :delete, confirm: 'Are you sure?')%>
 						  </small></h4>

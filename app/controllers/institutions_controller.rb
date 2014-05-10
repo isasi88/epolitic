@@ -5,6 +5,9 @@ class InstitutionsController < ApplicationController
 	end
 
 	def show
+		@institution = Institution.find(params[:id])
+		@polititians = @institution.polititians
+		@affiliation = @institution.affiliations.build
 	end
 
 	def new
