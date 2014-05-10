@@ -1,13 +1,15 @@
 class AffiliationsController < ApplicationController
 
 	def create
-		polititian = Polititian.find(entry_params[:polititian_id])
-		affiliation = polititian.affiliations.build entry_params
-		if affiliation.save
+		@polititian = Polititian.find(entry_params[:polititian_id])
+		@affiliation = @polititian.affiliations.build entry_params
+		@institution = Institution.find(entry_params[:institution_id])
+		@polititians = @institution.polititians
+		if @affiliation.save
 			flash[:success] = "Affiliation created successfully."
-			redirect_to action: 'show', controller: 'institutions', id: affiliation.institution_id
+			redirect_to action: 'show', controller: 'institutions', id: @affiliation.institution_id
 		else
-			redirect_to action: 'show', controller: 'institutions', id: affiliation.institution_id
+			render "/institutions/show"
 		end
 	end
 

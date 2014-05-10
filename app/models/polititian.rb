@@ -2,12 +2,12 @@ class Polititian < ActiveRecord::Base
 
 	mount_uploader :avatar, PolititianAvatarUploader
 
-	has_many :educations
-	has_many :jobs
-	has_many :trials
-	has_many :exams
-	belongs_to :group
-	has_many :affiliations
+	has_many :educations, dependent: :destroy
+	has_many :jobs, dependent: :destroy
+	has_many :trials, dependent: :destroy
+	has_many :exams, dependent: :destroy
+	belongs_to :group, dependent: :destroy
+	has_many :affiliations, dependent: :destroy
 	has_many :institutions, through: :affiliations
 	accepts_nested_attributes_for :affiliations, :reject_if => proc {|attrs| attrs['institution_id'].blank? }
 	validates :first_name, presence: true
