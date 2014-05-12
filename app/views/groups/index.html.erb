@@ -1,9 +1,13 @@
-<h1 class="bottom-separation">Groups</h1>
+<h1 class="bottom-separation">Groups<%= link_to '<span class="glyphicon glyphicon-plus"></span> Añadir partido político'.html_safe, new_group_path, :class => "btn btn-primary btn-lg pull-right"%></h1>
 
 <div class="row">
+
+	<!-- FILTERS -->
 	<div class="col-md-3">
-		<%= link_to '<span class="glyphicon glyphicon-plus"></span> Añadir partido político'.html_safe, new_group_path, :class => "btn btn-primary btn-lg" %>
+		<%= render 'filters' %>
 	</div>
+
+	<!-- POLITITIANS MINI-PROFILES -->
 	<div class="col-md-9">
 		<ul class="list-group">		
 			<% @groups.each do |group| %>

@@ -7,19 +7,16 @@
 	          <span class="icon-bar"></span>
 	          <span class="icon-bar"></span>
 	        </button>
-
 	        <span class="logo">
 	        <%= link_to image_tag("logo.gif", :border => 0, :class => ""), {:action => 'home', :controller => 'site'} %>
 	        </span>
-
-
-	      </div>
-	    </niv>
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	    </div>
+	    <div class="collapse navbar-collapse">
 	      <ul class="nav navbar-nav">
-	        <li><%= link_to "Políticos", polititians_path %></li>
-	        <li><%= link_to "Partidos", groups_path %></li>
-	        <li><%= link_to "Elecciones", institutions_path %></li>
+	        <li class= <%= 'active' if current_page?(root_path) %> ><%= link_to "Inicio", root_path, class: "active" %></li>
+	        <li class= <%= 'active' if current_page?(polititians_path) %> ><%= link_to "Políticos", polititians_path, class: "active" %></li>
+	        <li class= <%= 'active' if current_page?(groups_path) %> ><%= link_to "Partidos", groups_path %></li>
+	        <li class= <%= 'active' if current_page?(institutions_path) %> ><%= link_to "Elecciones", institutions_path %></li>
 	      </ul>  
 		</div>
 	</div>

@@ -8,6 +8,7 @@ class InstitutionsController < ApplicationController
 		@institution = Institution.find(params[:id])
 		@polititians = @institution.polititians
 		@affiliation = @institution.affiliations.build
+		@groups = Group.all
 	end
 
 	def new

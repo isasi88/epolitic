@@ -1,17 +1,15 @@
-<h3>
-<div class="row">
+<div class="tabbable">
 	<ul class="nav nav-tabs">
 	  <li><a href="#institution_profile" data-toggle="tab">Profile "<%= @institution.name%>"</a></li>
-	  <li><a href="#institution_members" data-toggle="tab">Members</a></li>
+	  <li class="active"><a href="#institution_members" data-toggle="tab">Members</a></li>
 	</ul>
 </div>
-</h3>
 
 <div class="tab-content">
 	<div class="tab-pane active" id="institution_profile">
 		<%= render partial: 'institution_profile' %>
 	</div>
-	<div id="institution_members">
+	<div class="tab-pane" id="institution_members">
 		<%= render partial: 'institution_members' %>
 	</div>
 </div>
