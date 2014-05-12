@@ -20,7 +20,7 @@ class InstitutionsController < ApplicationController
 		@institution = Institution.new entry_params
 		if @institution.save
 			redirect_to action: 'index', controller: 'institutions'
-			flash[:success] = "Institution created successfully."
+			flash[:success] = "Cita electoral creada."
 		else
 			render 'new'
 		end
@@ -34,7 +34,7 @@ class InstitutionsController < ApplicationController
 		@institution = Institution.find params[:id]
 		if @institution.update_attributes(entry_params)
 			redirect_to action: 'index', controller: 'institutions'
-			flash[:success] = "Institution updated successfully."
+			flash[:success] = "Cita electoral editada."
 		else
 			render 'edit'
 		end	
@@ -44,7 +44,7 @@ class InstitutionsController < ApplicationController
 		@institution = Institution.find params[:id]
 		@institution.destroy
 		redirect_to action: 'index', controller: 'institutions'
-		flash[:success] = "Institution deleted succesfully."
+		flash[:success] = "Cita electoral borrada."
 	end
 	
 	def entry_params

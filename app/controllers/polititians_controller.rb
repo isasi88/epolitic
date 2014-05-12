@@ -40,7 +40,7 @@ class PolititiansController < ApplicationController
 		@polititian = Polititian.new entry_params
 		if @polititian.save
 			redirect_to action: 'show', controller: 'polititians', id: @polititian.id
-			flash[:success] = "Polititian created successfully."
+			flash[:success] = "Perfil creado."
 		else
 			render 'new'
 		end
@@ -54,7 +54,7 @@ class PolititiansController < ApplicationController
 		@polititian = Polititian.find params[:id]
 		if @polititian.update_attributes(entry_params)
 			redirect_to action: 'show', controller: 'polititians', id: @polititian.id
-			flash[:success] = "Polititian updated successfully."
+			flash[:success] = "Perfil editado."
 		else
 			render 'edit'
 		end	
@@ -64,7 +64,7 @@ class PolititiansController < ApplicationController
 		@polititian = Polititian.find params[:id]
 		@polititian.destroy
 		redirect_to action: 'index', controller: 'polititians'
-		flash[:success] = "Polititian deleted succesfully."
+		flash[:success] = "Perfil borrado."
 	end
 	
 	def entry_params

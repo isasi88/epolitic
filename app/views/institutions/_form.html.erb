@@ -1,7 +1,5 @@
 <%= form_for (@institution), :html => {:multipart => true, :class => "form-horizontal", :role =>"form"} do |f| %>
 
-	<%= params %>
-
 	<div class="form-group">
 	  <%= f.label :name, "Nombre(*)", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
@@ -10,14 +8,14 @@
 	</div>	
 
 	<div class="form-group">
-	  <%= f.label :avatar, "Avatar", class: "control-label col-sm-3" %>
+	  <%= f.label :avatar, "Foto", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
 		  <%= f.file_field :avatar, class: "form-control"%>
 	  </div>
 	</div>
 
 	<div class="form-group">
-	  <%= f.label :start_at, "Years (from - to)", class: "control-label col-sm-3" %>
+	  <%= f.label :start_at, "Años cargo", class: "control-label col-sm-3" %>
 	  <div class="col-sm-2 form-inline">
 			  <%= f.date_select :start_at,
 			  {:include_blank => "true", :discard_day => "true",:discard_month => "true", :start_year => 1960, :end_year => Date.today.year + 2},
@@ -31,9 +29,9 @@
 	 </div>	  
 
 	<div class="form-group">
-	  <%= f.label :salary, "Yearly salary", class: "control-label col-sm-3" %>
+	  <%= f.label :salary, "Sueldo anual", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
-		  <%= f.text_field :salary, class: "form-control", placeholder: "Salary" %>
+		  <%= f.text_field :salary, class: "form-control", placeholder: "Sueldo anual" %>
 	  </div>
 	</div>
 
@@ -45,18 +43,8 @@
 	</div>
 
 	<div class="form-group">
-	  <%= f.fields_for :affiliations do |aff| %>
-	  <%= aff.label :polititian_id, "Político", class: "control-label col-sm-3" %>
-	  <div class="col-sm-9", >
-
-		<%= aff.collection_select(:polititian_id, Polititian.all, :id, :full_name,{}, { :class => 'form-control' }) %>
-	  </div>
-	  <%end%>
-	</div>
-
-	<div class="form-group">
 		<div class="col-sm-offset-3 col-sm-10">
-	  		<%= f.submit class: "btn btn-default" %>
+	  		<%= f.submit class: "btn btn-primary" %>
 		</div> 
 	</div>	
 <% end %>

@@ -1,5 +1,3 @@
-<%= params %>
-
 <%= form_tag polititians_path, method: :get, :class => "", :role => "form" do %>
 
 	<div class="form-group">
@@ -12,5 +10,5 @@
 			<%= collection_select :institution_id_input, :institution_id, Institution.all, :id, :name, {include_blank: "Filtrar por institución", selected: params[:institutions_id].to_i}, { :class => 'form-control', :name => "institution_id" } %>
 		</div>
   <%= submit_tag "Filtrar", name: nil, class: "btn btn-primary btn-lg" %>
-  <%= link_to "Eliminar filtros", polititians_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to "Eliminar filtros", polititians_path %>
 <% end %>

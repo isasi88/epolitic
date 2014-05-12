@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
 		@group = Group.new entry_params
 		if @group.save
 			redirect_to action: 'index', controller: 'groups'
-			flash[:success] = "Group created successfully."
+			flash[:success] = "Partido creado."
 		else
 			render 'new'
 		end
@@ -33,7 +33,7 @@ class GroupsController < ApplicationController
 		@group = Group.find params[:id]
 		if @group.update_attributes(entry_params)
 			redirect_to action: 'index', controller: 'groups'
-			flash[:success] = "Group updated successfully."
+			flash[:success] = "Partido editado."
 		else
 			render 'edit'
 		end	
@@ -43,7 +43,7 @@ class GroupsController < ApplicationController
 		@group = Group.find params[:id]
 		@group.destroy
 		redirect_to action: 'index', controller: 'groups'
-		flash[:success] = "Group deleted succesfully."
+		flash[:success] = "Partido borrado."
 	end	
 
 	def entry_params

@@ -1,48 +1,31 @@
-<%= params %>
-
 <%= form_for (@polititian), :html => {:multipart => true, :class => "form-horizontal", :role =>"form"} do |f| %>
-
 	<div class="form-group">
-	  <%= f.label :first_name, "First name(*)", class: "control-label col-sm-4" %>
+	  <%= f.label :first_name, "Nombre(*)", class: "control-label col-sm-4" %>
 	  <div class="col-sm-8", >
-		  <%= f.text_field :first_name, class: "form-control", placeholder: "First name" %>
+		  <%= f.text_field :first_name, class: "form-control", placeholder: "Nombre" %>
 	  </div>
 	</div>	
-
 	<div class="form-group">
-	  <%= f.label :last_name, "Last name(*)", class: "control-label col-sm-4" %>
+	  <%= f.label :last_name, "Apellidos(*)", class: "control-label col-sm-4" %>
 	  <div class="col-sm-8", >
-		  <%= f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
+		  <%= f.text_field :last_name, class: "form-control", placeholder: "Apellidos" %>
 	  </div>
 	</div>
-
 	<div class="form-group">
 	  <%= f.label :group_id, "Partido político(*)", class: "control-label col-sm-4" %>
 	  <div class="col-sm-8", >
-		<%= f.collection_select :group_id, Group.all, :id, :name, {}, { :class => 'form-control' } %>
-
+		<%= f.collection_select :group_id, Group.all, :id, :name, {include_blank: "Selecciona partido político"}, { :class => 'form-control' } %>
 	  </div>
 	</div>
-
 	<div class="form-group">
-	  <%= f.label :avatar, "Avatar", class: "control-label col-sm-4" %>
+	  <%= f.label :avatar, "Foto", class: "control-label col-sm-4" %>
 	  <div class="col-sm-8", >
-		  <%= f.file_field :avatar, class: "form-control"%>
+		  <%= f.file_field :avatar, class: "form-control" %>
 	  </div>
 	</div>
-
 	<div class="form-group">
-	  <%= f.fields_for :affiliations do |aff| %>
-	  <%= aff.label :institution_id, "Institution", class: "control-label col-sm-4" %>
-	  <div class="col-sm-8", >
-		<%= aff.collection_select :institution_id, Institution.all, :id, :name, {}, { :class => 'form-control' } %>
-	  </div>
-	  <%end%>
-	</div>
-
-	<div class="form-group">
-		<div class="col-sm-offset-3 col-sm-10">
-	  		<%= f.submit class: "btn btn-default" %>
+		<div class="col-sm-offset-4 col-sm-8">
+	  		<%= f.submit class: "btn btn-primary"%>
 		</div> 
 	</div>	
 <% end %>
