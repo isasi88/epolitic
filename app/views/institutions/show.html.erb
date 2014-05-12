@@ -13,26 +13,24 @@
 
 <div class="row">
 	<%= form_for (@affiliation), :html => {:multipart => true, :class => "form-horizontal", :role =>"form"} do |f| %>
-		<div class="col-md-9 form-group">
-		  <%= f.label :polititian_id, "", class: "control-label col-sm-3" %>
-		  <div class="col-sm-9", >
-			  <%= f.text_field :polititian_id, class: "form-control", placeholder: "Id político" %>
-		  </div>
+		<div class="col-sm-offset-2 col-sm-5" >		
+			<%= f.text_field :polititian_id, class: "form-control", placeholder: "Añade políticos" %>
+			<%= f.text_field :institution_id, class: "hidden", value: "#{@institution.id}" %>
 		</div>
-		<%= f.text_field :institution_id, class: "hidden", value: "#{@institution.id}" %>
-		<div class="col-md-3">
+		<div class="col-sm-3" >		
 			<%= f.submit "Añadir políticos", class: "btn btn-primary" %>
 		</div>
 	<% end %>
 </div>
 
 <div class="row">
-	<% @polititians.each do |polititian| %>
-	<ul>
-		<li><%=polititian.full_name %>
-		<%= link_to("Borrar", affiliation_path(Affiliation.where("polititian_id = ? AND institution_id = ?", polititian.id, @institution.id).first), method: :delete, confirm: 'Are you sure?')%>
-
-		</li>
-	</ul>
-	<%end%>
+	<div class="col-sm-offset-2 col-sm-10" >
+		<% @polititians.each do |polititian| %>
+			<ul class="no-bullets-list">
+				<li><%=polititian.full_name %>
+				<%= link_to("Borrar polític@", affiliation_path(Affiliation.where("polititian_id = ? AND institution_id = ?", polititian.id, @institution.id).first), method: :delete, confirm: 'Are you sure?')%>
+				</li>
+			</ul>
+		<%end%>
+	</div>	
 </div>
