@@ -2,10 +2,9 @@
 
 	<div class="form-group">
 	</div>
-		<%= params %>
 		<div class="form-group">
 			<%= collection_select :institution_id_input, :institution_id, Institution.all, :id, :name, {include_blank: "Filtrar por cita electoral", selected: params[:institution_id].to_i}, { :class => 'form-control', :name => 'institution_id' } %>
 		</div>
   <%= submit_tag "Filtrar", name: nil, class: "btn btn-primary btn-lg" %>
-  <%= link_to "Eliminar filtros", polititians_path %>
+  <%= link_to "Eliminar filtros", groups_path %>
 <% end %>
