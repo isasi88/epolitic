@@ -1,7 +1,15 @@
 module GroupsHelper
 
+	def polititians_list(group)
+		if params[:institution_id].present?
+			group.polititians.filter_by_institution_id(params[:institution_id])
+		else
+			group.polititians
+		end
+	end
+
 	def calculate_group_count(group)
-		group.polititians.count
+		polititians_list(group).count
 	end
 
 	def calculate_group_education(group)
