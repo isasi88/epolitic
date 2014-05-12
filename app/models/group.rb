@@ -7,6 +7,5 @@ class Group < ActiveRecord::Base
 	validates :name, presence: true
 
 	scope :filter_by_institution_id, ->(input) { joins(:institutions).where("institution_id = ?", input)}
-	scope :search, ->(input) { where("name LIKE ?", "%#{input}%")}
 
 end
