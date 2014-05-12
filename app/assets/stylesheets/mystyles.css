@@ -49,9 +49,19 @@ body {
 	padding-right: 20px;
 }
 
-.bottom-align {
-	vertical-align: bottom;
+.h-iblock { display: inline-block; }
+
+.h-valign:before {
+  content:"";
+  height:100%;
+  display:inline-block;
+  vertical-align:middle;
 }
+
+.nav-tabs li.active a {
+	background-color: #efefef;
+}
+
 
 /* TOP MENU
 -------------------------------------------------- */
@@ -100,13 +110,12 @@ html {
 	left: 35%; 
 	top: 55%;
 	z-index: 2;
-
-	background-color: rgba(0,0,0,.6);	
-	border-radius: 5px;
-
-
 }
 
+.search-bar-border{
+	background-color: rgba(0,0,0,.6);	
+	border-radius: 5px;
+}
 
 
 /* CUSTOMIZE THE CAROUSEL

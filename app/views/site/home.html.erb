@@ -1,7 +1,7 @@
 <div id="myCarousel" class="carousel slide relative" data-ride="carousel">
 
     <!-- Search -->
-  	<div class="search-bar-absolute">
+  	<div class="search-bar-absolute search-bar-border">
       <%= form_tag polititians_path, method: :get, :class => "navbar-form navbar-left", :role => "search" do %>
         <div class="form-group">
             <%= text_field_tag :term, params[:term], class: "form-control input-lg", id: "search_home", placeholder: "Busca políticos" %>
