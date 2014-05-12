@@ -1,15 +1,19 @@
 class AffiliationsController < ApplicationController
 
 	def create
-		@polititian = Polititian.find(entry_params[:polititian_id])
-		@affiliation = @polititian.affiliations.build entry_params
-		@institution = Institution.find(entry_params[:institution_id])
-		@polititians = @institution.polititians
-		if @affiliation.save
-			flash[:success] = "Affiliation created successfully."
-			redirect_to action: 'show', controller: 'institutions', id: @affiliation.institution_id
+		if entry_params[:polititian_id].present?
+			@polititian = Polititian.find(entry_params[:polititian_id])
+			@affiliation = @polititian.affiliations.build entry_params
+			@institution = Institution.find(entry_params[:institution_id])
+			@polititians = @institution.polititians
+			if @affiliation.save
+				flash[:success] = "Perfil incluido."
+				redirect_to action: 'show', controller: 'institutions', id: @affiliation.institution_id
+			else
+				render "institutions/show"
+			end
 		else
-			render "/institutions/show"
+			redirect_to :back
 		end
 	end
 
@@ -18,7 +22,7 @@ class AffiliationsController < ApplicationController
 		@affiliation.destroy
 #		redirect_to request.referer
 		redirect_to :back
-		flash[:success] = "Polititian deleted succesfully."
+		flash[:success] = "Perfil borrado."
 	end
 
 	def entry_params
