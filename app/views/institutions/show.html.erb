@@ -14,14 +14,16 @@
 <div class="row">
 	<%= form_for (@affiliation), :html => {:multipart => true, :class => "form-horizontal", :role =>"form"} do |f| %>
 		<div class="col-sm-offset-2 col-sm-5" >		
-			<%= f.text_field :polititian_id, class: "form-control", placeholder: "Añade políticos" %>
+            <%= text_field_tag :term, params[:term], class: "form-control input-lg", id: "search_home", placeholder: "Busca políticos" %>
+			<%= f.text_field :polititian_id, class: "hidden", id:"polititian_id" %>
 			<%= f.text_field :institution_id, class: "hidden", value: "#{@institution.id}" %>
 		</div>
 		<div class="col-sm-3" >		
-			<%= f.submit "Añadir políticos", class: "btn btn-primary" %>
+			<%= f.submit "Añadir políticos", class: "btn btn-primary btn-lg" %>
 		</div>
 	<% end %>
 </div>
+</br>
 
 <div class="row">
 	<div class="col-sm-offset-2 col-sm-10" >

@@ -6,6 +6,7 @@ $(document).ready(function(){
     	source: window.location.protocol + "//" + window.location.host + "/polititians.json",
     	select: function( event, ui ) {
     		 $('#search_home').val(ui.item.label);
+             $('#polititian_id').val(ui.item.value);
     		 return false;
     	},
     	focus: function( event, ui ) {
