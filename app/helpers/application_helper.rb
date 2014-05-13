@@ -38,4 +38,12 @@ module ApplicationHelper
 		end
 	end
 
+	def edit_link(path)
+		link_to("<span class='glyphicon glyphicon-pencil'> Editar".html_safe, path)
+	end
+
+	def delete_link(path)
+		link_to("<span class='glyphicon glyphicon-trash'> Borrar".html_safe, path, method: :delete, confirm: 'Confirma que quieres borrar este elemento')
+	end
+
 end

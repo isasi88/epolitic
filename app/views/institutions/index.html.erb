@@ -61,8 +61,8 @@
 						  	<span class="dropdown pull-right">
 					          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Acciones <b class="caret"></b></a>
 					          <ul class="dropdown-menu">
-							  	<li><%= link_to("Editar", edit_institution_path(institution))%></li>
-							  	<li><%= link_to("Borrar", institution_path(institution), method: :delete, confirm: '¿Estás segur@?')%></li>
+					          	<li><%= edit_link(edit_institution_path(institution)) %></li>
+							  	<li><%= delete_link(institution_path(institution))%></li>
 					          </ul>
 					        </span>
 						  </small></h4>
