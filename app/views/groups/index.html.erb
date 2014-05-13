@@ -68,8 +68,8 @@
 						  	<span class="dropdown pull-right">
 					          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Acciones <b class="caret"></b></a>
 					          <ul class="dropdown-menu">
-							  	<li><%= link_to("Editar", edit_group_path(group))%></li>
-							  	<li><%= link_to("Borrar", group_path(group), method: :delete, confirm: '¿Estás segur@?')%></li>
+					          	<li><%= edit_link(edit_group_path(group)) %></li>
+							  	<li><%= delete_link(group_path(group))%></li>
 					          </ul>
 					        </span>
 						  </small></h4>
