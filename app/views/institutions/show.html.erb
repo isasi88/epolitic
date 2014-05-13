@@ -1,15 +1,39 @@
-<div class="tabbable">
-	<ul class="nav nav-tabs">
-	  <li><a href="#institution_profile" data-toggle="tab">Profile "<%= @institution.name%>"</a></li>
-	  <li class="active"><a href="#institution_members" data-toggle="tab">Members</a></li>
-	</ul>
-</div>
+<h1 class="bottom-separation">Candidatos a "<%= @institution.name %>"</h1>
 
-<div class="tab-content">
-	<div class="tab-pane active" id="institution_members">
-		<%= render partial: 'institutions/institution_members' %>
+<% if @affiliation.errors.any? %>
+	<div class="alert alert-danger">
+		<ul>
+			<% @affiliation.errors.full_messages.each do |error| %>
+				<li><%= error %></li>
+			<%end%>			
+		</ul>
 	</div>
-	<div class="tab-pane" id="institution_profile">
-		<%= render partial: 'institutions/institution_profile' %>
-	</div>
+<%end%>
+
+</br>
+<div class="row">
+	<%= form_for (@affiliation), :html => {:multipart => true, :class => "form-horizontal", :role =>"form"} do |f| %>
+		<div class="col-sm-offset-2 col-sm-5" >		
+            <%= text_field_tag :term, params[:term], class: "form-control input-lg", id: "search_home", placeholder: "Busca políticos" %>
+			<%= f.text_field :polititian_id, class: "hidden", id:"polititian_id" %>
+			<%= f.text_field :institution_id, class: "hidden", value: "#{@institution.id}" %>
+		</div>
+		<div class="col-sm-3" >		
+			<%= f.submit "Añadir políticos", class: "btn btn-primary btn-lg col-sm-12" %>
+		</div>
+	<% end %>
+</div>
+</br>
+
+<div class="row">
+	<div class = "col-sm-2"></div>
+	<div class="col-sm-8 box" >
+		<% @polititians.each do |polititian| %>
+			<ul class="no-bullets-list">
+				<li><%=polititian.full_name %>
+				<%= link_to("Borrar polític@", affiliation_path(Affiliation.where("polititian_id = ? AND institution_id = ?", polititian.id, @institution.id).first), method: :delete, confirm: 'Are you sure?')%>
+				</li>
+			</ul>
+		<%end%>
+	</div>	
 </div>
