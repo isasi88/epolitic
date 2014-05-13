@@ -1,62 +1,32 @@
 <div class="box">
-	<div class="row">
-
+	<div class="row">		
 		<div class="col-md-3" >
 			 <div class="thumbnail">
 			 	<%= image_tag @polititian.avatar %>
 			 </div>		
 		</div>
-
-		<div class="col-md-8">
-			<h1><%= @polititian.first_name %> <%= @polititian.last_name %></h1>	
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-8">
+					<h1 class=""><%= @polititian.first_name %> <%= @polititian.last_name %></h1>	
+				</div>	
+				<div class="col-md-4">
+				  	<span class="dropdown pull-right">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Acciones <b class="caret"></b></a>
+			          <ul class="dropdown-menu">
+					  	<li><%= link_to("Editar", edit_polititian_path(@polititian))%></li>
+					  	<li><%= link_to("Borrar", polititian_path(@polititian), method: :delete, confirm: '¿Estás segur@?')%></li>
+			          </ul>
+			       </span>
+				</div>	
+			</div>
 			<h4>
 				<% if @polititian.jobs.political_jobs.count > 0 %>
 					<%= @polititian.jobs.political_jobs.first.position %>
 					<span class="text-muted"><%= @polititian.jobs.political_jobs.first.employer%></span>
 				<% end %>	
 			</h4>
-			<ul class="no-bullets-list">
-				<li>
-					<div class="row">
-						<div class="col-md-2">
-							<span class="thumbnail img-responsive"><%=image_tag @polititian.group.avatar%></span>
-						</div>
-						<div class="col-md-10">
-							<h5><%= @polititian.group.name%></h5>
-						</div>
-					</div>	
-				</li>
-				<li>
-					<small><span class="text-muted glyphicon glyphicon-book"></span></small>
-					<% if @polititian.educations.finished_educations.count == 0 %>
-						No se le conocen titulaciones
-					<% else %>
-						Cuenta con al menos una titulación 
-					<% end %>
-				</li>
-				<li>
-					<small><span class="text-muted glyphicon glyphicon-wrench"></span></small> 
-					<% if @polititian.jobs.non_political_jobs.count + @polititian.exams.count == 0 %>
-						No se le conoce experiencia profesional fuera de la política
-					<% else %>
-						Cuenta con experiencia profesional fuera de la política
-					<% end %>
-				</li>
-				<li>
-					<small><span class="text-muted glyphicon glyphicon-bookmark"></span></small> 
-					<% if @polititian.jobs.political_jobs.count + @polititian.exams.count == 0 %>
-						No cuenta con actividad política en ePolitic.org
-					<% else %>
-						<%= @polititian.jobs.political_jobs.count %> cargo(s) políticos en ePolitic.org
-					<% end %>
-				</li>					
-			</ul>
+			<%= render 'profile_summary_content' %>
 		</div>
-
-
-		<div class="col-md-1">
-			<%= link_to 'Editar'.html_safe, edit_polititian_path(@polititian) %>			
-		</div>
-
 	</div>
 </div>
