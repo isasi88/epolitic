@@ -1,23 +1,23 @@
 <%= form_for [@polititian, @job], :html => {:class => "form-horizontal", :role =>"form"} do |f| %>
 
 	<div class="form-group">
-	  <%= f.label :position, "Position (*)", class: "control-label col-sm-3" %>
+	  <%= f.label :position, "Puesto (*)", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
-		  <%= f.text_field :position, class: "form-control",placeholder: "Position" %>
+		  <%= f.text_field :position, class: "form-control",placeholder: "Puesto" %>
 	  </div>
 	</div>
 
 	<div class="form-group">
-	  <%= f.label :employer, "Employer", class: "control-label col-sm-3" %>
+	  <%= f.label :employer, "Organización", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
-		  <%= f.text_field :employer, class: "form-control",placeholder: "Employer" %>
-		  <p> <%= f.check_box :political_employer %> Is it a political job?</p>
+		  <%= f.text_field :employer, class: "form-control",placeholder: "Organización" %>
+		  <p> <%= f.check_box :political_employer %> ¿Es un puesto político?</p>
 	  </div>
 	</div>	
 	  		 	 
 	
 	<div class="form-group">
-	  <%= f.label :start_at, "Years (from - to)", class: "control-label col-sm-3" %>
+	  <%= f.label :start_at, "Años (desde - a)", class: "control-label col-sm-3" %>
 	  <div class="col-sm-2 form-inline">
 			  <%= f.date_select :start_at,
 			  {:include_blank => "true", :discard_day => "true",:discard_month => "true", :start_year => 1960, :end_year => Date.today.year},
@@ -28,21 +28,21 @@
 			  {:include_blank => "true", :discard_day => "true", :discard_month => "true", :start_year => 1960, :end_year => Date.today.year},
 			  {:class => "form-control col-sm-6"} %>			  
 	  </div>	  
-	  <p><%= f.check_box :currently_work_here, {:class => "pChk"} %> Currently working here</p>
+	  <p><%= f.check_box :currently_work_here, {:class => "pChk"} %> Trabajando aquí en la actualidad</p>
 	</div>
 </br>
 
 	<div class="form-group">
-	  <%= f.label :salary, "Yearly salary", class: "control-label col-sm-3" %>
+	  <%= f.label :salary, "Sueldo anual", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
-		  <%= f.text_field :salary, class: "form-control", placeholder: "Salary" %>
+		  <%= f.text_field :salary, class: "form-control", placeholder: "Sueldo anual" %>
 	  </div>
 	</div>
 
 	<div class="form-group">
-	  <%= f.label :description, "Description", class: "control-label col-sm-3" %>
+	  <%= f.label :description, "Descripción", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
-		  <%= f.text_area :description, class: "form-control", placeholder: "Description" %>
+		  <%= f.text_area :description, class: "form-control", placeholder: "Descripción" %>
 	  </div>
 	</div>
 
@@ -50,7 +50,7 @@
 	<div class="form-group">
 		<div class="col-sm-offset-3 col-sm-10">
 	  		<%= f.submit class: "btn btn-primary" %>
-	  		<%= link_to "Cancel", polititian_path(@polititian.id) %>
+	  		<%= link_to "Cancelar", polititian_path(@polititian.id) %>
 		</div> 
 	</div>	
 

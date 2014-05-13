@@ -1,21 +1,21 @@
 <%= form_for [@polititian, @education], :html => {:class => "form-horizontal", :role =>"form"} do |f| %>
 
 	<div class="form-group">
-	  <%= f.label :degree, "Degree (*)", class: "control-label col-sm-3" %>
+	  <%= f.label :degree, "Título (*)", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
-		  <%= f.text_field :degree, class: "form-control",placeholder: "Degree" %>
+		  <%= f.text_field :degree, class: "form-control",placeholder: "Título" %>
 	  </div>
 	</div>
 
 	<div class="form-group">
-	  <%= f.label :center, "Center", class: "control-label col-sm-3" %>
+	  <%= f.label :center, "Universidad", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
-		  <%= f.text_field :center, class: "form-control",placeholder: "Center" %>
+		  <%= f.text_field :center, class: "form-control",placeholder: "Universidad" %>
 	  </div>
 	</div>	
 
 	<div class="form-group">
-	  <%= f.label :start_at, "Years (from - to)", class: "control-label col-sm-3" %>
+	  <%= f.label :start_at, "Años (desde - a)", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9 form-inline">
 			  <%= f.date_select :start_at,
 			  {:include_blank => "true", :discard_day => "true",:discard_month => "true", :start_year => 1960, :end_year => Date.today.year},
@@ -36,9 +36,9 @@
 	</div>
 
 	<div class="form-group">
-	  <%= f.label :description, "Description", class: "control-label col-sm-3" %>
+	  <%= f.label :description, "Descripción", class: "control-label col-sm-3" %>
 	  <div class="col-sm-9", >
-		  <%= f.text_area :description, class: "form-control", placeholder: "Description" %>
+		  <%= f.text_area :description, class: "form-control", placeholder: "Descripción" %>
 	  </div>
 	</div>
 
@@ -46,7 +46,7 @@
 	<div class="form-group">
 		<div class="col-sm-offset-3 col-sm-10">
 	  		<%= f.submit class: "btn btn-primary" %>
-	  		<%= link_to "Cancel", polititian_path(@polititian.id) %>
+	  		<%= link_to "Cancelar", polititian_path(@polititian.id) %>
 		</div> 
 	</div>	
 
