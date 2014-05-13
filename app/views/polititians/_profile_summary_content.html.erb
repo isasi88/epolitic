@@ -1,0 +1,40 @@
+<ul class="no-bullets-list">
+	<li>
+		<div class="row">
+			<div class="col-md-2">
+				<span class="thumbnail img-responsive"><%=image_tag @polititian.group.avatar%></span>
+			</div>
+			<div class="col-md-10">
+				<h5><%= @polititian.group.name%></h5>
+			</div>
+		</div>	
+	</li>
+	<li>
+		<small><span class="text-muted glyphicon glyphicon-book"></span></small>
+		<% if @polititian.educations.finished_educations.count == 0 %>
+			No se le conocen titulaciones
+		<% else %>
+			Cuenta con al menos una titulación 
+		<% end %>
+	</li>
+	<li>
+		<small><span class="text-muted glyphicon glyphicon-wrench"></span></small> 
+		<% if @polititian.jobs.non_political_jobs.count + @polititian.exams.count == 0 %>
+			No se le conoce experiencia profesional fuera de la política
+		<% else %>
+			Cuenta con experiencia profesional fuera de la política
+		<% end %>
+	</li>
+	<li>
+		<small><span class="text-muted glyphicon glyphicon-bookmark"></span></small> 
+		<% if @polititian.jobs.political_jobs.count + @polititian.exams.count == 0 %>
+			No cuenta con actividad política en ePolitic.org
+		<% else %>
+			<%= @polititian.jobs.political_jobs.count %> cargo(s) políticos en ePolitic.org
+		<% end %>
+	</li>
+	<li>
+		<% if @polititian.trials.count > 0 %>
+			<span class="icon-bad glyphicon glyphicon-warning-sign"></span> Problemas con la justicia</li>
+		<% end %>
+</ul>
