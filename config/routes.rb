@@ -1,7 +1,8 @@
 Cvpolitics::Application.routes.draw do
 
 
-  root 'site#home'  
+  devise_for :users
+  root to: 'site#home'  
   get '/about_us' => 'site#about_us'
   get '/join_us' => 'site#join_us'
   get '/press' => 'site#press'
