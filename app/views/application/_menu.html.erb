@@ -19,7 +19,12 @@
 	        <li class= <%= 'active' if params[:controller] == "institutions" %> ><%= link_to "Elecciones", institutions_path %></li>
 	      </ul>  
 	      <ul class="nav navbar-nav pull-right">
-	      	<li><%= link_to "Sign-up", new_user_registration_path %></li>
+	      	<% if user_signed_in? %>
+		      	<li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
+		    <% else %>
+		      	<li><%= link_to "Entrar", new_user_session_path %></li>
+		      	<li><%= link_to "Crear cuenta", new_user_registration_path %></li>
+		    <% end %>
 	      </ul>
 		</div>
 	</div>
