@@ -1,3 +1,16 @@
+ePolitic.org is an open-source and non-profit app. 
+
+ePolitic.org´s goal is to gather the résumés of politicians in order to help citizens make informed decisions when they vote.
+
+ePolitic.org is my first RoR app. In fact, it´s my first ever app. As of may 2014, I´ve completed enough features to make it usable. More experienced developers will now take over to bring the product to a new level.
+
+I myself will be involved on other aspects of this project such as fund raising, growth, PR, getting volunteers to help out, etc.
+
+If you are a RoR developper and feel like you can take one or more of the issues in the pipeline, please submit your code.
+
+If you are an experience RoR developper and wish to help on deeper issues such as examining code submitted by other developpers or helping on larger product decisions, then please write here: volunteer@epolitic.org
+
+
 == README
 
 This README would normally document whatever steps are necessary to get the
