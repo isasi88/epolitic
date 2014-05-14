@@ -1,13 +1,13 @@
 module ApplicationHelper
 
 	def flash_message
-		if flash[:success]
+		if flash[:notice] || flash[:success]
 			content_tag :div, class: 'alert alert-success' do
-	 			flash[:success]
+	 			flash[:notice] || flash[:success]
 	 		end
-		elsif flash[:error]
+		elsif flash[:error] || flash[:alert]
 			content_tag :div, class: 'alert alert-danger' do
-				flash[:error]
+				flash[:error] || flash[:alert]
 			end
 		else
 			nil

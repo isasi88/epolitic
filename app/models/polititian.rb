@@ -12,6 +12,8 @@ class Polititian < ActiveRecord::Base
 	accepts_nested_attributes_for :affiliations, :reject_if => proc {|attrs| attrs['institution_id'].blank? }
 	validates :first_name, presence: true
 	validates :last_name, presence: true
+	validates :group_id, presence: true
+
 
 	def full_name
 	    "#{first_name} #{last_name}"
