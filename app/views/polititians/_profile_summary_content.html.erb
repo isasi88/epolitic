@@ -10,6 +10,11 @@
 		</div>	
 	</li>
 	<li>
+		<% if @polititian.trials.count > 0 %>
+			<span class="icon-bad glyphicon glyphicon-warning-sign"></span> Problemas con la justicia</li>
+		<% end %>
+	</li>
+	<li>
 		<small><span class="text-muted glyphicon glyphicon-book"></span></small>
 		<% if @polititian.educations.finished_educations.count == 0 %>
 			No se le conocen titulaciones
@@ -33,8 +38,4 @@
 			<%= @polititian.jobs.political_jobs.count %> cargo(s) políticos en ePolitic.org
 		<% end %>
 	</li>
-	<li>
-		<% if @polititian.trials.count > 0 %>
-			<span class="icon-bad glyphicon glyphicon-warning-sign"></span> Problemas con la justicia</li>
-		<% end %>
 </ul>
