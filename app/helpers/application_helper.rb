@@ -38,12 +38,24 @@ module ApplicationHelper
 		end
 	end
 
+
+# IF USER CAN NOT EDIT, THEN MODAL IS RENDERED INSTEAD OF LINKING TO FORMS
+# ======================================================================== 
+
 	def edit_link(path)
-		link_to("<span class='glyphicon glyphicon-pencil'> Editar".html_safe, path)
+		if user_signed_in? && current_user.editor?
+			link_to("<span class='glyphicon glyphicon-pencil'> Editar".html_safe, path)
+		else	
+			'<a data-toggle="modal" data-target="#can-not-edit-modal"> <span class="glyphicon glyphicon-pencil"> Editar</a>'.html_safe
+		end
 	end
 
 	def delete_link(path)
-		link_to("<span class='glyphicon glyphicon-trash'> Borrar".html_safe, path, method: :delete, confirm: 'Confirma que quieres borrar este elemento')
+		if user_signed_in? && current_user.editor?
+			link_to("<span class='glyphicon glyphicon-trash'> Borrar".html_safe, path, method: :delete, confirm: 'Confirma que quieres borrar este elemento')
+		else	
+			'<a data-toggle="modal" data-target="#can-not-edit-modal"> <span class="glyphicon glyphicon-trash"> Borrar</a>'.html_safe
+		end
 	end
 
 end
