@@ -68,7 +68,7 @@ body {
 
 .logo {
 	display: inline-block;
-	margin-top: 8px;
+	margin-top: 12px;
 	margin-right: 30px;
 }
 
@@ -190,7 +190,11 @@ html {
   margin-left: 10px;
 }
 
-
+.marketing img:hover {
+	-moz-box-shadow: 0 0 5px 5px #888;
+	-webkit-box-shadow: 0 0 5px 5px#888;
+	box-shadow: 0 0 5px 5px #888;
+}
 
 
 /* ICONS FOR POLITITIANS 
