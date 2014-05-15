@@ -58,11 +58,19 @@ module ApplicationHelper
 		end
 	end
 
-	def add_button(button_text, button_path)
+	def add_button(button_text, button_path, button_class)
 		if user_signed_in? && current_user.editor?
-			link_to "<span class='glyphicon glyphicon-plus'></span> #{button_text}".html_safe, button_path, :class => 'btn btn-primary btn-lg pull-right'
+			link_to "<span class='glyphicon glyphicon-plus'></span> #{button_text}".html_safe, button_path, :class => button_class
 		else	
-			"<a class='btn btn-primary btn-lg pull-right' data-toggle='modal' data-target='#can-not-edit-modal'> <span class='glyphicon glyphicon-plus'> <strong>#{button_text}</strong></a>".html_safe
+			"<a class= '#{button_class}' data-toggle='modal' data-target='#can-not-edit-modal'> <span class='glyphicon glyphicon-plus'> <strong>#{button_text}</strong></a>".html_safe
+		end
+	end
+
+	def modal_data_target(target)
+		if user_signed_in? && current_user.editor?
+			target
+		else
+			"#can-not-edit-modal"
 		end
 	end
 end

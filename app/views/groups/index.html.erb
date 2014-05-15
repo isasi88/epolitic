@@ -1,4 +1,7 @@
-<h1 class="bottom-separation">Partidos políticos<%= link_to '<span class="glyphicon glyphicon-plus"></span> Añadir partido político'.html_safe, new_group_path, :class => "btn btn-primary btn-lg pull-right"%></h1>
+<h1 class="bottom-separation">
+	Partidos políticos 
+	<%= add_button("Añadir partido político", new_group_path, 'btn btn-primary btn-lg pull-right') %>
+</h1>
 
 <div class="row">
 

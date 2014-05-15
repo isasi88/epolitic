@@ -11,10 +11,13 @@
 	<div class="text-right">
 		<h4>
 				<small>Añadir datos:</small> 
-				<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal-trial"><span class="glyphicon glyphicon-plus"></span> Imputación</button>
-				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal-education"><span class="glyphicon glyphicon-plus"></span> Titulación</button>
-				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal-job"><span class="glyphicon glyphicon-plus"></span> Experiencia profesional o política</button>
-				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal-public-exam"><span class="glyphicon glyphicon-plus"></span> Oposición</button>
+
+
+
+				<button class="btn btn-primary btn-xs" data-toggle="modal" data-target=<%= modal_data_target("#myModal-trial") %>><span class="glyphicon glyphicon-plus"></span> Imputación</button>
+				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target=<%= modal_data_target("#myModal-education") %>><span class="glyphicon glyphicon-plus"></span> Titulación</button>
+				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target=<%= modal_data_target("#myModal-job") %>><span class="glyphicon glyphicon-plus"></span> Experiencia profesional o política</button>
+				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target=<%= modal_data_target("#myModal-public-exam") %>><span class="glyphicon glyphicon-plus"></span> Oposición</button>
 		</h4>		
 	</div>
 
