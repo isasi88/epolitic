@@ -5,7 +5,12 @@
 		<h2 class="bottom-separation">Resend confirmation instructions</h2>
 
 		<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-		  <%= devise_error_messages! %>
+
+			<% if devise_error_messages!.present? %>
+				<div class="alert alert-danger">
+				  <%= devise_error_messages! %>
+				</div>
+			<% end %>
 
 		  <div><%= f.label :email %><br />
 		  <%= f.email_field :email, autofocus: true %></div>

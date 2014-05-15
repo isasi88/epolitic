@@ -5,7 +5,13 @@
 		<h2 class="bottom-separation">Cambiar contraseña</h2>
 
 		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-		  <%= devise_error_messages! %>
+
+			<% if devise_error_messages!.present? %>
+				<div class="alert alert-danger">
+				  <%= devise_error_messages! %>
+				</div>
+			<% end %>
+			
 		  <%= f.hidden_field :reset_password_token %>
 
 			<div class="form-group">
