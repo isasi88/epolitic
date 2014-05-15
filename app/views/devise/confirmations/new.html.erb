@@ -1,0 +1,19 @@
+<div class="row text-center">
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6 box text-left">
+
+		<h2 class="bottom-separation">Resend confirmation instructions</h2>
+
+		<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+		  <%= devise_error_messages! %>
+
+		  <div><%= f.label :email %><br />
+		  <%= f.email_field :email, autofocus: true %></div>
+
+		  <div><%= f.submit "Resend confirmation instructions" %></div>
+		<% end %>
+
+		<%= render "devise/shared/links" %>
+
+	</div>	
+</div>
