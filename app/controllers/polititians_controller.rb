@@ -1,5 +1,8 @@
 class PolititiansController < ApplicationController
 
+#  before_filter :authenticate_user!,
+#    :only => [:new, :create, :edit, :update, :destroy]
+
 	def index
 		@polititians = Polititian.where(nil) # creates an anonymous scope
 		@polititians = @polititians.filter_by_group_id(params[:group_id]) if params[:group_id].present?

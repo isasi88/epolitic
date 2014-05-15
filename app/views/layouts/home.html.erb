@@ -47,7 +47,14 @@
 	    </script>
 
 		<%= render 'menu' %>
-		<%= flash_message %>
+		<% if flash_message.present? %>
+			<div class="row">
+				<div class="col-md-offset-1 col-md-10">
+					<%= flash_message %>
+				</div>
+			</div>
+			</br>
+		<%end%>
 		<%= yield %>
 		<%= render partial: 'footer' %>
 	</body>
