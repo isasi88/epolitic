@@ -31,7 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       ## Created by project developpers, i.e., not by Devise
-      t.boolean :editor, default: true
+      t.boolean :editor, default: false
 
       t.timestamps
     end
