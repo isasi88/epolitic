@@ -65,11 +65,9 @@ ActiveRecord::Schema.define(version: 20140516120341) do
     t.string   "avatar"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
   end
 
   add_index "groups", ["name"], name: "index_groups_on_name", using: :btree
-  add_index "groups", ["slug"], name: "index_groups_on_slug", using: :btree
 
   create_table "institutions", force: true do |t|
     t.string   "name"
@@ -80,11 +78,9 @@ ActiveRecord::Schema.define(version: 20140516120341) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
   end
 
   add_index "institutions", ["name"], name: "index_institutions_on_name", using: :btree
-  add_index "institutions", ["slug"], name: "index_institutions_on_slug", using: :btree
 
   create_table "jobs", force: true do |t|
     t.integer  "polititian_id"
