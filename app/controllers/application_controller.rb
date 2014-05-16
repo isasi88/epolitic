@@ -4,14 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-  def check_permissions(intended_path)
-  	if !user_signed_in?
-  		root_path
-#  	elsif !current_user.editor
-#  		root_path
-  	else
-  		intended_path
-  	end
-  end
+# FOLLOWING METHOD USED AS BEFORE_ACTION IN CONTROLLERS
+# ===================================================== 
+
+	def require_editor_status
+		unless current_user.editor?
+		  flash[:error] = "Necesitas permiso de editor. Info en este <a href='#{join_us_path}'>enlace</a>.".html_safe #Escríbenos a info.politicos epolitic.org y te contestaremos en unas pocas horas."
+		  redirect_to root_path
+		end
+	end
+
 
 end

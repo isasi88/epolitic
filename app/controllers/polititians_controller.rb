@@ -1,7 +1,10 @@
 class PolititiansController < ApplicationController
 
-#  before_filter :authenticate_user!,
-#    :only => [:new, :create, :edit, :update, :destroy]
+	before_filter :authenticate_user!,
+    	:only => [:new, :create, :edit, :update, :destroy]
+
+	before_action :require_editor_status,
+    	:only => [:new, :create, :edit, :update, :destroy]
 
 	def index
 		@polititians = Polititian.where(nil) # creates an anonymous scope
@@ -73,5 +76,6 @@ class PolititiansController < ApplicationController
 	def entry_params
 		params.require(:polititian).permit(:id, :first_name, :last_name, :avatar, :remote_avatar_url, :group_id,  :affiliations_attributes => [:institution_id, :polititian_id] )
 	end
+
 
 end

@@ -1,5 +1,11 @@
 class TrialsController < ApplicationController
 
+	before_filter :authenticate_user!,
+    	:only => [:new, :create, :edit, :update, :destroy]
+
+	before_action :require_editor_status,
+    	:only => [:new, :create, :edit, :update, :destroy]
+
 	def create
 		@polititian = Polititian.find params[:polititian_id]
 		@trial = @polititian.trials.build entry_params

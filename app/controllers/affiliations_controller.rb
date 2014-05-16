@@ -1,5 +1,11 @@
 class AffiliationsController < ApplicationController
 
+	before_filter :authenticate_user!,
+    	:only => [:new, :create, :edit, :update, :destroy]
+
+	before_action :require_editor_status,
+    	:only => [:new, :create, :edit, :update, :destroy]
+
 	def create
 		if entry_params[:polititian_id].present?
 			@polititian = Polititian.find(entry_params[:polititian_id])

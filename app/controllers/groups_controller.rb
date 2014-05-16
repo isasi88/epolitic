@@ -1,5 +1,11 @@
 class GroupsController < ApplicationController
 
+	before_filter :authenticate_user!,
+    	:only => [:new, :create, :edit, :update, :destroy]
+
+	before_action :require_editor_status,
+    	:only => [:new, :create, :edit, :update, :destroy]
+
 	def index
 		@groups = Group.where(nil) # creates an anonymous scope
 		if params[:group_id_input] then	@groups = @groups.filter_by_group_id(params[:group_id_input][:group_id]) if params[:group_id_input][:group_id].present? end

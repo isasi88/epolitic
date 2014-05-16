@@ -73,4 +73,5 @@ module ApplicationHelper
 			"#can-not-edit-modal"
 		end
 	end
+
 end

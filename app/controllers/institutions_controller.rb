@@ -1,5 +1,11 @@
 class InstitutionsController < ApplicationController
 
+	before_filter :authenticate_user!,
+    	:only => [:new, :create, :edit, :update, :destroy]
+
+	before_action :require_editor_status,
+    	:only => [:new, :create, :edit, :update, :destroy]
+
 	def index
 		@institutions = Institution.all
 	end
