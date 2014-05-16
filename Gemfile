@@ -43,6 +43,9 @@ gem 'carrierwave'
 gem 'jquery-ui-rails'
 gem 'rails_12factor', group: :production
 
+gem 'friendly_id', '~> 5.0.0'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

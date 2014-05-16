@@ -20,7 +20,7 @@ class PolititiansController < ApplicationController
 	end
 
 	def show
-		@polititian = Polititian.find(params[:id])
+		@polititian = Polititian.friendly.find(params[:id])
 		@job = Job.new
 		@jobs = @polititian.jobs.order(end_at: :desc)
 		@non_political_jobs = @polititian.jobs.non_political_jobs
