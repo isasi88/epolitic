@@ -2,6 +2,7 @@ class Polititian < ActiveRecord::Base
 
 	extend FriendlyId
 	friendly_id :full_name, use: [:slugged, :finders]
+	
 	mount_uploader :avatar, PolititianAvatarUploader
 
 	has_many :educations, dependent: :destroy
