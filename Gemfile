@@ -40,10 +40,13 @@ group :development, :test do
 end
 
 gem 'carrierwave'
+gem "fog", "~> 1.3.1"
+
 gem 'jquery-ui-rails'
 gem 'rails_12factor', group: :production
 
 gem 'friendly_id', '~> 5.0.0'
+
 
 
 # Use ActiveModel has_secure_password
