@@ -40,7 +40,10 @@ group :development, :test do
 end
 
 gem 'carrierwave'
-gem "fog", "~> 1.3.1"
+gem 'rmagick'
+gem 'fog'
+gem 'carrierwave_direct'
+gem 'sidekiq'
 
 gem 'jquery-ui-rails'
 gem 'rails_12factor', group: :production
