@@ -1,12 +1,14 @@
 <ul class="no-bullets-list">
 	<li>
 		<div class="row">
-			<div class="col-md-2">
-				<span class="thumbnail img-responsive"><%=image_tag @polititian.group.avatar%></span>
-			</div>
-			<div class="col-md-10">
-				<h5><%= @polititian.group.name%></h5>
-			</div>
+			<% if @polititian.group %>
+				<div class="col-md-2">
+					<span class="thumbnail img-responsive"><%=image_tag @polititian.group.avatar%></span>
+				</div>
+				<div class="col-md-10">
+					<h5><%= @polititian.group.name%></h5>
+				</div>
+			<%end%>	
 		</div>	
 	</li>
 	<li>
