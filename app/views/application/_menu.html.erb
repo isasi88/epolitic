@@ -15,8 +15,10 @@
 	      <ul class="nav navbar-nav">
 	        <li class= <%= 'active' if params[:controller] == "site" %> ><%= link_to "Inicio", root_path, class: "active" %></li>
 	        <li class= <%= 'active' if params[:controller] == "polititians" %> ><%= link_to "Políticos", polititians_path, class: "active" %></li>
-	        <li class= <%= 'active' if params[:controller] == "groups" %> ><%= link_to "Partidos políticos", groups_path %></li>
-	        <li class= <%= 'active' if params[:controller] == "institutions" %> ><%= link_to "Elecciones", institutions_path %></li>
+	        <% if user_signed_in? && current_user.editor? %>
+		        <li class= <%= 'active' if params[:controller] == "groups" %> ><%= link_to "Partidos políticos", groups_path %></li>
+		        <li class= <%= 'active' if params[:controller] == "institutions" %> ><%= link_to "Elecciones", institutions_path %></li>
+		    <% end %>
 	      </ul>  
 	      <ul class="nav navbar-nav pull-right">
 	      	<% if user_signed_in? %>
