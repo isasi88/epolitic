@@ -7,6 +7,7 @@ class PolititianAvatarUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
+  # Note from Tabi: actually, we do this in the carrierwave.rb initializer file
   # storage :file
   # storage :fog
   # include CarrierWave::MimeTypes
