@@ -161,7 +161,7 @@
 
 
 	<!-- POLITICAL LIFE-->		
-			<div class="">
+			<div class="bottom-separation">
 				<div class="row">			
 					<div class="col-md-1 text-right">
 						<h4><span class="glyphicon glyphicon-bookmark"></span></h4>
@@ -205,6 +205,30 @@
 					</div>
 				</div>
 			</div>
+	
+			<!-- SOURCES -->		
+			<div class="">			
+				<div class="row ">
+					<div class="col-md-1 text-right">
+						<h4><span class="glyphicon glyphicon-info-sign"></span></h4>
+					</div>
+					<div class="col-md-9">
+						<h5 class="">Fuentes</h5>
+					</div>
+					<div class="col-md-2 text-center">
+					</div>
+				</div>	
+
+				<div class="row">
+					<div class="col-md-offset-1 col-md-10">
+						<% if @polititian.sources %>
+							<h4><small>
+								<%= @polititian.sources.to_s.split(",").map {|split| "<p>#{split}</p>" }.join("\n").html_safe %>
+							</small></h4>
+						<%end%>
+					</div>
+				</div>
+			</div>	
 		</div>
 	</div>
 
