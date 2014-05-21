@@ -10,8 +10,8 @@
 				<div class="col-md-8">
 					<h1 class="">
 						<%= @polititian.full_name %>
-						<%= if @polititian.facebook.present? then link_to (image_tag src="fb-icon.gif"), "http://#{@polititian.facebook}" end %>
-						<%= if @polititian.twitter.present? then link_to (image_tag src="tw-icon.gif"), "http://#{@polititian.twitter}"  end %>							
+						<%= if @polititian.facebook.present? then link_to (image_tag src="fb-icon.gif", class: "shadow-on-hover"), "http://#{@polititian.facebook}" end %>
+						<%= if @polititian.twitter.present? then link_to (image_tag src="tw-icon.gif", class: "shadow-on-hover"), "http://#{@polititian.twitter}"  end %>							
 					</h1>	
 				</div>	
 				<div class="col-md-4">
