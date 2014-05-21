@@ -40,6 +40,7 @@
 						  	<span class="dropdown pull-right">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Acciones <b class="caret"></b></a>
 				          <ul class="dropdown-menu">
+					          	<li><%= link_to("<span class='glyphicon glyphicon-search'></span> Ver perfil".html_safe, polititian_path(@polititian)) %></li>				          		
 					          	<li><%= edit_link(edit_polititian_path(polititian)) %></li>
 							  	<li><%= delete_link(polititian_path(polititian))%></li>
 				          </ul>
