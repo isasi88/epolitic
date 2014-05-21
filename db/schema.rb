@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521075506) do
+ActiveRecord::Schema.define(version: 20140521134425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20140521075506) do
     t.text     "sources"
     t.string   "facebook"
     t.string   "twitter"
+    t.text     "other"
   end
 
   add_index "polititians", ["first_name"], name: "index_polititians_on_first_name", using: :btree

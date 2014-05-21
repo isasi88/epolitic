@@ -10,14 +10,15 @@
 
 	<div class="text-right">
 		<h4>
-				<small>Añadir datos:</small> 
-
+				<small>Añadir:</small> 
 
 
 				<button class="btn btn-primary btn-xs" data-toggle="modal" data-target=<%= modal_data_target("#myModal-trial") %>><span class="glyphicon glyphicon-plus"></span> Imputación</button>
 				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target=<%= modal_data_target("#myModal-education") %>><span class="glyphicon glyphicon-plus"></span> Titulación</button>
-				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target=<%= modal_data_target("#myModal-job") %>><span class="glyphicon glyphicon-plus"></span> Experiencia profesional o política</button>
+				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target=<%= modal_data_target("#myModal-job") %>><span class="glyphicon glyphicon-plus"></span> Experiencia</button>
 				<button class="btn btn-xs btn-primary" data-toggle="modal" data-target=<%= modal_data_target("#myModal-public-exam") %>><span class="glyphicon glyphicon-plus"></span> Oposición</button>
+				<%= link_to "<span class='glyphicon glyphicon-plus'></span> Datos de interés".html_safe, edit_polititian_path, class: "btn btn-xs btn-primary" %>
+				<%= link_to "<span class='glyphicon glyphicon-plus'></span> Fuentes".html_safe, edit_polititian_path, class: "btn btn-xs btn-primary" %>
 		</h4>		
 	</div>
 
@@ -205,7 +206,33 @@
 					</div>
 				</div>
 			</div>
+
+
+			<!-- OTROS -->		
+			<div class="bottom-separation">			
+				<div class="row ">
+					<div class="col-md-1 text-right">
+						<h4><span class="glyphicon glyphicon-star"></span></h4>
+					</div>
+					<div class="col-md-9">
+						<h5 class="">Otros datos de interés</h5>
+					</div>
+					<div class="col-md-2 text-center">
+					</div>
+				</div>	
+
+				<div class="row">
+					<div class="col-md-offset-1 col-md-10">
+						<% if @polititian.other %>
+							<h5 class="">
+								<%= @polititian.other.to_s.split(",").map {|split| "<p>#{split}</p>" }.join("\n").html_safe %>
+							</h5>
+						<%end%>
+					</div>
+				</div>				
+			</div>
 	
+
 			<!-- SOURCES -->		
 			<div class="">			
 				<div class="row ">
