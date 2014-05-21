@@ -228,9 +228,12 @@
 						<%end%>
 					</div>
 				</div>				
-			</div>	
+			</div>
 		</div>
-			<p class="alert alert-warning"> <small><strong>Aviso importante</strong>: Este perfil ha sido elaborado a partir de información pública de fuentes contrastadas y disponibles en medios digitales. Este perfil no ha sido elaborado, supervisado ni aprobado por <%= @polititian.full_name %>.</small></p>
+			<div class="alert alert-warning">
+				<p><small><strong>Aviso importante</strong></small>:</p>
+				<p><small>Este perfil ha sido elaborado a partir de información pública de fuentes contrastadas y disponibles en medios digitales. Este perfil no ha sido elaborado, supervisado ni aprobado por <%= @polititian.full_name %>. Más información <%=link_to "aquí", about_us_path%></small>.</p>
+			</div>
 	</div>
 
 

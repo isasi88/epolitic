@@ -3,11 +3,11 @@
 
     <!-- Search -->
 
-	<div class="search-bar-absolute search-bar-border">        
+  <div class="search-bar-absolute search-bar-border">        
     <%= form_tag polititians_path, method: :get, :class => "navbar-form navbar-left", :role => "search" do %>
           <%= text_field_tag :term, params[:term], class: "form-control input-lg block-level", id: "search_home", placeholder: "Buscar CV de políticos" %>
           <%= submit_tag "Buscar", name: nil, class: "btn btn-primary btn-lg" %>
-    <% end %>      	
+    <% end %>       
   </div>
 
 
@@ -79,17 +79,19 @@
           <p>¿En qué organizaciones ha militado?¿Cuales han sido sus nombramientos políticos?</p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
-      </br>
-      <div class="row">
-        <div class="col-sm-offset-4 col-sm-4">
-          <%= link_to "Ver candidatos a elecciones Europeas >>", polititians_path, class: "btn btn-success btn-lg btn-block" %>
-        </div>
-      </div>
+</div>
+
+
+<!-- BOTON GRANDE -->
+</br>
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4">
+    <%= link_to "Ver candidatos a elecciones Europeas >>", polititians_path, class: "btn btn-success btn-lg btn-block" %>
+  </div>
 </div>
 </br>
 </br>
-</br>
-</br>
+
 
 <!-- MARKETING RESOURCES -->
 <div class="container marketing hide">
