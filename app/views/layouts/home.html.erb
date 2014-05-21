@@ -6,6 +6,7 @@
 	  <%= stylesheet_link_tag    "application", media: "all" %>
 	  <%= csrf_meta_tags %>
 	  <%= favicon_link_tag 'favicon.png' %>
+		<meta property="og:image" content=<%="#{request.protocol}#{request.host_with_port}#{asset_path("logo_big.gif")}"%> />
 
 	  	<!-- SHARE THIS TAGS -->
 		<script type="text/javascript">var switchTo5x=true;</script>
