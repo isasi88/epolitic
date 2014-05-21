@@ -8,7 +8,11 @@
 		<div class="col-md-9">
 			<div class="row">
 				<div class="col-md-8">
-					<h1 class=""><%= @polititian.first_name %> <%= @polititian.last_name %></h1>	
+					<h1 class="">
+						<%= @polititian.first_name %> <%= @polititian.last_name %>
+						<%= if @polititian.facebook then link_to (image_tag src="fb-icon.gif"), "www.facebook.com" %>
+						<%= if @polititian.twitter then image_tag src="tw-icon.gif" %>							
+					</h1>	
 				</div>	
 				<div class="col-md-4">
 				  	<span class="dropdown pull-right">
@@ -20,12 +24,6 @@
 			       </span>
 				</div>	
 			</div>
-			<h4>
-				<% if @polititian.jobs.political_jobs.count > 0 %>
-					<%= @polititian.jobs.political_jobs.first.position %>
-					<span class="text-muted"><%= @polititian.jobs.political_jobs.first.employer%></span>
-				<% end %>	
-			</h4>
 			<%= render 'profile_summary_content' %>
 		</div>
 	</div>
