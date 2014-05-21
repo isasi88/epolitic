@@ -23,15 +23,15 @@ class PolititiansController < ApplicationController
 	def show
 		@polititian = Polititian.find(params[:id])
 		@job = Job.new
-		@jobs = @polititian.jobs.order(end_at: :desc)
-		@non_political_jobs = @polititian.jobs.non_political_jobs
-		@political_jobs = @polititian.jobs.political_jobs
+		@jobs = @polititian.jobs.order('currently_work_here DESC, end_at DESC NULLS LAST')
+		@non_political_jobs = @polititian.jobs.non_political_jobs.order('currently_work_here DESC, end_at DESC NULLS LAST')
+		@political_jobs = @polititian.jobs.political_jobs.order('currently_work_here DESC, end_at DESC NULLS LAST')
 		@education = Education.new
-		@educations = @polititian.educations.order(end_at: :desc)
+		@educations = @polititian.educations.order('end_at DESC NULLS LAST')
 		@trial = Trial.new
-		@trials = @polititian.trials.order(end_at: :desc)
+		@trials = @polititian.trials.order('end_at DESC NULLS LAST')
 		@exam = Exam.new
-		@exams = @polititian.exams.order(date: :desc)
+		@exams = @polititian.exams.order('date DESC NULLS LAST')
 		@affiliation = Affiliation.new
 		@affiliations = @polititian.affiliations
 		@groups = Group.all
