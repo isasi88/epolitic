@@ -11,6 +11,7 @@ class PolititiansController < ApplicationController
 		@polititians = @polititians.filter_by_group_id(params[:group_id]) if params[:group_id].present?
 		@polititians = @polititians.filter_by_institution_id(params[:institution_id]) if params[:institution_id].present?
 		@polititians = @polititians.search(params[:term]) if params[:term].present?
+		@polititians = @polititians.order( 'first_name ASC' )
 
 		respond_to do |format|  
 	      format.html # index.html.erb  
