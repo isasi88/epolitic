@@ -35,9 +35,9 @@
 	<li>
 		<small><span class="text-muted glyphicon glyphicon-bookmark"></span></small> 
 		<% if @polititian.jobs.political_jobs.count + @polititian.exams.count == 0 %>
-			No cuenta con actividad política en ePolitic.org
+			No se le conoce actividad política
 		<% else %>
-			<%= @polititian.jobs.political_jobs.count %> cargo(s) políticos en ePolitic.org
+			<%= @polititian.jobs.political_jobs.count %> actividad(es) política(s) en ePolitic.org
 		<% end %>
 	</li>
 </ul>
