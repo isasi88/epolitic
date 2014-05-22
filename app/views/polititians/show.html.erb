@@ -90,7 +90,7 @@
 											<small><%= if education.start_at? then "desde " + education.start_at.strftime("%Y") end%>
 								    		<%= if education.end_at? then " hasta " +education.end_at.strftime("%Y") end%>
 								    </small></p>		
-								    <small><%= if !education.description.nil? then education.description end %></small>
+								    <small><%= if !education.description.nil? then simple_format(education.description) end %></small>
 								    <h5><small> <%= link_to "Editar", edit_polititian_education_path(@polititian.id, education.id) %> - <%= link_to "Borrar", polititian_education_path(@polititian.id, education.id), method: :delete, confirm: "¿Estás segur@?" %> </small></h5>
 								</li>   
 							<% end %>
@@ -139,7 +139,7 @@
 											<small><%= if job.start_at? then "desde " + job.start_at.strftime("%Y") end%>
 								    	<%= if job.end_at? then "hasta " + job.end_at.strftime("%Y") end%></small>
 									  </p>
-								    <small><%= if !job.description.nil? then job.description end %></small>
+								    <small><%= if !job.description.nil? then simple_format(job.description) end %></small>
 								    <h5><small><%= link_to "Editar", edit_polititian_job_path(@polititian.id, job.id) %> - <%= link_to "Borrar", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "¿Estás segur@?" %></small></h5>
 									</li>
 								<% end %>	   
@@ -152,7 +152,7 @@
 								    <p>	<small>
 								    		<%= if exam.date? then exam.date.strftime("%Y") end%> 
 								    	</small></p>
-								    <small><%= if !exam.description.nil? then exam.description end %></small>
+								    <small><%= if !exam.description.nil? then simple_format(exam.description) end %></small>
 									<h5><small><%= link_to "Editar", edit_polititian_exam_path(@polititian.id, exam.id) %> - <%= link_to "Borrar", polititian_exam_path(@polititian.id, exam.id), method: :delete, confirm: "¿Estás segur@?" %></small></h5>
 								</li>   
 							<% end %>
@@ -199,7 +199,7 @@
 												<small><%= if job.start_at? then "desde " + job.start_at.strftime("%Y") end%>
 									    	<%= if job.end_at? then "hasta " + job.end_at.strftime("%Y") end%></small>
 										  </p>
-									    <small><%= if !job.description.nil? then job.description end %></small>
+									    <small><%= if !job.description.nil? then simple_format(job.description) end %></small>
 									    <h5><small><%= link_to "Editar", edit_polititian_job_path(@polititian.id, job.id) %> - <%= link_to "Borrar", polititian_job_path(@polititian.id, job.id), method: :delete, confirm: "¿Estás segur@?" %></small></h5>
 									</li>
 								<% end %>									   
@@ -252,7 +252,7 @@
 					<div class="col-md-offset-1 col-md-10">
 						<% if @polititian.sources %>
 							<h4><small>
-								<%= @polititian.sources.to_s.split(",").map {|split| "<p>#{split}</p>" }.join("\n").html_safe %>
+								<%= simple_format(@polititian.sources) %>
 							</small></h4>
 						<%end%>
 					</div>
