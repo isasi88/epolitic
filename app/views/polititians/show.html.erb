@@ -110,6 +110,7 @@
 						<h5>Carrera profesional</h5>
 					</div>
 					<div class="col-md-2 text-center">
+						<span class="glyphicon glyphicon-question-sign" data-container="body" data-toggle="popover" data-placement="right" data-content="En esta sección se incluyen actividades remuneradas ajenas a la actividad política. Esta sección no incluye nombramientos políticos en empresas públicas."></span>
 					</div>
 				</div>
 
@@ -171,9 +172,7 @@
 						<h5>Vida política</h5>
 					</div>
 					<div class="col-md-2 text-center">
-						<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="En esta sección se incluyen cargos electos, cargos remunerados por designación política así como roles destacados en organizaciones de caracter político.">
-						  Info
-						</button>						
+						<span class="glyphicon glyphicon-question-sign" data-container="body" data-toggle="popover" data-placement="right" data-content="En esta sección se incluyen cargos electos, cargos remunerados por designación política así como impliacación en organizaciones de caracter político."></span>
 					</div>
 				</div>
 
@@ -227,9 +226,9 @@
 				<div class="row">
 					<div class="col-md-offset-1 col-md-10">
 						<% if @polititian.other %>
-							<h5 class="">
-								<%= @polititian.other.to_s.split(",").map {|split| "<p>#{split}</p>" }.join("\n").html_safe %>
-							</h5>
+							<div class="">
+								<%= @polititian.other.to_s.split(",").map {|split| "<p><span class='glyphicon glyphicon-pushpin'></span> #{split}</p>" }.join("\n").html_safe %>
+							</div>
 						<%end%>
 					</div>
 				</div>				
